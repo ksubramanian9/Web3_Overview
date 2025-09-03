@@ -93,13 +93,93 @@ const data = node("Web3", "A user-empowering internet that encodes trust and val
 ]);
 
 const curatedL4 = {
-  "Decentralization": [
-    ["Node Diversity","Many independent operators reduce capture risk."],
-    ["Censorship Resistance","Hard to block transactions or exclude users."],
-    ["Fault Tolerance","No single point whose failure halts the network."],
-    ["Edge vs Cloud","Favor local control over centralized hosting."],
-    ["Trade-offs","Latency, UX, and costs can rise with distribution."],
-  ],
+  "Decentralization": {
+    "Node Diversity": {
+      blurb: "Many independent operators reduce capture risk.",
+      sections: {
+        why: "Diverse node operators make censorship or coordinated failure less likely.",
+        key: [
+          "Different clients and geographies prevent single points of failure",
+          "Encourages open participation and resilience",
+          "Balances performance with decentralization goals"
+        ],
+        examples: ["Ethereum’s multi-client ecosystem", "Bitcoin’s global miner distribution"],
+        challenges: ["Hardware cost for running full nodes", "Centralized cloud hosting concentration"],
+        resources: [
+          ["Ethereum Client Diversity Initiative","https://ethereum.org/en/developers/docs/nodes-and-clients/"],
+          ["Bitcoin Node Statistics","https://bitnodes.io/"]
+        ]
+      }
+    },
+    "Censorship Resistance": {
+      blurb: "Hard to block transactions or exclude users.",
+      sections: {
+        why: "Ensures anyone can submit transactions without gatekeepers.",
+        key: [
+          "Validators include valid transactions regardless of origin",
+          "Economic incentives discourage filtering",
+          "Relies on distributed consensus rather than single operators"
+        ],
+        examples: ["Bitcoin’s open mempool", "MEV-Boost relays aiming for neutrality"],
+        challenges: ["Regulatory pressure on block producers", "Network-level filtering by ISPs"],
+        resources: [
+          ["Ethereum and Censorship Resistance","https://ethereum.org/en/developers/docs/mev/"],
+          ["Bitcoin Privacy and Censorship","https://bitcoin.org/en/privacy#censorship-resistance"]
+        ]
+      }
+    },
+    "Fault Tolerance": {
+      blurb: "No single point whose failure halts the network.",
+      sections: {
+        why: "Redundancy in participants keeps the system running despite outages.",
+        key: [
+          "Replication of data across many nodes",
+          "Consensus continues despite node churn",
+          "Design for graceful degradation"
+        ],
+        examples: ["Bitcoin operating through regional outages", "IPFS content replication"],
+        challenges: ["Coordinating upgrades across many nodes", "Handling network partitions"],
+        resources: [
+          ["Fault Tolerance in Distributed Systems","https://en.wikipedia.org/wiki/Fault_tolerance"],
+          ["IPFS Whitepaper","https://ipfs.io/ipfs/QmR7GSQM93Cx5eAg6a6yRzSFAHFN5b8zuJ5U1ZbY4ZKqDW"]
+        ]
+      }
+    },
+    "Edge vs Cloud": {
+      blurb: "Favor local control over centralized hosting.",
+      sections: {
+        why: "Running nodes on personal hardware reduces reliance on major cloud providers.",
+        key: [
+          "Edge nodes improve censorship resistance",
+          "Local infrastructure avoids single-provider outages",
+          "Community hosting fosters grassroots participation"
+        ],
+        examples: ["Home-hosted Ethereum validators", "Mesh networks for local block propagation"],
+        challenges: ["Higher maintenance burden for individuals", "Residential bandwidth limitations"],
+        resources: [
+          ["Run an Ethereum Node","https://ethereum.org/en/run-a-node/"],
+          ["Decentralization and Cloud Risks","https://blog.ethereum.org/2020/12/16/eth2-quick-update-no-25"]
+        ]
+      }
+    },
+    "Trade-offs": {
+      blurb: "Latency, UX, and costs can rise with distribution.",
+      sections: {
+        why: "Decentralization introduces overhead that impacts performance and usability.",
+        key: [
+          "More nodes mean slower consensus",
+          "Extra redundancy increases cost",
+          "Designs must balance convenience and resilience"
+        ],
+        examples: ["Higher fees on decentralized networks", "Centralized exchanges offering faster UX"],
+        challenges: ["User impatience with slow confirmations", "Pressure to recentralize for efficiency"],
+        resources: [
+          ["The Scalability Trilemma","https://vitalik.ca/general/2021/04/07/sharding.html"],
+          ["Decentralization Trade-offs","https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/"]
+        ]
+      }
+    }
+  },
   "Trust & Security": [
     ["Cryptography Basics","Hashes, signatures, and Merkle proofs secure state."],
     ["Key Management","Seed phrases, hardware wallets, MPC custody."],
@@ -143,13 +223,93 @@ const curatedL4 = {
     ["Shared Sequencing","Fair ordering and reduced MEV on L2s."],
     ["Bridging UX","Fast exits, liquidity providers, security caveats."],
   ],
-  "Consensus Mechanisms": [
-    ["PoS Staking","Validators bond tokens and get slashed for faults."],
-    ["Leader Election","VRF/round-robin select block proposers fairly."],
-    ["Finality Gadgets","Checkpoint mechanisms to lock history."],
-    ["Sybil Resistance","Costs (stake/work/identity) deter spam."],
-    ["Incentive Design","Rewards and penalties align honest behavior."],
-  ],
+  "Consensus Mechanisms": {
+    "PoS Staking": {
+      blurb: "Validators bond tokens and get slashed for faults.",
+      sections: {
+        why: "Proof-of-stake secures networks with economic penalties instead of energy use.",
+        key: [
+          "Validators lock stake to participate",
+          "Rewards incentivize honest behavior",
+          "Slashing deters double-signing and downtime"
+        ],
+        examples: ["Ethereum's Beacon Chain", "Cosmos staking"],
+        challenges: ["Capital requirement centralizes validators", "Complex withdrawal mechanics"],
+        resources: [
+          ["Ethereum Staking Guide","https://ethereum.org/en/staking/"],
+          ["Cosmos Staking","https://docs.cosmos.network/main/hub/validators/overview.html"]
+        ]
+      }
+    },
+    "Leader Election": {
+      blurb: "VRF/round-robin select block proposers fairly.",
+      sections: {
+        why: "Choosing who creates the next block impacts fairness and security.",
+        key: [
+          "VRFs provide unpredictable yet verifiable randomness",
+          "Round-robin ensures equal opportunity",
+          "Weighted schemes account for stake or reputation"
+        ],
+        examples: ["Algorand's VRF selection", "Tendermint round-robin"],
+        challenges: ["Manipulating randomness sources", "Ensuring liveness with offline leaders"],
+        resources: [
+          ["Algorand Consensus","https://www.algorand.com/technology/algorand-consensus"],
+          ["Tendermint Core","https://docs.tendermint.com/"]
+        ]
+      }
+    },
+    "Finality Gadgets": {
+      blurb: "Checkpoint mechanisms to lock history.",
+      sections: {
+        why: "Additional layers provide faster or stronger guarantees of finality.",
+        key: [
+          "Overlay on base consensus to finalize blocks",
+          "Reduces chance of reorgs",
+          "Often used in hybrid protocols"
+        ],
+        examples: ["Ethereum's Casper FFG", "Polkadot GRANDPA"],
+        challenges: ["Complexity of multiple consensus layers", "Handling misbehavior during finalization"],
+        resources: [
+          ["Casper FFG","https://arxiv.org/abs/1710.09437"],
+          ["Polkadot Finality","https://wiki.polkadot.network/docs/learn-consensus"]
+        ]
+      }
+    },
+    "Sybil Resistance": {
+      blurb: "Costs (stake/work/identity) deter spam.",
+      sections: {
+        why: "Networks need a way to limit pseudonymous identities from overwhelming systems.",
+        key: [
+          "Proof of work expends energy",
+          "Proof of stake locks capital",
+          "Identity-based methods use credentials"
+        ],
+        examples: ["Hashcash in Bitcoin", "BrightID for identity"],
+        challenges: ["Environmental impact of PoW", "Concentrated stake controlling PoS"],
+        resources: [
+          ["Sybil Attack Definition","https://en.wikipedia.org/wiki/Sybil_attack"],
+          ["BrightID","https://www.brightid.org/"]
+        ]
+      }
+    },
+    "Incentive Design": {
+      blurb: "Rewards and penalties align honest behavior.",
+      sections: {
+        why: "Economic incentives ensure participants follow the protocol rules.",
+        key: [
+          "Rewards compensate validators",
+          "Slashing discourages malicious acts",
+          "Game theory models analyze rational choices"
+        ],
+        examples: ["Ethereum reward curves", "Polkadot staking economics"],
+        challenges: ["Balancing inflation with security", "Adapting incentives to changing conditions"],
+        resources: [
+          ["Mechanism Design for Blockchain","https://cs.uwaterloo.ca/~yao/misc/cryptoecon.pdf"],
+          ["Polkadot Economics","https://wiki.polkadot.network/docs/learn-staking"]
+        ]
+      }
+    }
+  },
   "Storage & Data": [
     ["IPFS Basics","Content addressing with hashes, not locations."],
     ["Filecoin/Economics","Markets that pay for durable storage."],
@@ -237,13 +397,93 @@ const curatedL4 = {
     ["Sustainability","Avoid ponzinomics; align long-term."],
   ],
 
-  "DeFi": [
-    ["DEXs","AMMs and order books for swaps."],
-    ["Lending","Over-collateralized loans and credit primitives."],
-    ["Derivatives","Perps, options, and structured products."],
-    ["Asset Management","Vaults and auto-rebalancing strategies."],
-    ["Risk Management","Oracles, LTVs, liquidations, insurance."],
-  ],
+  "DeFi": {
+    "DEXs": {
+      blurb: "AMMs and order books for swaps.",
+      sections: {
+        why: "Decentralized exchanges allow peer-to-peer trading without custodians.",
+        key: [
+          "Automated market makers provide liquidity",
+          "Order books enable professional trading",
+          "Smart contracts execute swaps transparently"
+        ],
+        examples: ["Uniswap", "dYdX"],
+        challenges: ["Impermanent loss for LPs", "Front-running and MEV"],
+        resources: [
+          ["Uniswap Docs","https://docs.uniswap.org/"],
+          ["dYdX Exchange","https://dydx.exchange/"],
+        ]
+      }
+    },
+    "Lending": {
+      blurb: "Over-collateralized loans and credit primitives.",
+      sections: {
+        why: "On-chain lending allows capital efficiency without intermediaries.",
+        key: [
+          "Collateral backs loans to manage risk",
+          "Interest rates adjust via supply and demand",
+          "Liquidations protect lenders"
+        ],
+        examples: ["Aave", "Compound"],
+        challenges: ["Oracle failures causing bad liquidations", "Capital inefficiency from over-collateralization"],
+        resources: [
+          ["Aave Docs","https://docs.aave.com/"],
+          ["Compound Protocol","https://compound.finance/"]
+        ]
+      }
+    },
+    "Derivatives": {
+      blurb: "Perps, options, and structured products.",
+      sections: {
+        why: "Derivative markets provide hedging and speculation tools in DeFi.",
+        key: [
+          "Perpetual swaps track index prices",
+          "Options offer asymmetric payoffs",
+          "Structured products bundle strategies"
+        ],
+        examples: ["Perpetual Protocol", "Opyn options"],
+        challenges: ["Margin management complexity", "Smart contract risk in leverage"],
+        resources: [
+          ["Perpetual Protocol Docs","https://docs.perp.com/"],
+          ["Opyn Documentation","https://docs.opyn.co/"],
+        ]
+      }
+    },
+    "Asset Management": {
+      blurb: "Vaults and auto-rebalancing strategies.",
+      sections: {
+        why: "Automated strategies help users optimize yield and diversify portfolios.",
+        key: [
+          "Vaults aggregate funds for strategies",
+          "Rebalancing maintains target allocations",
+          "Fees compensate strategists"
+        ],
+        examples: ["Yearn Finance", "Set Protocol"],
+        challenges: ["Smart contract bugs", "Strategy underperformance"],
+        resources: [
+          ["Yearn Docs","https://docs.yearn.finance/"],
+          ["Set Protocol","https://www.tokensets.com/"],
+        ]
+      }
+    },
+    "Risk Management": {
+      blurb: "Oracles, LTVs, liquidations, insurance.",
+      sections: {
+        why: "Managing risk is essential to protect users and protocols in DeFi.",
+        key: [
+          "Loan-to-value ratios cap leverage",
+          "Reliable oracles feed market data",
+          "Insurance pools cover smart contract failures"
+        ],
+        examples: ["MakerDAO's liquidation system", "Nexus Mutual insurance"],
+        challenges: ["Black swan market moves", "Correlated collateral risks"],
+        resources: [
+          ["MakerDAO Docs","https://docs.makerdao.com/"],
+          ["Nexus Mutual","https://nexusmutual.io/"],
+        ]
+      }
+    }
+  },
   "Web3 Social": [
     ["Portable Handles","Usernames/IDs you can take anywhere."],
     ["Social Graphs","Open, user-owned follower relations."],
@@ -299,15 +539,25 @@ function generate(node, dir, depth, backHref) {
     });
     links += '</ul>\n';
   }
-  const l4 = curatedL4[node.title] || [];
-  if (l4.length) {
+  const l4 = curatedL4[node.title];
+  if (l4) {
     links += '<ul>\n';
-    l4.forEach(([title, blurb]) => {
-      const slug = slugify(title);
-      links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
-      const l4Html = pageTemplate(title, blurb, '', depth, 'index.html', defaultSections(title, blurb));
-      fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
-    });
+    if (Array.isArray(l4)) {
+      l4.forEach(([title, blurb]) => {
+        const slug = slugify(title);
+        links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
+        const l4Html = pageTemplate(title, blurb, '', depth, 'index.html', defaultSections(title, blurb));
+        fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
+      });
+    } else {
+      Object.entries(l4).forEach(([title, entry]) => {
+        const slug = slugify(title);
+        links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
+        const sections = entry.sections || defaultSections(title, entry.blurb);
+        const l4Html = pageTemplate(title, entry.blurb, '', depth, 'index.html', sections);
+        fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
+      });
+    }
     links += '</ul>\n';
   }
   const html = pageTemplate(node.title, node.blurb, links, depth, backHref);
