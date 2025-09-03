@@ -180,34 +180,354 @@ const curatedL4 = {
       }
     }
   },
-  "Trust & Security": [
-    ["Cryptography Basics","Hashes, signatures, and Merkle proofs secure state."],
-    ["Key Management","Seed phrases, hardware wallets, MPC custody."],
-    ["Audits","Independent reviews to catch vulnerabilities early."],
-    ["Bug Bounties","Reward white-hats for responsible disclosure."],
-    ["Attack Vectors","Reentrancy, price oracles, MEV, governance attacks."],
-  ],
-  "Identity & Privacy": [
-    ["DIDs & VCs","Decentralized identifiers and verifiable credentials."],
-    ["Selective Disclosure","Prove attributes without leaking everything."],
-    ["Zero-Knowledge","ZKPs enable private yet verifiable statements."],
-    ["Reputation Graphs","On-chain history and attestations signal trust."],
-    ["UX of Keys","Recovery, social guardians, and account abstraction."],
-  ],
-  "Governance & DAOs": [
-    ["Voting Systems","1-token-1-vote, quadratic, conviction voting, etc."],
-    ["Delegation","Elect stewards to scale decisions and expertise."],
-    ["Constitution","Rules of change and conflict resolution on-chain."],
-    ["Treasury Controls","Safeguards, multisigs, timelocks, and audits."],
-    ["Participation","Incentives and rituals that keep members engaged."],
-  ],
-  "Interoperability": [
-    ["Bridges","Move assets/messages across chains securely."],
-    ["Standards","Common token and contract interfaces reduce friction."],
-    ["Shared Security","Consumer chains borrow security from a hub."],
-    ["Cross-chain Apps","Single UX spanning multiple networks."],
-    ["Risks","Bridge exploits and fragmented liquidity."],
-  ],
+  "Trust & Security": {
+    "Cryptography Basics": {
+      blurb: "Hashes, signatures, and Merkle proofs secure state.",
+      sections: {
+        why: "These primitives provide authentication, integrity, and tamper resistance for blockchain data.",
+        key: [
+          "Hashes link blocks and detect changes",
+          "Digital signatures prove transaction authorship",
+          "Merkle proofs verify inclusion without full data"
+        ],
+        examples: ["Bitcoin's SHA-256 chain", "Ethereum's account signatures"],
+        challenges: ["Quantum threats to algorithms", "Poor randomness compromising keys"],
+        resources: [
+          ["Cryptographic Hash Function","https://en.wikipedia.org/wiki/Cryptographic_hash_function"],
+          ["Merkle Tree","https://en.wikipedia.org/wiki/Merkle_tree"]
+        ]
+      }
+    },
+    "Key Management": {
+      blurb: "Seed phrases, hardware wallets, MPC custody.",
+      sections: {
+        why: "Proper key management safeguards access to funds and identity.",
+        key: [
+          "Seed phrases back up private keys",
+          "Hardware wallets isolate keys from malware",
+          "MPC splits signing authority across parties"
+        ],
+        examples: ["Ledger hardware wallets", "Fireblocks MPC custody"],
+        challenges: ["User errors causing loss of keys", "Centralized custody reintroducing trust"],
+        resources: [
+          ["Seed Phrase Best Practices","https://wiki.trezor.io/Passphrase"],
+          ["MPC Overview","https://www.fireblocks.com/learn/what-is-mpc/"]
+        ]
+      }
+    },
+    "Audits": {
+      blurb: "Independent reviews to catch vulnerabilities early.",
+      sections: {
+        why: "Audits detect smart contract bugs before deployment.",
+        key: [
+          "Review code line-by-line",
+          "Report findings with severity and fixes",
+          "Complement with formal verification"
+        ],
+        examples: ["OpenZeppelin audits", "Trail of Bits reviews"],
+        challenges: ["Audits may miss zero-day bugs", "High cost limits small projects"],
+        resources: [
+          ["OpenZeppelin Security Audits","https://openzeppelin.com/security-audits/"],
+          ["Trail of Bits Services","https://www.trailofbits.com/services/"]
+        ]
+      }
+    },
+    "Bug Bounties": {
+      blurb: "Reward white-hats for responsible disclosure.",
+      sections: {
+        why: "Bounties incentivize finding vulnerabilities before attackers.",
+        key: [
+          "Programs define scope and payouts",
+          "Reports verified and patched before public",
+          "Platforms coordinate disclosure"
+        ],
+        examples: ["Immunefi bounty platform", "HackerOne blockchain programs"],
+        challenges: ["Duplicate or low-quality submissions", "Balancing payout vs. budget"],
+        resources: [
+          ["Immunefi Platform","https://immunefi.com/"],
+          ["HackerOne","https://hackerone.com/"]
+        ]
+      }
+    },
+    "Attack Vectors": {
+      blurb: "Reentrancy, price oracles, MEV, governance attacks.",
+      sections: {
+        why: "Understanding exploits helps design safer protocols.",
+        key: [
+          "Reentrancy drains funds through recursive calls",
+          "Oracle manipulation skews valuations",
+          "Governance takeovers seize control"
+        ],
+        examples: ["The DAO reentrancy attack", "bZx oracle exploit"],
+        challenges: ["Unknown zero-day vulnerabilities", "Complexity introduces new attack surfaces"],
+        resources: [
+          ["SWC Registry","https://swcregistry.io/"],
+          ["MEV Exploits Overview","https://docs.flashbots.net/"]
+        ]
+      }
+    }
+  },
+  "Identity & Privacy": {
+    "DIDs & VCs": {
+      blurb: "Decentralized identifiers and verifiable credentials.",
+      sections: {
+        why: "They enable portable, self-owned identities verified by third parties.",
+        key: [
+          "DIDs are unique identifiers without centralized registry",
+          "VCs contain signed attestations",
+          "Holders present proofs to verifiers"
+        ],
+        examples: ["W3C DID spec implementations", "Ethereum Name Service"],
+        challenges: ["Interoperability between DID methods", "Revocation and key rotation"],
+        resources: [
+          ["W3C DID Specification","https://www.w3.org/TR/did-core/"],
+          ["Verifiable Credentials Data Model","https://www.w3.org/TR/vc-data-model/"]
+        ]
+      }
+    },
+    "Selective Disclosure": {
+      blurb: "Prove attributes without leaking everything.",
+      sections: {
+        why: "Minimizes data exposure while establishing trust.",
+        key: [
+          "Zero-knowledge proofs reveal only needed facts",
+          "Attribute-based credentials prove specific claims",
+          "Users control what is shared"
+        ],
+        examples: ["zk-SNARK based age proofs", "Idemix credential system"],
+        challenges: ["Complex cryptographic circuits", "Verifier support and standardization"],
+        resources: [
+          ["Selective Disclosure with ZK","https://iden3.io/docs/protocol/selective-disclosure/"],
+          ["Idemix","https://www.zurich.ibm.com/idemix/"]
+        ]
+      }
+    },
+    "Zero-Knowledge": {
+      blurb: "ZKPs enable private yet verifiable statements.",
+      sections: {
+        why: "ZK proofs allow verifying computation without revealing inputs.",
+        key: [
+          "Proofs show knowledge without disclosure",
+          "Succinct proofs compress computation",
+          "Applications include privacy and scalability"
+        ],
+        examples: ["zkSync rollups", "Zcash shielded transactions"],
+        challenges: ["Trusted setup ceremony risks", "High prover computational cost"],
+        resources: [
+          ["Zcash Protocol","https://z.cash/technology/"],
+          ["zkSync Docs","https://docs.zksync.io/"]
+        ]
+      }
+    },
+    "Reputation Graphs": {
+      blurb: "On-chain history and attestations signal trust.",
+      sections: {
+        why: "Reputation data helps apps evaluate reliability of participants.",
+        key: [
+          "Attestations accumulate over time",
+          "Graph connections reveal relationships",
+          "Used for credit scoring and moderation"
+        ],
+        examples: ["Lens Protocol social graph", "Gitcoin Passport attestations"],
+        challenges: ["Sybil attacks inflate reputation", "Privacy concerns from public histories"],
+        resources: [
+          ["Lens Protocol","https://lens.xyz/"],
+          ["Gitcoin Passport","https://passport.gitcoin.co/"]
+        ]
+      }
+    },
+    "UX of Keys": {
+      blurb: "Recovery, social guardians, and account abstraction.",
+      sections: {
+        why: "Improving key UX reduces user loss and boosts adoption.",
+        key: [
+          "Social recovery uses trusted guardians",
+          "Account abstraction hides key management",
+          "Multi-factor flows balance security with convenience"
+        ],
+        examples: ["Argent social recovery wallets", "Safe's account abstraction"],
+        challenges: ["Guardian collusion or loss", "Complex standards adoption"],
+        resources: [
+          ["Argent Wallet","https://www.argent.xyz/"],
+          ["ERC-4337 Account Abstraction","https://eips.ethereum.org/EIPS/eip-4337"]
+        ]
+      }
+    }
+  },
+  "Governance & DAOs": {
+    "Voting Systems": {
+      blurb: "1-token-1-vote, quadratic, conviction voting, etc.",
+      sections: {
+        why: "Voting mechanisms define how collective decisions are made.",
+        key: [
+          "Token-weighted voting reflects stake",
+          "Quadratic voting mitigates whale dominance",
+          "Conviction voting accumulates support over time"
+        ],
+        examples: ["Compound token voting", "Gitcoin quadratic funding"],
+        challenges: ["Low participation leading to capture", "Sybil attacks or bribery"],
+        resources: [
+          ["Compound Governance","https://compound.finance/governance"],
+          ["Quadratic Voting Explained","https://vitalik.ca/general/2019/12/07/quadratic.html"]
+        ]
+      }
+    },
+    "Delegation": {
+      blurb: "Elect stewards to scale decisions and expertise.",
+      sections: {
+        why: "Delegation enables governance by representatives for efficiency.",
+        key: [
+          "Token holders assign voting power to delegates",
+          "Delegates act transparently on behalf of others",
+          "Re-delegation allows changing representatives"
+        ],
+        examples: ["Uniswap delegate system", "Gitcoin steward program"],
+        challenges: ["Delegate apathy or concentration", "Information asymmetry"],
+        resources: [
+          ["Uniswap Governance Delegation","https://docs.uniswap.org/contracts/v2/guides/governance/delegation"],
+          ["Gitcoin Governance","https://gov.gitcoin.co/"]
+        ]
+      }
+    },
+    "Constitution": {
+      blurb: "Rules of change and conflict resolution on-chain.",
+      sections: {
+        why: "Explicit constitutions define governance scope and amendment processes.",
+        key: [
+          "Outline proposals and quorum requirements",
+          "Set dispute resolution mechanisms",
+          "Provide clarity to participants"
+        ],
+        examples: ["ENS DAO constitution", "MakerDAO governance charter"],
+        challenges: ["Hard to adapt to unforeseen events", "Enforcement relies on social consensus"],
+        resources: [
+          ["ENS DAO Constitution","https://docs.ens.domains/dao/constitution"],
+          ["Maker Governance Docs","https://manual.makerdao.com/governance"]
+        ]
+      }
+    },
+    "Treasury Controls": {
+      blurb: "Safeguards, multisigs, timelocks, and audits.",
+      sections: {
+        why: "Securing treasury assets protects community funds.",
+        key: [
+          "Multisig wallets require multiple approvals",
+          "Timelocks delay actions for review",
+          "Audits and reporting add transparency"
+        ],
+        examples: ["Gnosis Safe multisig", "Compound's timelocked governance"],
+        challenges: ["Coordination delays for urgent actions", "Keyholder compromise"],
+        resources: [
+          ["Gnosis Safe","https://gnosis-safe.io/"],
+          ["Compound Timelock","https://docs.compound.finance/#timelock"]
+        ]
+      }
+    },
+    "Participation": {
+      blurb: "Incentives and rituals that keep members engaged.",
+      sections: {
+        why: "Active participation ensures legitimacy and diverse input.",
+        key: [
+          "Reward programs motivate involvement",
+          "Regular calls and forums build community",
+          "Clear roles encourage contribution"
+        ],
+        examples: ["DAO contributor reward systems", "Snapshot voting with incentives"],
+        challenges: ["Volunteer fatigue", "Voter apathy"],
+        resources: [
+          ["Snapshot","https://snapshot.org/"],
+          ["Ethereum.org DAO Guide","https://ethereum.org/en/dao/"]
+        ]
+      }
+    }
+  },
+  "Interoperability": {
+    "Bridges": {
+      blurb: "Move assets/messages across chains securely.",
+      sections: {
+        why: "Bridges connect isolated ecosystems for liquidity and data transfer.",
+        key: [
+          "Lock-and-mint or burn-and-release mechanisms",
+          "Relayers or validators verify cross-chain events",
+          "Security varies with trust assumptions"
+        ],
+        examples: ["Wormhole bridge", "Axelar cross-chain network"],
+        challenges: ["Bridge hacks from compromised validators", "Liquidity fragmentation"],
+        resources: [
+          ["Wormhole Docs","https://docs.wormhole.com/"],
+          ["Axelar Network","https://www.axelar.network/"]
+        ]
+      }
+    },
+    "Standards": {
+      blurb: "Common token and contract interfaces reduce friction.",
+      sections: {
+        why: "Shared standards enable composability across protocols.",
+        key: [
+          "ERCs define token behaviors",
+          "Interface IDs allow detection and compatibility",
+          "Community review improves robustness"
+        ],
+        examples: ["ERC-20 token standard", "ERC-721 for NFTs"],
+        challenges: ["Slow standardization process", "Version fragmentation"],
+        resources: [
+          ["Ethereum Improvement Proposals","https://eips.ethereum.org/"],
+          ["OpenZeppelin Contracts","https://github.com/OpenZeppelin/openzeppelin-contracts"]
+        ]
+      }
+    },
+    "Shared Security": {
+      blurb: "Consumer chains borrow security from a hub.",
+      sections: {
+        why: "Shared security allows new chains to leverage established validator sets.",
+        key: [
+          "Hub provides validator set and staking",
+          "Consumer chain submits state proofs",
+          "Reduces bootstrap cost"
+        ],
+        examples: ["Cosmos Hub's interchain security", "Polkadot parachains"],
+        challenges: ["Coupling reduces sovereignty", "Complex slashing propagation"],
+        resources: [
+          ["Cosmos Interchain Security","https://docs.cosmos.network/main/interchain-security/"],
+          ["Polkadot Parachains","https://wiki.polkadot.network/docs/learn-parachains"]
+        ]
+      }
+    },
+    "Cross-chain Apps": {
+      blurb: "Single UX spanning multiple networks.",
+      sections: {
+        why: "Users interact with multiple chains through unified interfaces.",
+        key: [
+          "Abstracts away bridge steps",
+          "Aggregates liquidity from different chains",
+          "Requires message passing standards"
+        ],
+        examples: ["THORChain multi-chain swaps", "Li.Fi bridge aggregator"],
+        challenges: ["Complex state synchronization", "Increased attack surface"],
+        resources: [
+          ["THORChain Docs","https://docs.thorchain.org/"],
+          ["Li.Fi Docs","https://docs.li.fi/"]
+        ]
+      }
+    },
+    "Risks": {
+      blurb: "Bridge exploits and fragmented liquidity.",
+      sections: {
+        why: "Interoperability introduces new security and economic vulnerabilities.",
+        key: [
+          "Bridges create honeypots",
+          "Inconsistent standards lead to errors",
+          "Liquidity split reduces efficiency"
+        ],
+        examples: ["Ronin bridge hack", "Harmony Horizon exploit"],
+        challenges: ["Difficult to audit cross-chain logic", "User confusion over wrapped assets"],
+        resources: [
+          ["Ronin Hack Postmortem","https://blog.chainalysis.com/reports/ronin-bridge-hack/"],
+          ["Harmony Horizon Attack","https://medium.com/harmony-one/horizon-bridge-incident-analysis-1ce038d2cd75"]
+        ]
+      }
+    }
+  },
 
   "Layer-1 Blockchains": [
     ["Execution","How transactions run (EVM, WASM, parallelism)."],
