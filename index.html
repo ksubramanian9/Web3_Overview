@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Web3 Concepts Explorer</title>
+<style>
+  :root {
+    --primary: #1e88e5;
+    --bg: #f9fafb;
+    --panel: #ffffff;
+    --border: #e0e0e0;
+    --text: #222;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); display:flex; flex-direction:column; height:100vh; }
+  header { background: var(--primary); color:white; padding:1rem; text-align:center; font-size:1.25rem; }
+  .container { flex:1; display:flex; overflow:hidden; }
+  aside { width:260px; background:var(--panel); border-right:1px solid var(--border); overflow-y:auto; padding:1rem; }
+  main { flex:1; padding:1.5rem; overflow-y:auto; }
+  .item { padding:0.5rem 0.75rem; border-radius:6px; cursor:pointer; }
+  .item:hover { background:#f0f4f8; }
+  .breadcrumb { margin-bottom:1rem; font-size:0.9rem; color:#555; }
+  .breadcrumb span { cursor:pointer; color: var(--primary); }
+  .breadcrumb span::after { content:" / "; }
+  .breadcrumb span:last-child::after { content:""; }
+  h2 { margin-top:0; }
+  .muted { color:#666; }
+</style>
+</head>
+<body>
+<header>Web3 Concepts Explorer</header>
+<div class="container">
+  <aside id="sidebar"></aside>
+  <main>
+    <div class="breadcrumb" id="crumbs"></div>
+    <h2 id="title"></h2>
+    <p id="desc" class="muted"></p>
+  </main>
+</div>
+<script>
+function node(t, blurb, children=[]) { return {title:t, blurb, children}; }
+const data = node("Web3", "A user-empowering internet that encodes trust and value natively using cryptography, blockchains, and open protocols.", [
+  node("Foundations & Principles", "The philosophies and properties that make Web3 distinct from Web2.", [
+    node("Decentralization", "Shift of control from single authorities to distributed participants."),
+    node("Trust & Security", "Trust arises from math and incentives rather than intermediaries."),
+    node("Identity & Privacy", "Self-sovereign identity (SSI) and selective disclosure with modern cryptography."),
+    node("Governance & DAOs", "On-chain rules and token-holder voting coordinate groups transparently."),
+    node("Interoperability", "Composability and cross-chain bridges enable ecosystems to connect."),
+  ]),
+  node("Blockchain Infrastructure", "Systems that run the ledger, scale throughput, and store data.", [
+    node("Layer-1 Blockchains", "Base networks like Ethereum, Solana, Cosmos zones, etc."),
+    node("Layer-2 Scalability", "Rollups and channels that increase capacity while inheriting L1 security."),
+    node("Consensus Mechanisms", "Protocols (PoS, PoW, etc.) to agree securely on the ledger state."),
+    node("Storage & Data", "Decentralized storage such as IPFS/Filecoin; indexers and data availability."),
+    node("Networking & Nodes", "Peer-to-peer networking, clients, validators, and node operations."),
+  ]),
+  node("Smart Contracts & Protocols", "Programmable agreements and the standards that make them interoperable.", [
+    node("Languages & VMs", "Solidity, Vyper, Move; EVM and WASM execution."),
+    node("Oracles & Off-chain", "Bring external data/computation on-chain securely."),
+    node("Standards & Interfaces", "Token and protocol interfaces (e.g., ERCs) that enable composability."),
+    node("Verification & Testing", "Audits, fuzzing, formal proofs to reduce vulnerabilities."),
+    node("Upgradeability & Patterns", "Proxy patterns, governance-gated changes, safe migration."),
+  ]),
+  node("Digital Assets & Tokenomics", "Design of tokens, incentives, and value capture.", [
+    node("Fungible Tokens", "Interchangeable assets used for utility, governance, or payments."),
+    node("Non-Fungible Tokens (NFTs)", "Unique assets representing art, tickets, identity, or RWAs."),
+    node("Stablecoins", "Price-stable tokens (fiat-backed, crypto-collateralized, or algorithmic)."),
+    node("Treasury & DAOs", "On-chain treasuries, voting power, and capital allocation."),
+    node("Incentives & Game Theory", "Token emissions, staking, and mechanism design to align behavior."),
+  ]),
+  node("Applications & Ecosystems", "User-facing use cases and the surrounding landscape.", [
+    node("DeFi", "Open financial primitives: exchange, lending, derivatives, asset management."),
+    node("Web3 Social", "User-owned graphs, portable handles, creator monetization."),
+    node("Gaming & Metaverse", "Playable economies, digital ownership, interoperable assets."),
+    node("Supply Chain & RWAs", "Track provenance and tokenize real-world assets."),
+    node("Regulation & Compliance", "KYC/AML approaches, travel-rule tools, and policy trends."),
+  ])
+]);
+
+let current = data;
+let path = [];
+const sidebar = document.getElementById('sidebar');
+const crumbs = document.getElementById('crumbs');
+const title = document.getElementById('title');
+const desc = document.getElementById('desc');
+
+function resolvePath(){
+  let node = data;
+  for (const i of path) node = node.children[i];
+  return node;
+}
+
+function render(){
+  current = resolvePath();
+  sidebar.innerHTML = '';
+  (current.children || []).forEach((c, i) => {
+    const div = document.createElement('div');
+    div.textContent = c.title;
+    div.className = 'item';
+    div.onclick = () => { path.push(i); render(); };
+    sidebar.appendChild(div);
+  });
+  // breadcrumbs
+  crumbs.innerHTML = '';
+  const home = document.createElement('span');
+  home.textContent = 'Web3';
+  home.onclick = () => { path = []; render(); };
+  crumbs.appendChild(home);
+  let node = data;
+  path.forEach((idx, level) => {
+    const span = document.createElement('span');
+    node = node.children[idx];
+    span.textContent = node.title;
+    span.onclick = () => { path = path.slice(0, level+1); render(); };
+    crumbs.appendChild(span);
+  });
+  title.textContent = current.title;
+  desc.textContent = current.blurb;
+}
+
+render();
+</script>
+</body>
+</html>
