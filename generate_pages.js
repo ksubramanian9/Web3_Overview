@@ -7,6 +7,7 @@ function slugify(str) {
 
 function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}) {
   const homeHref = depth > 0 ? `${'../'.repeat(depth)}index.html` : 'index.html';
+  const rootPrefix = depth > 0 ? '../'.repeat(depth) : '';
   const nav = [`<a href="${homeHref}" class="text-blue-200 hover:text-white">Home</a>`];
   if (backHref) nav.push(`<a href="${backHref}" class="text-blue-200 hover:text-white">Back</a>`);
   let sectionHtml = '';
@@ -40,13 +41,17 @@ function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}) {
 <header class="bg-gray-800 text-white p-4">
   <nav class="container mx-auto flex space-x-4">${nav.join('<span>|</span>')}</nav>
 </header>
-<main class="container mx-auto p-4">
+<div class="container mx-auto flex">
+<aside id="sidebar" class="w-64 bg-gray-100 p-4"></aside>
+<main class="flex-1 p-4">
 <h1 class="text-3xl font-bold mb-4">${title}</h1>
 <p>${blurb}</p>
 ${linksHtml}
 ${sectionHtml}
 </main>
+</div>
 <footer class="bg-gray-100 text-center text-sm text-gray-500 py-4 mt-8">© 2024 Web3 Overview</footer>
+<script src="${rootPrefix}sidebar.js"></script>
 </body>
 </html>
 `;
@@ -889,5 +894,20 @@ function generate(node, dir, depth, backHref) {
     });
   }
 }
+
+function buildNav(node, basePath='') {
+  const href = basePath ? `${basePath}/index.html` : 'index.html';
+  return {
+    title: node.title,
+    href,
+    children: (node.children || []).map(child => {
+      const slug = slugify(child.title);
+      const childPath = basePath ? `${basePath}/${slug}` : slug;
+      return buildNav(child, childPath);
+    })
+  };
+}
+
+fs.writeFileSync('nav.json', JSON.stringify(buildNav(data), null, 2));
 
 generate(data, '.', 0, null);
