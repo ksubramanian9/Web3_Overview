@@ -897,15 +897,20 @@ function generate(node, dir, depth, backHref) {
 
 function buildNav(node, basePath='') {
   const href = basePath ? `${basePath}/index.html` : 'index.html';
-  return {
-    title: node.title,
-    href,
-    children: (node.children || []).map(child => {
-      const slug = slugify(child.title);
-      const childPath = basePath ? `${basePath}/${slug}` : slug;
-      return buildNav(child, childPath);
-    })
-  };
+  const children = (node.children || []).map(child => {
+    const slug = slugify(child.title);
+    const childPath = basePath ? `${basePath}/${slug}` : slug;
+    return buildNav(child, childPath);
+  });
+  const l4 = curatedL4[node.title];
+  if (l4) {
+    const leaves = Array.isArray(l4) ? l4.map(([title]) => title) : Object.keys(l4);
+    leaves.forEach(title => {
+      const slug = slugify(title);
+      children.push({ title, href: `${basePath}/${slug}.html`, children: [] });
+    });
+  }
+  return { title: node.title, href, children };
 }
 
 fs.writeFileSync('nav.json', JSON.stringify(buildNav(data), null, 2));
