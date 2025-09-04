@@ -4,6 +4,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   const depth = segments.length - 1; // exclude current file
   const rootPrefix = '../'.repeat(depth);
   const sidebar = document.getElementById('sidebar');
+  const toggleButton = document.getElementById('sidebarToggle');
+  if (toggleButton) {
+    toggleButton.addEventListener('click', () => {
+      if (sidebar) sidebar.classList.toggle('hidden');
+    });
+  }
   if (!sidebar) return;
   sidebar.classList.add('pl-0');
   try {
