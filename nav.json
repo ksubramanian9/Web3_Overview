@@ -1,0 +1,161 @@
+{
+  "title": "Web3",
+  "href": "index.html",
+  "children": [
+    {
+      "title": "Foundations & Principles",
+      "href": "foundations-principles/index.html",
+      "children": [
+        {
+          "title": "Decentralization",
+          "href": "foundations-principles/decentralization/index.html",
+          "children": []
+        },
+        {
+          "title": "Trust & Security",
+          "href": "foundations-principles/trust-security/index.html",
+          "children": []
+        },
+        {
+          "title": "Identity & Privacy",
+          "href": "foundations-principles/identity-privacy/index.html",
+          "children": []
+        },
+        {
+          "title": "Governance & DAOs",
+          "href": "foundations-principles/governance-daos/index.html",
+          "children": []
+        },
+        {
+          "title": "Interoperability",
+          "href": "foundations-principles/interoperability/index.html",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Blockchain Infrastructure",
+      "href": "blockchain-infrastructure/index.html",
+      "children": [
+        {
+          "title": "Layer-1 Blockchains",
+          "href": "blockchain-infrastructure/layer-1-blockchains/index.html",
+          "children": []
+        },
+        {
+          "title": "Layer-2 Scalability",
+          "href": "blockchain-infrastructure/layer-2-scalability/index.html",
+          "children": []
+        },
+        {
+          "title": "Consensus Mechanisms",
+          "href": "blockchain-infrastructure/consensus-mechanisms/index.html",
+          "children": []
+        },
+        {
+          "title": "Storage & Data",
+          "href": "blockchain-infrastructure/storage-data/index.html",
+          "children": []
+        },
+        {
+          "title": "Networking & Nodes",
+          "href": "blockchain-infrastructure/networking-nodes/index.html",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Smart Contracts & Protocols",
+      "href": "smart-contracts-protocols/index.html",
+      "children": [
+        {
+          "title": "Languages & VMs",
+          "href": "smart-contracts-protocols/languages-vms/index.html",
+          "children": []
+        },
+        {
+          "title": "Oracles & Off-chain",
+          "href": "smart-contracts-protocols/oracles-off-chain/index.html",
+          "children": []
+        },
+        {
+          "title": "Standards & Interfaces",
+          "href": "smart-contracts-protocols/standards-interfaces/index.html",
+          "children": []
+        },
+        {
+          "title": "Verification & Testing",
+          "href": "smart-contracts-protocols/verification-testing/index.html",
+          "children": []
+        },
+        {
+          "title": "Upgradeability & Patterns",
+          "href": "smart-contracts-protocols/upgradeability-patterns/index.html",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Digital Assets & Tokenomics",
+      "href": "digital-assets-tokenomics/index.html",
+      "children": [
+        {
+          "title": "Fungible Tokens",
+          "href": "digital-assets-tokenomics/fungible-tokens/index.html",
+          "children": []
+        },
+        {
+          "title": "Non-Fungible Tokens (NFTs)",
+          "href": "digital-assets-tokenomics/non-fungible-tokens-nfts/index.html",
+          "children": []
+        },
+        {
+          "title": "Stablecoins",
+          "href": "digital-assets-tokenomics/stablecoins/index.html",
+          "children": []
+        },
+        {
+          "title": "Treasury & DAOs",
+          "href": "digital-assets-tokenomics/treasury-daos/index.html",
+          "children": []
+        },
+        {
+          "title": "Incentives & Game Theory",
+          "href": "digital-assets-tokenomics/incentives-game-theory/index.html",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Applications & Ecosystems",
+      "href": "applications-ecosystems/index.html",
+      "children": [
+        {
+          "title": "DeFi",
+          "href": "applications-ecosystems/defi/index.html",
+          "children": []
+        },
+        {
+          "title": "Web3 Social",
+          "href": "applications-ecosystems/web3-social/index.html",
+          "children": []
+        },
+        {
+          "title": "Gaming & Metaverse",
+          "href": "applications-ecosystems/gaming-metaverse/index.html",
+          "children": []
+        },
+        {
+          "title": "Supply Chain & RWAs",
+          "href": "applications-ecosystems/supply-chain-rwas/index.html",
+          "children": []
+        },
+        {
+          "title": "Regulation & Compliance",
+          "href": "applications-ecosystems/regulation-compliance/index.html",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
