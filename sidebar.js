@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const rootPrefix = '../'.repeat(depth);
   const sidebar = document.getElementById('sidebar');
   if (!sidebar) return;
+  sidebar.classList.add('pl-0');
   try {
     const res = await fetch(rootPrefix + 'nav.json');
     const tree = await res.json();
@@ -22,7 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       }
       if (node.children && node.children.length) {
         const ul = document.createElement('ul');
-        ul.classList.add('ml-4');
+        ul.classList.add('ml-4', 'list-none', 'pl-0');
         if (!isRoot) ul.classList.add('hidden');
         node.children.forEach(child => ul.appendChild(build(child)));
         li.appendChild(ul);
@@ -41,6 +42,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     const nav = document.createElement('nav');
     const ul = document.createElement('ul');
+    ul.classList.add('list-none', 'pl-0');
     ul.appendChild(build(tree, true));
     nav.appendChild(ul);
     sidebar.appendChild(nav);
