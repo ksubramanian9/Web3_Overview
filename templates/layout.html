@@ -5,26 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{title}}</title>
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800">
-<header class="bg-gray-800 text-white p-4">
-  <div class="container mx-auto flex items-center">
-    <button id="sidebarToggle" class="md:hidden mr-4">
-      &#9776;
-    </button>
-    <nav class="flex space-x-4">{{nav}}</nav>
+  </head>
+  <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <header class="bg-gray-800 text-white dark:bg-gray-700 dark:text-gray-100 p-4">
+    <div class="container mx-auto flex items-center">
+      <button id="sidebarToggle" class="md:hidden mr-4">
+        &#9776;
+      </button>
+      <nav class="flex space-x-4">{{nav}}</nav>
+      <button id="themeToggle" class="ml-auto px-2 py-1 bg-gray-700 text-white rounded dark:bg-gray-600 dark:text-gray-100">Toggle Theme</button>
+    </div>
+  </header>
+  <div class="container mx-auto flex">
+    <aside id="sidebar" class="w-64 bg-gray-100 dark:bg-gray-800 p-4 hidden md:block"></aside>
+    <main class="flex-1 p-4">
+      <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
+      <p>{{blurb}}</p>
+      {{links}}
+      {{sections}}
+    </main>
   </div>
-</header>
-<div class="container mx-auto flex">
-  <aside id="sidebar" class="w-64 bg-gray-100 p-4 hidden md:block"></aside>
-  <main class="flex-1 p-4">
-    <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
-    <p>{{blurb}}</p>
-    {{links}}
-    {{sections}}
-  </main>
-</div>
-<footer class="bg-gray-100 text-center text-sm text-gray-500 py-4 mt-8">© 2024 Web3 Overview</footer>
-<script src="{{rootPrefix}}sidebar.js"></script>
-</body>
-</html>
+  <footer class="bg-gray-100 dark:bg-gray-800 text-center text-sm text-gray-500 dark:text-gray-400 py-4 mt-8">© 2024 Web3 Overview</footer>
+  <script src="{{rootPrefix}}theme.js"></script>
+  <script src="{{rootPrefix}}sidebar.js"></script>
+  </body>
+  </html>
