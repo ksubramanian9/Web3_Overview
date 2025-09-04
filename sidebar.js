@@ -24,7 +24,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       li.appendChild(link);
       let isCurrent = new URL(link.href, location.href).pathname === location.pathname;
       if (isCurrent) {
-        link.classList.add('font-bold');
+        link.classList.add('font-bold', 'bg-gray-200', 'rounded', 'border-l-4', 'border-blue-500');
+        link.setAttribute('aria-current', 'page');
         li.dataset.current = 'true';
       }
       if (node.children && node.children.length) {
