@@ -41,7 +41,7 @@ function sectionHtml(sections = {}) {
   return html;
 }
 
-function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}) {
+function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}, breadcrumbs = '') {
   const homeHref = depth > 0 ? `${'../'.repeat(depth)}index.html` : 'index.html';
   const rootPrefix = depth > 0 ? '../'.repeat(depth) : '';
   const navLinks = [`<a href="${homeHref}" class="text-blue-200 hover:text-white">Home</a>`];
@@ -52,7 +52,8 @@ function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}) {
     links: linksHtml || '',
     sections: sectionHtml(sections),
     nav: navLinks.join('<span>|</span>'),
-    rootPrefix
+    rootPrefix,
+    breadcrumbs
   });
 }
 
@@ -70,9 +71,11 @@ function defaultSections(title, blurb) {
   };
 }
 
-function generate(node, dir, depth, backHref) {
+function generate(node, dir, depth, backHref, ancestors = []) {
   fs.mkdirSync(dir, { recursive: true });
   let links = '';
+  const breadcrumbsArr = [...ancestors, node.title];
+  const breadcrumbs = breadcrumbsArr.join(' / ');
   if (node.children && node.children.length) {
     links += '<ul>\n';
     node.children.forEach(child => {
@@ -88,7 +91,8 @@ function generate(node, dir, depth, backHref) {
       l4.forEach(([title, blurb]) => {
         const slug = slugify(title);
         links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
-        const l4Html = pageTemplate(title, blurb, '', depth, 'index.html', defaultSections(title, blurb));
+        const l4Breadcrumbs = breadcrumbsArr.concat(title).join(' / ');
+        const l4Html = pageTemplate(title, blurb, '', depth, 'index.html', defaultSections(title, blurb), l4Breadcrumbs);
         fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
       });
     } else {
@@ -96,18 +100,19 @@ function generate(node, dir, depth, backHref) {
         const slug = slugify(title);
         links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
         const sections = entry.sections || defaultSections(title, entry.blurb);
-        const l4Html = pageTemplate(title, entry.blurb, '', depth, 'index.html', sections);
+        const l4Breadcrumbs = breadcrumbsArr.concat(title).join(' / ');
+        const l4Html = pageTemplate(title, entry.blurb, '', depth, 'index.html', sections, l4Breadcrumbs);
         fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
       });
     }
     links += '</ul>\n';
   }
-  const html = pageTemplate(node.title, node.blurb, links, depth, backHref);
+  const html = pageTemplate(node.title, node.blurb, links, depth, backHref, {}, breadcrumbs);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   if (node.children && node.children.length) {
     node.children.forEach(child => {
       const slug = slugify(child.title);
-      generate(child, path.join(dir, slug), depth + 1, '../index.html');
+      generate(child, path.join(dir, slug), depth + 1, '../index.html', breadcrumbsArr);
     });
   }
 }
