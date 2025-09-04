@@ -1,0 +1,4 @@
+# Ignore generated files
+nav.json
+**/*.html
+!templates/*.html

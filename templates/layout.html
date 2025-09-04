@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{title}}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-gray-800 text-white p-4">
+  <nav class="container mx-auto flex space-x-4">{{nav}}</nav>
+</header>
+<div class="container mx-auto flex">
+  <aside id="sidebar" class="w-64 bg-gray-100 p-4"></aside>
+  <main class="flex-1 p-4">
+    <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
+    <p>{{blurb}}</p>
+    {{links}}
+    {{sections}}
+  </main>
+</div>
+<footer class="bg-gray-100 text-center text-sm text-gray-500 py-4 mt-8">© 2024 Web3 Overview</footer>
+<script src="{{rootPrefix}}sidebar.js"></script>
+</body>
+</html>

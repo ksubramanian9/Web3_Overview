@@ -1,0 +1,161 @@
+{
+  "title": "Web3",
+  "blurb": "A user-empowering internet that encodes trust and value natively using cryptography, blockchains, and open protocols.",
+  "children": [
+    {
+      "title": "Foundations & Principles",
+      "blurb": "The philosophies and properties that make Web3 distinct from Web2.",
+      "children": [
+        {
+          "title": "Decentralization",
+          "blurb": "Shift of control from single authorities to distributed participants.",
+          "children": []
+        },
+        {
+          "title": "Trust & Security",
+          "blurb": "Trust arises from math and incentives rather than intermediaries.",
+          "children": []
+        },
+        {
+          "title": "Identity & Privacy",
+          "blurb": "Self-sovereign identity (SSI) and selective disclosure with modern cryptography.",
+          "children": []
+        },
+        {
+          "title": "Governance & DAOs",
+          "blurb": "On-chain rules and token-holder voting coordinate groups transparently.",
+          "children": []
+        },
+        {
+          "title": "Interoperability",
+          "blurb": "Composability and cross-chain bridges enable ecosystems to connect.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Blockchain Infrastructure",
+      "blurb": "Systems that run the ledger, scale throughput, and store data.",
+      "children": [
+        {
+          "title": "Layer-1 Blockchains",
+          "blurb": "Base networks like Ethereum, Solana, Cosmos zones, etc.",
+          "children": []
+        },
+        {
+          "title": "Layer-2 Scalability",
+          "blurb": "Rollups and channels that increase capacity while inheriting L1 security.",
+          "children": []
+        },
+        {
+          "title": "Consensus Mechanisms",
+          "blurb": "Protocols (PoS, PoW, etc.) to agree securely on the ledger state.",
+          "children": []
+        },
+        {
+          "title": "Storage & Data",
+          "blurb": "Decentralized storage such as IPFS/Filecoin; indexers and data availability.",
+          "children": []
+        },
+        {
+          "title": "Networking & Nodes",
+          "blurb": "Peer-to-peer networking, clients, validators, and node operations.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Smart Contracts & Protocols",
+      "blurb": "Programmable agreements and the standards that make them interoperable.",
+      "children": [
+        {
+          "title": "Languages & VMs",
+          "blurb": "Solidity, Vyper, Move; EVM and WASM execution.",
+          "children": []
+        },
+        {
+          "title": "Oracles & Off-chain",
+          "blurb": "Bring external data/computation on-chain securely.",
+          "children": []
+        },
+        {
+          "title": "Standards & Interfaces",
+          "blurb": "Token and protocol interfaces (e.g., ERCs) that enable composability.",
+          "children": []
+        },
+        {
+          "title": "Verification & Testing",
+          "blurb": "Audits, fuzzing, formal proofs to reduce vulnerabilities.",
+          "children": []
+        },
+        {
+          "title": "Upgradeability & Patterns",
+          "blurb": "Proxy patterns, governance-gated changes, safe migration.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Digital Assets & Tokenomics",
+      "blurb": "Design of tokens, incentives, and value capture.",
+      "children": [
+        {
+          "title": "Fungible Tokens",
+          "blurb": "Interchangeable assets used for utility, governance, or payments.",
+          "children": []
+        },
+        {
+          "title": "Non-Fungible Tokens (NFTs)",
+          "blurb": "Unique assets representing art, tickets, identity, or RWAs.",
+          "children": []
+        },
+        {
+          "title": "Stablecoins",
+          "blurb": "Price-stable tokens (fiat-backed, crypto-collateralized, or algorithmic).",
+          "children": []
+        },
+        {
+          "title": "Treasury & DAOs",
+          "blurb": "On-chain treasuries, voting power, and capital allocation.",
+          "children": []
+        },
+        {
+          "title": "Incentives & Game Theory",
+          "blurb": "Token emissions, staking, and mechanism design to align behavior.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Applications & Ecosystems",
+      "blurb": "User-facing use cases and the surrounding landscape.",
+      "children": [
+        {
+          "title": "DeFi",
+          "blurb": "Open financial primitives: exchange, lending, derivatives, asset management.",
+          "children": []
+        },
+        {
+          "title": "Web3 Social",
+          "blurb": "User-owned graphs, portable handles, creator monetization.",
+          "children": []
+        },
+        {
+          "title": "Gaming & Metaverse",
+          "blurb": "Playable economies, digital ownership, interoperable assets.",
+          "children": []
+        },
+        {
+          "title": "Supply Chain & RWAs",
+          "blurb": "Track provenance and tokenize real-world assets.",
+          "children": []
+        },
+        {
+          "title": "Regulation & Compliance",
+          "blurb": "KYC/AML approaches, travel-rule tools, and policy trends.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}
