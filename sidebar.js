@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const rootPrefix = '../'.repeat(depth);
   const sidebar = document.getElementById('sidebar');
   if (!sidebar) return;
+  sidebar.classList.add('pl-0');
   try {
     const res = await fetch(rootPrefix + 'nav.json');
     const tree = await res.json();
