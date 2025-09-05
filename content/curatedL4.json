@@ -1336,92 +1336,592 @@
       }
     }
   },
-  "Web3 Social": [
-    [
-      "Portable Handles",
-      "Usernames/IDs you can take anywhere."
-    ],
-    [
-      "Social Graphs",
-      "Open, user-owned follower relations."
-    ],
-    [
-      "Creator Monetization",
-      "Tokens, tipping, and revenue shares."
-    ],
-    [
-      "Moderation",
-      "Community rules, client-side filters."
-    ],
-    [
-      "Interoperable Feeds",
-      "Multiple apps over the same graph."
-    ]
-  ],
-  "Gaming & Metaverse": [
-    [
-      "Asset Ownership",
-      "Players truly own items/skins."
-    ],
-    [
-      "Economy Design",
-      "Sinks/sources and inflation control."
-    ],
-    [
-      "Interoperability",
-      "Use assets across games/worlds."
-    ],
-    [
-      "On/Off-chain Mix",
-      "Latency-friendly hybrids for UX."
-    ],
-    [
-      "Anti-Cheat",
-      "Proofs and attestations for fairness."
-    ]
-  ],
-  "Supply Chain & RWAs": [
-    [
-      "Provenance",
-      "Track origin and custody changes."
-    ],
-    [
-      "Tokenization",
-      "On-chain representation of assets."
-    ],
-    [
-      "Compliance Rails",
-      "Whitelists and attested participants."
-    ],
-    [
-      "Oracles",
-      "Verified real-world events and data."
-    ],
-    [
-      "Settlement",
-      "Atomic delivery-versus-payment."
-    ]
-  ],
-  "Regulation & Compliance": [
-    [
-      "KYC/AML",
-      "Know-your-customer and anti-laundering checks."
-    ],
-    [
-      "Travel Rule",
-      "Share originator/beneficiary data between VASPs."
-    ],
-    [
-      "Licensing",
-      "Exchange/custody requirements by jurisdiction."
-    ],
-    [
-      "Taxation",
-      "Gains, reporting, and cost basis."
-    ],
-    [
-      "Policy Trends",
-      "Global coordination and sandboxes."
-    ]
-  ]
+  "Web3 Social": {
+    "Portable Handles": {
+      "blurb": "Usernames/IDs you can take anywhere.",
+      "sections": {
+        "why": "Handles tied to wallets enable cross-app identity without siloed accounts.",
+        "key": [
+          "Names resolve to wallet addresses",
+          "Ownership proven by private keys",
+          "Usable across multiple dapps"
+        ],
+        "examples": [
+          "ENS usernames",
+          "Lens profiles"
+        ],
+        "challenges": [
+          "Namespace squatting",
+          "User confusion over multiple standards"
+        ],
+        "resources": [
+          [
+            "Ethereum Name Service",
+            "https://ens.domains"
+          ],
+          [
+            "Lens Protocol",
+            "https://lens.xyz"
+          ]
+        ]
+      }
+    },
+    "Social Graphs": {
+      "blurb": "Open, user-owned follower relations.",
+      "sections": {
+        "why": "Open graphs let users port relationships across apps.",
+        "key": [
+          "Followers stored on-chain or in open databases",
+          "Permissionless access for new clients",
+          "Users truly own their connections"
+        ],
+        "examples": [
+          "Lens Protocol",
+          "Farcaster"
+        ],
+        "challenges": [
+          "Spam accounts",
+          "Privacy concerns"
+        ],
+        "resources": [
+          [
+            "Farcaster",
+            "https://www.farcaster.xyz"
+          ],
+          [
+            "Lens Docs",
+            "https://docs.lens.xyz"
+          ]
+        ]
+      }
+    },
+    "Creator Monetization": {
+      "blurb": "Tokens, tipping, and revenue shares.",
+      "sections": {
+        "why": "Direct payments and token models give creators new income streams.",
+        "key": [
+          "Tokens or NFTs grant access or ownership",
+          "Smart contracts split revenue automatically",
+          "Fans can tip directly from wallets"
+        ],
+        "examples": [
+          "Mirror crowdfunds",
+          "Zora marketplace"
+        ],
+        "challenges": [
+          "Volatile crypto income",
+          "Unclear regulations for token sales"
+        ],
+        "resources": [
+          [
+            "Mirror",
+            "https://mirror.xyz"
+          ],
+          [
+            "Zora",
+            "https://zora.co"
+          ]
+        ]
+      }
+    },
+    "Moderation": {
+      "blurb": "Community rules, client-side filters.",
+      "sections": {
+        "why": "Community-driven moderation keeps networks healthy without central control.",
+        "key": [
+          "On-chain governance sets moderation policies",
+          "Clients allow custom block lists",
+          "Reputation systems flag abuse"
+        ],
+        "examples": [
+          "Farcaster community moderation",
+          "Lens moderation tools"
+        ],
+        "challenges": [
+          "Coordinating shared norms",
+          "Balancing free speech and safety"
+        ],
+        "resources": [
+          [
+            "Farcaster Moderation",
+            "https://github.com/farcasterxyz/protocol#moderation"
+          ],
+          [
+            "Lens Moderation",
+            "https://docs.lens.xyz/docs/moderation"
+          ]
+        ]
+      }
+    },
+    "Interoperable Feeds": {
+      "blurb": "Multiple apps over the same graph.",
+      "sections": {
+        "why": "Shared social graphs let many clients display the same content.",
+        "key": [
+          "Standardized post formats",
+          "Open APIs expose feed data",
+          "Users choose their preferred interface"
+        ],
+        "examples": [
+          "RSS3 social feeds",
+          "Farcaster clients like Warpcast"
+        ],
+        "challenges": [
+          "Fragmented user experience",
+          "Spam and rate limits across networks"
+        ],
+        "resources": [
+          [
+            "RSS3",
+            "https://rss3.io"
+          ],
+          [
+            "Warpcast",
+            "https://warpcast.com"
+          ]
+        ]
+      }
+    }
+  },
+  "Gaming & Metaverse": {
+    "Asset Ownership": {
+      "blurb": "Players truly own items/skins.",
+      "sections": {
+        "why": "Ownership enables secondary markets and persistence beyond a single game.",
+        "key": [
+          "NFTs represent in-game items",
+          "Transfers occur between player wallets",
+          "Scarcity enforced by smart contracts"
+        ],
+        "examples": [
+          "Axie Infinity items",
+          "Decentraland land"
+        ],
+        "challenges": [
+          "Speculation overshadowing gameplay",
+          "Risk of asset theft or hacks"
+        ],
+        "resources": [
+          [
+            "Axie Infinity",
+            "https://whitepaper.axieinfinity.com"
+          ],
+          [
+            "Decentraland Docs",
+            "https://docs.decentraland.org"
+          ]
+        ]
+      }
+    },
+    "Economy Design": {
+      "blurb": "Sinks/sources and inflation control.",
+      "sections": {
+        "why": "Well-tuned economies keep games fun and sustainable.",
+        "key": [
+          "Token sinks control inflation",
+          "Rewards align with player effort",
+          "Governance adjusts parameters over time"
+        ],
+        "examples": [
+          "EVE Online economy",
+          "Axie Infinity token models"
+        ],
+        "challenges": [
+          "Hyperinflation from excessive rewards",
+          "Complex balancing for developers"
+        ],
+        "resources": [
+          [
+            "EVE Online Economy",
+            "https://www.eveonline.com/article/economy"
+          ],
+          [
+            "Axie Infinity Docs",
+            "https://whitepaper.axieinfinity.com"
+          ]
+        ]
+      }
+    },
+    "Interoperability": {
+      "blurb": "Use assets across games/worlds.",
+      "sections": {
+        "why": "Shared standards allow items to travel between virtual worlds.",
+        "key": [
+          "Common metadata formats",
+          "Cross-game marketplaces",
+          "Portable player identities"
+        ],
+        "examples": [
+          "Ready Player Me avatars",
+          "Enjin multiverse items"
+        ],
+        "challenges": [
+          "Different art styles and mechanics",
+          "Security of asset bridging"
+        ],
+        "resources": [
+          [
+            "Ready Player Me",
+            "https://readyplayer.me"
+          ],
+          [
+            "Enjin",
+            "https://enjin.io"
+          ]
+        ]
+      }
+    },
+    "On/Off-chain Mix": {
+      "blurb": "Latency-friendly hybrids for UX.",
+      "sections": {
+        "why": "Combining off-chain gameplay with on-chain ownership improves performance.",
+        "key": [
+          "Fast game logic runs off-chain",
+          "Assets and trades settle on-chain",
+          "Hybrid models reduce fees"
+        ],
+        "examples": [
+          "Gods Unchained matches off-chain, cards on-chain",
+          "Illuvium gameplay with L2 settlement"
+        ],
+        "challenges": [
+          "Trust in centralized servers",
+          "Keeping on-chain state synced"
+        ],
+        "resources": [
+          [
+            "Gods Unchained",
+            "https://godsunchained.com"
+          ],
+          [
+            "Illuvium Docs",
+            "https://docs.illuvium.io"
+          ]
+        ]
+      }
+    },
+    "Anti-Cheat": {
+      "blurb": "Proofs and attestations for fairness.",
+      "sections": {
+        "why": "Cryptographic guarantees prevent cheating in competitive games.",
+        "key": [
+          "Zero-knowledge proofs validate moves",
+          "Attestations from observers deter bots",
+          "Reputation systems punish cheaters"
+        ],
+        "examples": [
+          "Dark Forest zk game",
+          "Proof of Attendance anti-bot checks"
+        ],
+        "challenges": [
+          "High computational cost for proofs",
+          "Balancing privacy with transparency"
+        ],
+        "resources": [
+          [
+            "Dark Forest",
+            "https://zkga.me"
+          ],
+          [
+            "POAP",
+            "https://poap.xyz"
+          ]
+        ]
+      }
+    }
+  },
+  "Supply Chain & RWAs": {
+    "Provenance": {
+      "blurb": "Track origin and custody changes.",
+      "sections": {
+        "why": "Immutable provenance deters counterfeits and improves accountability.",
+        "key": [
+          "Every transfer recorded on-chain",
+          "Audit trail visible to all parties",
+          "Authenticity verified at each step"
+        ],
+        "examples": [
+          "IBM Food Trust",
+          "Everledger diamonds"
+        ],
+        "challenges": [
+          "Linking physical goods to digital records",
+          "Privacy of supply chain participants"
+        ],
+        "resources": [
+          [
+            "IBM Food Trust",
+            "https://www.ibm.com/products/food-trust"
+          ],
+          [
+            "Everledger",
+            "https://www.everledger.io"
+          ]
+        ]
+      }
+    },
+    "Tokenization": {
+      "blurb": "On-chain representation of assets.",
+      "sections": {
+        "why": "Tokenization unlocks liquidity and fractional ownership for real-world assets.",
+        "key": [
+          "Tokens map to off-chain assets",
+          "Smart contracts manage ownership and transfers",
+          "Enables fractional investment"
+        ],
+        "examples": [
+          "RealT tokenized real estate",
+          "Centrifuge RWA pools"
+        ],
+        "challenges": [
+          "Regulatory compliance",
+          "Valuation and custody of assets"
+        ],
+        "resources": [
+          [
+            "RealT",
+            "https://realt.co"
+          ],
+          [
+            "Centrifuge",
+            "https://centrifuge.io"
+          ]
+        ]
+      }
+    },
+    "Compliance Rails": {
+      "blurb": "Whitelists and attested participants.",
+      "sections": {
+        "why": "Permissioned rails restrict access to verified entities.",
+        "key": [
+          "Addresses added to whitelist via credentials",
+          "Smart contracts enforce participation rules",
+          "Audit logs available for regulators"
+        ],
+        "examples": [
+          "Aave Arc",
+          "Securitize platform"
+        ],
+        "challenges": [
+          "Managing sensitive identity data",
+          "Limiting openness of systems"
+        ],
+        "resources": [
+          [
+            "Aave Arc",
+            "https://docs.aave.com/faq/aave-arc"
+          ],
+          [
+            "Securitize",
+            "https://www.securitize.io"
+          ]
+        ]
+      }
+    },
+    "Oracles": {
+      "blurb": "Verified real-world events and data.",
+      "sections": {
+        "why": "Reliable data feeds link physical processes with smart contracts.",
+        "key": [
+          "Sensors and attestors provide inputs",
+          "Multiple sources increase reliability",
+          "Contracts consume updates on-chain"
+        ],
+        "examples": [
+          "Chainlink Proof of Reserve",
+          "API3 Airnode"
+        ],
+        "challenges": [
+          "Data manipulation or downtime",
+          "Latency of off-chain events"
+        ],
+        "resources": [
+          [
+            "Chainlink",
+            "https://chain.link"
+          ],
+          [
+            "API3",
+            "https://api3.org"
+          ]
+        ]
+      }
+    },
+    "Settlement": {
+      "blurb": "Atomic delivery-versus-payment.",
+      "sections": {
+        "why": "Simultaneous exchange of assets reduces counterparty risk.",
+        "key": [
+          "Smart contracts escrow assets and payment",
+          "Transfers finalize in a single transaction",
+          "Automates post-trade processes"
+        ],
+        "examples": [
+          "Chainlink CCIP settlement demos",
+          "Hyperledger Fabric DvP samples"
+        ],
+        "challenges": [
+          "Coordinating off-chain asset delivery",
+          "Regulatory acceptance of smart contract settlement"
+        ],
+        "resources": [
+          [
+            "Chainlink CCIP",
+            "https://chain.link/cross-chain"
+          ],
+          [
+            "Hyperledger Fabric DvP",
+            "https://wiki.hyperledger.org/display/fabric/Developer+Tutorials"
+          ]
+        ]
+      }
+    }
+  },
+  "Regulation & Compliance": {
+    "KYC/AML": {
+      "blurb": "Know-your-customer and anti-laundering checks.",
+      "sections": {
+        "why": "Meet legal requirements to deter illicit finance.",
+        "key": [
+          "Collect identity documents",
+          "Monitor transactions for suspicious activity",
+          "Use blockchain analytics for screening"
+        ],
+        "examples": [
+          "Coinbase onboarding",
+          "Chainalysis KYT"
+        ],
+        "challenges": [
+          "Balancing privacy with compliance",
+          "Differing rules across jurisdictions"
+        ],
+        "resources": [
+          [
+            "FinCEN Guidance",
+            "https://www.fincen.gov"
+          ],
+          [
+            "Chainalysis Docs",
+            "https://www.chainalysis.com"
+          ]
+        ]
+      }
+    },
+    "Travel Rule": {
+      "blurb": "Share originator/beneficiary data between VASPs.",
+      "sections": {
+        "why": "Regulations mandate information transfer for certain crypto transactions.",
+        "key": [
+          "Protocols transmit sender and recipient data",
+          "Standards like IVMS101 enable interoperability",
+          "Applies above jurisdictional thresholds"
+        ],
+        "examples": [
+          "TRISA network",
+          "Notabene compliance platform"
+        ],
+        "challenges": [
+          "Lack of universal adoption",
+          "Protecting user data privacy"
+        ],
+        "resources": [
+          [
+            "TRISA",
+            "https://trisa.io"
+          ],
+          [
+            "Notabene",
+            "https://notabene.id"
+          ]
+        ]
+      }
+    },
+    "Licensing": {
+      "blurb": "Exchange/custody requirements by jurisdiction.",
+      "sections": {
+        "why": "Operating services often requires regulatory approval.",
+        "key": [
+          "Obtain licenses from local regulators",
+          "Maintain capital and reporting standards",
+          "Scope varies by region"
+        ],
+        "examples": [
+          "NYDFS BitLicense",
+          "MAS Payment Services license"
+        ],
+        "challenges": [
+          "Complex multi-jurisdiction compliance",
+          "High cost of obtaining licenses"
+        ],
+        "resources": [
+          [
+            "NYDFS BitLicense",
+            "https://www.dfs.ny.gov"
+          ],
+          [
+            "MAS PSA",
+            "https://www.mas.gov.sg"
+          ]
+        ]
+      }
+    },
+    "Taxation": {
+      "blurb": "Gains, reporting, and cost basis.",
+      "sections": {
+        "why": "Users must report taxable events and track basis.",
+        "key": [
+          "Trades and spending create tax obligations",
+          "Accurate record-keeping is essential",
+          "Rules differ across jurisdictions"
+        ],
+        "examples": [
+          "IRS crypto guidance",
+          "Koinly tax software"
+        ],
+        "challenges": [
+          "Unclear treatment of novel assets",
+          "Complex multi-chain activity"
+        ],
+        "resources": [
+          [
+            "IRS Virtual Currency FAQ",
+            "https://www.irs.gov"
+          ],
+          [
+            "Koinly",
+            "https://koinly.io"
+          ]
+        ]
+      }
+    },
+    "Policy Trends": {
+      "blurb": "Global coordination and sandboxes.",
+      "sections": {
+        "why": "Evolving policies influence Web3 innovation.",
+        "key": [
+          "Regulators explore sandbox environments",
+          "International bodies discuss standards",
+          "Rules for DeFi and DAOs are emerging"
+        ],
+        "examples": [
+          "EU MiCA framework",
+          "UK FCA sandbox"
+        ],
+        "challenges": [
+          "Regulatory uncertainty",
+          "Fragmented global approaches"
+        ],
+        "resources": [
+          [
+            "EU MiCA",
+            "https://www.europarl.europa.eu"
+          ],
+          [
+            "UK FCA Sandbox",
+            "https://www.fca.org.uk"
+          ]
+        ]
+      }
+    }
+  }
 }
