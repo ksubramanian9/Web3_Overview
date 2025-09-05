@@ -8,12 +8,16 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
   <header class="bg-gray-800 text-white p-4">
-    <div class="container mx-auto flex flex-wrap items-center gap-4">
-      <button id="sidebarToggle" class="md:hidden">&#9776;</button>
-      <h1 class="text-lg font-semibold">Web 3.0 - Quick Tour</h1>
-      <nav class="flex space-x-4">{{nav}}</nav>
-      <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
-      <div class="text-sm text-gray-300">{{breadcrumbs}}</div>
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <button id="sidebarToggle" class="md:hidden">&#9776;</button>
+          <nav class="flex space-x-4">{{nav}}</nav>
+        </div>
+        <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
+      </div>
+      <h1 class="text-xl font-semibold mt-2">Web 3.0 - Quick Tour</h1>
+      <div class="text-sm text-gray-300 mt-1">{{breadcrumbs}}</div>
     </div>
   </header>
 <div class="container mx-auto flex">
