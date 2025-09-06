@@ -74,8 +74,8 @@
       front.className = `card-front text-center ${colors[depth % colors.length]}`;
       front.textContent = node.title;
       const back = document.createElement('div');
-      back.className = `card-back text-center text-sm ${colors[depth % colors.length]}`;
-      back.textContent = node.blurb;
+      back.className = `card-back flex-col text-center text-sm ${colors[depth % colors.length]}`;
+      back.innerHTML = `<h3 class="font-semibold mb-1">${node.title}</h3><p>${node.blurb}</p>`;
       inner.appendChild(front);
       inner.appendChild(back);
       card.appendChild(inner);
