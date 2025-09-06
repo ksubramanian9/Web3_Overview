@@ -18,27 +18,48 @@
     <div class="container mx-auto">
       <div class="flex items-center justify-between">
         <nav><a href="index.html" class="text-blue-200 hover:text-white">Home</a></nav>
-        <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
+        <div class="flex items-center gap-2">
+          <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
+          <a href="recall.html" class="bg-blue-500 text-white px-4 py-2 rounded">Recall Practice</a>
+        </div>
       </div>
-      <div class="flex justify-end mt-2">
-        <a href="recall.html" class="bg-blue-500 text-white px-4 py-2 rounded">Recall Practice</a>
-      </div>
-      <h1 class="text-xl font-semibold mt-2">Recall Practice</h1>
+      <h1 class="text-2xl font-semibold text-center mt-2">Web 3.0 - Quick Tour</h1>
     </div>
   </header>
   <main class="container mx-auto p-4">
+    <h2 class="text-xl font-semibold text-center mb-4">Recall Practice</h2>
     <div id="flashcards" class="flex flex-col items-center"></div>
   </main>
   <footer class="bg-gray-100 text-center text-sm text-gray-500 py-4 mt-8">© 2024 Web3 Overview</footer>
   <script src="search.js"></script>
   <script>
     const colors = ['bg-blue-100', 'bg-green-100', 'bg-yellow-100', 'bg-pink-100'];
+    let l4Data = {};
 
     async function load() {
-      const res = await fetch('content/pages.json');
-      const data = await res.json();
+      const [pagesRes, l4Res] = await Promise.all([
+        fetch('content/pages.json'),
+        fetch('content/curatedL4.json')
+      ]);
+      const data = await pagesRes.json();
+      l4Data = await l4Res.json();
+      addLevel4(data);
       const root = createNode(data, 0);
       document.getElementById('flashcards').appendChild(root);
+    }
+
+    function addLevel4(node) {
+      const extra = l4Data[node.title];
+      if (extra) {
+        node.children = Array.isArray(extra)
+          ? extra.map(([title, blurb]) => ({ title, blurb }))
+          : Object.entries(extra).map(([title, info]) => ({
+              title,
+              blurb: info.blurb,
+              details: info.sections
+            }));
+      }
+      (node.children || []).forEach(addLevel4);
     }
 
     function createNode(node, depth = 0) {
@@ -62,21 +83,30 @@
       const childrenContainer = document.createElement('div');
       childrenContainer.className = 'children-container flex flex-wrap justify-center hidden';
 
+      const detailContainer = document.createElement('div');
+      detailContainer.className = 'detail-container hidden w-full max-w-xl';
+
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
         const flipped = card.classList.contains('flipped');
         if (flipped && node.children && node.children.length) {
           hideSiblingsAndReset(wrapper);
           childrenContainer.classList.remove('hidden');
+        } else if (flipped && !node.children?.length) {
+          hideSiblingsAndReset(wrapper);
+          detailContainer.classList.remove('hidden');
+          renderDetails(detailContainer, node);
         } else {
           hideChildren(childrenContainer);
           childrenContainer.classList.add('hidden');
+          detailContainer.classList.add('hidden');
           showSiblings(wrapper);
         }
       });
 
       wrapper.appendChild(card);
       wrapper.appendChild(childrenContainer);
+      wrapper.appendChild(detailContainer);
 
       (node.children || []).forEach(child => {
         childrenContainer.appendChild(createNode(child, depth + 1));
@@ -85,9 +115,48 @@
       return wrapper;
     }
 
+    function renderDetails(container, node) {
+      container.innerHTML = '';
+      const card = document.createElement('div');
+      card.className = 'bg-white p-4 m-2 rounded shadow';
+      card.innerHTML = `<h3 class="text-lg font-bold mb-2">${node.title}</h3><p class="mb-2">${node.blurb}</p>`;
+      const sections = node.details || {};
+      Object.entries(sections).forEach(([key, val]) => {
+        const section = document.createElement('div');
+        section.className = 'mt-2';
+        section.innerHTML = `<h4 class="font-semibold">${key.charAt(0).toUpperCase() + key.slice(1)}</h4>`;
+        if (Array.isArray(val)) {
+          const ul = document.createElement('ul');
+          ul.className = 'list-disc ml-6';
+          val.forEach(item => {
+            const li = document.createElement('li');
+            if (Array.isArray(item)) {
+              const a = document.createElement('a');
+              a.href = item[1];
+              a.textContent = item[0];
+              a.className = 'text-blue-600 underline';
+              a.target = '_blank';
+              li.appendChild(a);
+            } else {
+              li.textContent = item;
+            }
+            ul.appendChild(li);
+          });
+          section.appendChild(ul);
+        } else {
+          const p = document.createElement('p');
+          p.textContent = val;
+          section.appendChild(p);
+        }
+        card.appendChild(section);
+      });
+      container.appendChild(card);
+    }
+
     function hideChildren(container) {
       container.querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
       container.querySelectorAll('.children-container').forEach(cc => cc.classList.add('hidden'));
+      container.querySelectorAll('.detail-container').forEach(dc => dc.classList.add('hidden'));
     }
 
     function hideSiblingsAndReset(element) {
@@ -98,11 +167,13 @@
           child.classList.add('hidden');
           const card = child.querySelector('.card');
           const container = child.querySelector('.children-container');
+          const detail = child.querySelector('.detail-container');
           if (card) card.classList.remove('flipped');
           if (container) {
             hideChildren(container);
             container.classList.add('hidden');
           }
+          if (detail) detail.classList.add('hidden');
         }
       });
     }

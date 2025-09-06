@@ -14,13 +14,13 @@
           <button id="sidebarToggle" class="md:hidden">&#9776;</button>
           <nav class="flex space-x-4">{{nav}}</nav>
         </div>
-        <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
+        <div class="flex items-center gap-2">
+          <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
+          <a href="{{rootPrefix}}recall.html" class="bg-blue-500 text-white px-4 py-2 rounded">Recall Practice</a>
+        </div>
       </div>
-      <div class="flex justify-end mt-2">
-        <a href="{{rootPrefix}}recall.html" class="bg-blue-500 text-white px-4 py-2 rounded">Recall Practice</a>
-      </div>
-      <h1 class="text-xl font-semibold mt-2">Web 3.0 - Quick Tour</h1>
-      <div class="text-sm text-gray-300 mt-1">{{breadcrumbs}}</div>
+      <h1 class="text-2xl font-semibold text-center mt-2">Web 3.0 - Quick Tour</h1>
+      <div class="text-sm text-gray-300 mt-1 text-center">{{breadcrumbs}}</div>
     </div>
   </header>
 <div class="container mx-auto flex">
