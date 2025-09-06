@@ -1,7 +1,6 @@
 {
   "title": "Web3",
   "blurb": "A user-empowering internet that encodes trust and value natively using cryptography, blockchains, and open protocols.",
-  "videoId": "M7lc1UVf-VE",
   "children": [
     {
       "title": "Foundations & Principles",
@@ -10,7 +9,6 @@
         {
           "title": "Decentralization",
           "blurb": "Shift of control from single authorities to distributed participants.",
-          "videoId": "hYip_Vuv8J0",
           "children": []
         },
         {
