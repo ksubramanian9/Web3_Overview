@@ -22,12 +22,17 @@
   </header>
 <div class="container mx-auto flex">
   <aside id="sidebar" class="w-64 bg-gray-100 p-4 hidden md:block"></aside>
-  <main class="flex-1 p-4">
-    <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
-    <p>{{blurb}}</p>
-    {{links}}
-    {{sections}}
-  </main>
+  <div class="flex-1 p-4">
+    <div class="flex flex-col md:flex-row">
+      <main class="flex-1">
+        <h1 class="text-3xl font-bold mb-4">{{title}}</h1>
+        <p>{{blurb}}</p>
+        {{links}}
+        {{sections}}
+      </main>
+      {{video}}
+    </div>
+  </div>
 </div>
 <footer class="bg-gray-100 text-center text-sm text-gray-500 py-4 mt-8">© 2024 Web3 Overview</footer>
 <script src="{{rootPrefix}}sidebar.js"></script>
