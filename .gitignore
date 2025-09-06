@@ -2,3 +2,4 @@
 nav.json
 **/*.html
 !templates/*.html
+!recall.html
