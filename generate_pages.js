@@ -17,15 +17,6 @@ function render(values) {
   return html;
 }
 
-function videoHtml(videoId) {
-  if (!videoId) return '';
-  return `<aside class="w-full md:w-80 md:ml-4 mt-4 md:mt-0 shrink-0">
-    <a href="https://youtu.be/${videoId}" target="_blank">
-      <img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="YouTube thumbnail" />
-    </a>
-  </aside>`;
-}
-
 function sectionHtml(sections = {}) {
   let html = '';
   if (sections.why) {
@@ -50,7 +41,7 @@ function sectionHtml(sections = {}) {
   return html;
 }
 
-function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}, breadcrumbs = '', videoId = '') {
+function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}, breadcrumbs = '') {
   const homeHref = depth > 0 ? `${'../'.repeat(depth)}index.html` : 'index.html';
   const rootPrefix = depth > 0 ? '../'.repeat(depth) : '';
   const navLinks = [`<a href="${homeHref}" class="text-blue-200 hover:text-white">Home</a>`];
@@ -62,8 +53,7 @@ function pageTemplate(title, blurb, linksHtml, depth, backHref, sections = {}, b
     sections: sectionHtml(sections),
     nav: navLinks.join('<span>|</span>'),
     rootPrefix,
-    breadcrumbs,
-    video: videoHtml(videoId)
+    breadcrumbs
   });
 }
 
@@ -98,11 +88,11 @@ function generate(node, dir, depth, backHref, ancestors = []) {
   if (l4) {
     links += '<ul>\n';
     if (Array.isArray(l4)) {
-      l4.forEach(([title, blurb, videoId]) => {
+      l4.forEach(([title, blurb]) => {
         const slug = slugify(title);
         links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
         const l4Breadcrumbs = breadcrumbsArr.concat(title).join(' / ');
-        const l4Html = pageTemplate(title, blurb, '', depth, 'index.html', defaultSections(title, blurb), l4Breadcrumbs, videoId);
+        const l4Html = pageTemplate(title, blurb, '', depth, 'index.html', defaultSections(title, blurb), l4Breadcrumbs);
         fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
       });
     } else {
@@ -111,13 +101,13 @@ function generate(node, dir, depth, backHref, ancestors = []) {
         links += `  <li><a href="${slug}.html">${title}</a></li>\n`;
         const sections = entry.sections || defaultSections(title, entry.blurb);
         const l4Breadcrumbs = breadcrumbsArr.concat(title).join(' / ');
-        const l4Html = pageTemplate(title, entry.blurb, '', depth, 'index.html', sections, l4Breadcrumbs, entry.videoId);
+        const l4Html = pageTemplate(title, entry.blurb, '', depth, 'index.html', sections, l4Breadcrumbs);
         fs.writeFileSync(path.join(dir, `${slug}.html`), l4Html);
       });
     }
     links += '</ul>\n';
   }
-  const html = pageTemplate(node.title, node.blurb, links, depth, backHref, {}, breadcrumbs, node.videoId);
+  const html = pageTemplate(node.title, node.blurb, links, depth, backHref, {}, breadcrumbs);
   fs.writeFileSync(path.join(dir, 'index.html'), html);
   if (node.children && node.children.length) {
     node.children.forEach(child => {
