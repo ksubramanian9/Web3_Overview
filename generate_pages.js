@@ -76,9 +76,6 @@ function generate(node, dir, depth, backHref, ancestors = []) {
   let links = '';
   const breadcrumbsArr = [...ancestors, node.title];
   const breadcrumbs = breadcrumbsArr.join(' / ');
-  if (depth === 0) {
-    links += '<div class="mb-4"><a href="recall.html" class="bg-blue-500 text-white px-4 py-2 rounded">Recall Practice</a></div>';
-  }
   if (node.children && node.children.length) {
     links += '<ul>\n';
     node.children.forEach(child => {
