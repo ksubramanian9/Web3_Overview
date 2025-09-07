@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         if (el.tagName === 'H3') el.classList.add('font-semibold', 'mt-3', 'mb-1');
       });
 
+
       if (window.hljs) {
         container.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
       }
@@ -92,6 +93,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       container.innerHTML = `<span class="warn">Couldn’t reach Ollama:</span> ${e.message}`;
     }
   }
+
 
   askOllama();
 });
