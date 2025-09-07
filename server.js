@@ -20,16 +20,6 @@ app.get('/', (req, res) => {
   res.type('html').sendFile('index.html', { root: __dirname });
 });
 
-app.get(/^(?!\/templates\/).*\.html$/, (req, res, next) => {
-  res.set('Content-Type', 'text/html; charset=utf-8');
-  res.set('Cache-Control', 'no-cache');
-  res
-    .type('html')
-    .sendFile(req.path, { root: __dirname }, err => {
-      if (err) next();
-    });
-});
-
 app.post('/ask', async (req, res) => {
   const { prompt, temperature, max_tokens } = req.body;
   const baseUrl =
@@ -53,19 +43,18 @@ app.post('/ask', async (req, res) => {
   }
 });
 
-const setImmutableCache = (res, filePath) => {
+const setCacheHeaders = (res, filePath) => {
   const ext = path.extname(filePath).toLowerCase();
-  const isImmutable =
-    filePath.includes(`${path.sep}content${path.sep}`) ||
-    filePath.includes(`${path.sep}templates${path.sep}`) ||
-    ext === '.js' ||
-    ext === '.css';
-  if (isImmutable) {
+  const inContent = filePath.includes(`${path.sep}content${path.sep}`);
+  const inTemplates = filePath.includes(`${path.sep}templates${path.sep}`);
+  if (ext === '.html') {
+    res.set('Cache-Control', 'no-cache');
+  } else if (inContent || inTemplates || ext === '.js' || ext === '.css') {
     res.set('Cache-Control', 'public, max-age=31536000, immutable');
   }
 };
 
-app.use(express.static(__dirname, { setHeaders: setImmutableCache }));
+app.use(express.static(__dirname, { setHeaders: setCacheHeaders }));
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
