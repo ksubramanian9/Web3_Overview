@@ -1,0 +1,1 @@
+window.RUNNING_IN_DOCKER = false;
