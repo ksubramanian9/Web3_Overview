@@ -17,7 +17,15 @@ window.addEventListener('DOMContentLoaded', async () => {
       ]);
       const rawHtml = marked.parse(md, { gfm: true, breaks: true, headerIds: false, mangle: false });
       const safeHtml = DOMPurify.sanitize(rawHtml);
-      container.innerHTML = safeHtml;
+      container.innerHTML = `<h2 id="ollama-title" class="text-xl font-bold text-center mb-4">Generative AI Output</h2>${safeHtml}`;
+
+      container.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(el => {
+        if (el.id === 'ollama-title') return;
+        if (el.tagName === 'H1') el.classList.add('text-xl', 'font-bold', 'mt-4', 'mb-2');
+        if (el.tagName === 'H2') el.classList.add('text-lg', 'font-semibold', 'mt-4', 'mb-2');
+        if (el.tagName === 'H3') el.classList.add('font-semibold', 'mt-3', 'mb-1');
+      });
+
 
       if (window.hljs) {
         container.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
@@ -85,6 +93,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       container.innerHTML = `<span class="warn">Couldn’t reach Ollama:</span> ${e.message}`;
     }
   }
+
 
   askOllama();
 });
