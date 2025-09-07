@@ -20,8 +20,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (!res.ok) return;
     const data = await res.json();
     const text = data.response || '';
-    container.classList.add('whitespace-pre-line');
-    container.textContent = text.trim();
+
+    try {
+      const { marked } = await import('https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.esm.js');
+      container.innerHTML = marked.parse(text.trim());
+    } catch {
+      container.textContent = text.trim();
+    }
   } catch (err) {
     // If the request fails or server is unavailable, leave container empty.
   }
