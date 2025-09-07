@@ -20,8 +20,19 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (!res.ok) return;
     const data = await res.json();
     const text = data.response || '';
-    container.classList.add('whitespace-pre-line');
-    container.textContent = text.trim();
+
+    try {
+      const [
+        { marked },
+        { default: DOMPurify }
+      ] = await Promise.all([
+        import('https://cdn.jsdelivr.net/npm/marked@11.2.0/lib/marked.esm.js'),
+        import('https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.es.mjs')
+      ]);
+      container.innerHTML = DOMPurify.sanitize(marked.parse(text.trim()));
+    } catch {
+      container.textContent = text.trim();
+    }
   } catch (err) {
     // If the request fails or server is unavailable, leave container empty.
   }
