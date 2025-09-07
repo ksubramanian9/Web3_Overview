@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN node generate_pages.js \
- && echo 'window.RUNNING_IN_DOCKER = true;' > config.js
+RUN node generate_pages.js
 EXPOSE 8080
 CMD ["node", "server.js"]
