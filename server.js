@@ -3,6 +3,11 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use((req, res, next) => {
+  res.set('X-Content-Type-Options', 'nosniff');
+  next();
+});
+
 app.get('/', (req, res) => {
   res.set('Content-Type', 'text/html; charset=utf-8');
   res.set('Cache-Control', 'no-cache');
