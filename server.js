@@ -1,7 +1,13 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+const fetch = require('node-fetch');
+
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+app.use(express.json({ limit: '1mb' }));
+app.use(cors());
 
 app.use((req, res, next) => {
   res.set('X-Content-Type-Options', 'nosniff');
@@ -22,6 +28,29 @@ app.get(/^(?!\/templates\/).*\.html$/, (req, res, next) => {
     .sendFile(req.path, { root: __dirname }, err => {
       if (err) next();
     });
+});
+
+app.post('/ask', async (req, res) => {
+  const { prompt, temperature, max_tokens } = req.body;
+  const baseUrl =
+    process.env.OLLAMA_BASE_URL || 'http://host.docker.internal:11434';
+  try {
+    const response = await fetch(`${baseUrl}/api/generate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'llama3.2',
+        prompt,
+        temperature,
+        max_tokens,
+        stream: false
+      })
+    });
+    const data = await response.json();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to reach model server' });
+  }
 });
 
 const setImmutableCache = (res, filePath) => {

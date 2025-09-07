@@ -7,13 +7,13 @@ window.addEventListener('DOMContentLoaded', async () => {
   try {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 3000);
-    const res = await fetch('http://host.docker.internal:11434/api/generate', {
+    const res = await fetch('/ask', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'llama3.2',
         prompt: `Provide a brief markdown outline on ${heading.textContent}.`,
-        stream: false
+        temperature: 0.7,
+        max_tokens: 100
       }),
       signal: controller.signal
     });
