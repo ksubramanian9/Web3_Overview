@@ -22,8 +22,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     const text = data.response || '';
 
     try {
-      const { marked } = await import('https://cdn.jsdelivr.net/npm/marked@11.2.0/marked.esm.js');
-      container.innerHTML = marked.parse(text.trim());
+      const [
+        { marked },
+        { default: DOMPurify }
+      ] = await Promise.all([
+        import('https://cdn.jsdelivr.net/npm/marked@11.2.0/lib/marked.esm.js'),
+        import('https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.es.mjs')
+      ]);
+      container.innerHTML = DOMPurify.sanitize(marked.parse(text.trim()));
     } catch {
       container.textContent = text.trim();
     }
