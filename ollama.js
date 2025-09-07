@@ -1,5 +1,4 @@
 window.addEventListener('DOMContentLoaded', async () => {
-  if (!window.RUNNING_IN_DOCKER) return;
   const container = document.getElementById('ollama-info');
   const heading = document.querySelector('main h1');
   if (!container || !heading) return;
