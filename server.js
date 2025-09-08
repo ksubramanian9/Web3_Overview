@@ -21,7 +21,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/ask', async (req, res) => {
-  const { prompt, temperature, max_tokens } = req.body;
+  const {
+    model = process.env.OLLAMA_MODEL || 'llama3.2',
+    prompt,
+    temperature,
+    max_tokens,
+  } = req.body;
   const baseUrl =
     process.env.OLLAMA_BASE_URL || 'http://host.docker.internal:11434';
   try {
@@ -29,12 +34,12 @@ app.post('/ask', async (req, res) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'llama3.2',
+        model,
         prompt,
         temperature,
         max_tokens,
-        stream: false
-      })
+        stream: false,
+      }),
     });
     const data = await response.json();
     res.json(data);
