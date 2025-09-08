@@ -155,8 +155,12 @@
 
     function hideChildren(container) {
       container.querySelectorAll('.card.flipped').forEach(c => c.classList.remove('flipped'));
-      container.querySelectorAll('.children-container').forEach(cc => cc.classList.add('hidden'));
-      container.querySelectorAll('.detail-container').forEach(dc => dc.classList.add('hidden'));
+      container.querySelectorAll(':scope > div > .children-container').forEach(cc => {
+        hideChildren(cc);
+        cc.classList.add('hidden');
+      });
+      container.querySelectorAll(':scope > div > .detail-container').forEach(dc => dc.classList.add('hidden'));
+      Array.from(container.children).forEach(child => child.classList.remove('hidden'));
     }
 
     function hideSiblingsAndReset(element) {
