@@ -925,116 +925,151 @@
       }
     }
   },
-  "Storage & Data": [
-    [
-      "IPFS Basics",
-      "Content addressing with hashes, not locations."
-    ],
-    [
-      "Filecoin/Economics",
-      "Markets that pay for durable storage."
-    ],
-    [
-      "Indexing/Subgraphs",
-      "Queryable views for dApps."
-    ],
-    [
-      "Data Availability Layers",
-      "Specialized chains for blob/data posting."
-    ],
-    [
-      "Privacy Layers",
-      "Encrypted storage and access control."
-    ]
-  ],
-  "Networking & Nodes": [
-    [
-      "P2P Gossip",
-      "Propagate blocks/tx quickly and reliably."
-    ],
-    [
-      "Light Clients",
-      "Verify with minimal resources (SPV/ZK-LC)."
-    ],
-    [
-      "Validator Ops",
-      "Uptime, monitoring, backups, key safety."
-    ],
-    [
-      "RPC & Infra",
-      "Gateways, rate limits, and decentralization."
-    ],
-    [
-      "Observability",
-      "Mempool, logs, metrics, and alerts."
-    ]
-  ],
-  "Languages & VMs": [
-    [
-      "Type Safety",
-      "Catch bugs earlier; avoid foot-guns."
-    ],
-    [
-      "Gas Model",
-      "Meter computation/storage to prevent abuse."
-    ],
-    [
-      "WASM Runtimes",
-      "Multi-language smart contracts via WASM."
-    ],
-    [
-      "Parallel Execution",
-      "Increase throughput with safe concurrency."
-    ],
-    [
-      "Toolchains",
-      "Compilers, linters, formatters, IDE support."
-    ]
-  ],
-  "Oracles & Off-chain": [
-    [
-      "Price Feeds",
-      "Reliable asset prices for DeFi protocols."
-    ],
-    [
-      "Compute Networks",
-      "Off-chain tasks with verifiable outputs."
-    ],
-    [
-      "Randomness",
-      "Unbiasable randomness for lotteries/games."
-    ],
-    [
-      "Bridge Security",
-      "Economic security and multi-sig risks."
-    ],
-    [
-      "Data Integrity",
-      "Signing, attestation, replay protection."
-    ]
-  ],
-  "Standards & Interfaces": [
-    [
-      "ERC-20",
-      "Fungible token interface for transfers/allowance."
-    ],
-    [
-      "ERC-721/1155",
-      "Non-fungible and semi-fungible standards."
-    ],
-    [
-      "Permit/EIP-2612",
-      "Gasless approvals via signatures."
-    ],
-    [
-      "Meta-Tx",
-      "Relayers pay gas; better UX."
-    ],
-    [
-      "Composability",
-      "Plug-and-play across protocols."
-    ]
-  ],
+  "Storage & Data": {
+    "IPFS Basics": {
+      "blurb": "Content addressing with hashes, not locations.",
+      "sections": {
+        "why": "Retrieving files by their hash creates a tamper-evident, decentralized web where data persists across peers.",
+        "key": [
+          "Content identifiers (CIDs) address data by hash",
+          "Distributed hash tables locate peers storing content",
+          "Bitswap protocol exchanges blocks between nodes"
+        ],
+        "examples": [
+          "NFT metadata pinned on IPFS",
+          "Brave browser's built-in IPFS gateway"
+        ],
+        "challenges": [
+          "Data can disappear unless pinned or incentivized",
+          "Mutable naming via IPNS is slower and less adopted"
+        ],
+        "resources": [
+          ["IPFS Docs", "https://docs.ipfs.tech/"],
+          ["IPFS Whitepaper", "https://ipfs.io/ipfs/QmR7GSQM93Cx5eAg6a6rVLkM1NZXi326nDtCEYrhLYFghp"]
+        ]
+      }
+    },
+    "Filecoin/Economics": { "blurb": "Markets that pay for durable storage." },
+    "Indexing/Subgraphs": { "blurb": "Queryable views for dApps." },
+    "Data Availability Layers": { "blurb": "Specialized chains for blob/data posting." },
+    "Privacy Layers": { "blurb": "Encrypted storage and access control." }
+  },
+  "Networking & Nodes": {
+    "P2P Gossip": { "blurb": "Propagate blocks/tx quickly and reliably." },
+    "Light Clients": {
+      "blurb": "Verify with minimal resources (SPV/ZK-LC).",
+      "sections": {
+        "why": "Allows phones and browsers to verify chain state without running a full node.",
+        "key": [
+          "Download only block headers or proofs",
+          "Use SPV or zero-knowledge proofs for verification",
+          "Ideal for wallets and cross-chain bridges"
+        ],
+        "examples": [
+          "Bitcoin SPV wallets",
+          "Helios lightweight Ethereum client"
+        ],
+        "challenges": [
+          "Depends on honest majority for data availability",
+          "Less resilient to eclipsing or partition attacks"
+        ],
+        "resources": [
+          ["Bitcoin Whitepaper §8", "https://bitcoin.org/bitcoin.pdf"],
+          ["Helios Client", "https://github.com/a16z/helios"]
+        ]
+      }
+    },
+    "Validator Ops": { "blurb": "Uptime, monitoring, backups, key safety." },
+    "RPC & Infra": { "blurb": "Gateways, rate limits, and decentralization." },
+    "Observability": { "blurb": "Mempool, logs, metrics, and alerts." }
+  },
+  "Languages & VMs": {
+    "Type Safety": { "blurb": "Catch bugs earlier; avoid foot-guns." },
+    "Gas Model": { "blurb": "Meter computation/storage to prevent abuse." },
+    "WASM Runtimes": { "blurb": "Multi-language smart contracts via WASM." },
+    "Parallel Execution": {
+      "blurb": "Increase throughput with safe concurrency.",
+      "sections": {
+        "why": "Executing independent transactions in parallel boosts throughput and reduces latency.",
+        "key": [
+          "Identify non-overlapping state access",
+          "Optimistic concurrency with conflict rollback",
+          "Requires deterministic scheduling"
+        ],
+        "examples": [
+          "Solana's Sealevel runtime",
+          "Aptos Block-STM execution"
+        ],
+        "challenges": [
+          "Complexity in detecting state conflicts",
+          "Tooling and debugging for concurrent contracts"
+        ],
+        "resources": [
+          ["Sealevel", "https://docs.solana.com/developing/programming-model/overview"],
+          ["Block-STM", "https://aptos.dev/concepts/aptos-move/architecture#block-stm"]
+        ]
+      }
+    },
+    "Toolchains": { "blurb": "Compilers, linters, formatters, IDE support." }
+  },
+  "Oracles & Off-chain": {
+    "Price Feeds": { "blurb": "Reliable asset prices for DeFi protocols." },
+    "Compute Networks": { "blurb": "Off-chain tasks with verifiable outputs." },
+    "Randomness": {
+      "blurb": "Unbiasable randomness for lotteries/games.",
+      "sections": {
+        "why": "Many dApps need unpredictable numbers that on-chain logic alone cannot provide.",
+        "key": [
+          "Verifiable Random Functions (VRFs)",
+          "Threshold beacon networks like drand",
+          "Commit-reveal schemes for on-chain generation"
+        ],
+        "examples": [
+          "Chainlink VRF",
+          "drand public randomness beacon"
+        ],
+        "challenges": [
+          "Potential manipulation if sources collude",
+          "Costs for generating and verifying proofs"
+        ],
+        "resources": [
+          ["Chainlink VRF", "https://docs.chain.link/vrf/v2/introduction"],
+          ["drand", "https://drand.love/docs/"]
+        ]
+      }
+    },
+    "Bridge Security": { "blurb": "Economic security and multi-sig risks." },
+    "Data Integrity": { "blurb": "Signing, attestation, replay protection." }
+  },
+  "Standards & Interfaces": {
+    "ERC-20": { "blurb": "Fungible token interface for transfers/allowance." },
+    "ERC-721/1155": { "blurb": "Non-fungible and semi-fungible standards." },
+    "Permit/EIP-2612": {
+      "blurb": "Gasless approvals via signatures.",
+      "sections": {
+        "why": "Users can authorize token allowances with a signed message instead of an on-chain transaction.",
+        "key": [
+          "Signature includes spender, value, nonce, and deadline",
+          "Improves UX for meta-transactions and paymasters",
+          "Widely adopted by tokens like DAI and USDC"
+        ],
+        "examples": [
+          "Uniswap's Permit2 library",
+          "DAI's permit function"
+        ],
+        "challenges": [
+          "Requires wallets to support signing structured data",
+          "Replay protection and nonce management"
+        ],
+        "resources": [
+          ["EIP-2612", "https://eips.ethereum.org/EIPS/eip-2612"],
+          ["Permit2", "https://docs.uniswap.org/contracts/permit2/overview"]
+        ]
+      }
+    },
+    "Meta-Tx": { "blurb": "Relayers pay gas; better UX." },
+    "Composability": { "blurb": "Plug-and-play across protocols." }
+  },
   "Verification & Testing": [
     [
       "Unit/Property Tests",
