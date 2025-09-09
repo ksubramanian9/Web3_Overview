@@ -1667,72 +1667,377 @@
       }
     }
   },
-  "Non-Fungible Tokens (NFTs)": [
-    [
-      "Metadata",
-      "On/off-chain storage and mutability choices."
-    ],
-    [
-      "Royalties",
-      "Creator revenue models and enforcement."
-    ],
-    [
-      "Tickets/Access",
-      "Memberships and event passes."
-    ],
-    [
-      "Identity",
-      "Soulbound/attestation-style credentials."
-    ],
-    [
-      "RWAs",
-      "Tokenize property, collectibles, certificates."
-    ]
-  ],
-  "Stablecoins": [
-    [
-      "Fiat-Backed",
-      "Off-chain reserves and attestations."
-    ],
-    [
-      "Crypto-Collateral",
-      "Over-collateralized, on-chain transparency."
-    ],
-    [
-      "Algorithmic",
-      "Supply rules target a peg (high risk)."
-    ],
-    [
-      "Payment Rails",
-      "Low-cost global settlement."
-    ],
-    [
-      "Policy Risks",
-      "Regulatory oversight and bank integration."
-    ]
-  ],
-  "Treasury & DAOs": [
-    [
-      "Budgeting",
-      "Fund roadmaps, grants, and ops."
-    ],
-    [
-      "Diversification",
-      "Manage exposure and risk."
-    ],
-    [
-      "Transparency",
-      "On-chain accounting and dashboards."
-    ],
-    [
-      "Security",
-      "Multisigs, MPC, insurance coverage."
-    ],
-    [
-      "Compensation",
-      "Contributor rewards and vesting."
-    ]
-  ],
+  "Non-Fungible Tokens (NFTs)": {
+    "Metadata": {
+      "blurb": "On/off-chain storage and mutability choices.",
+      "sections": {
+        "why": "Metadata determines how NFT content is stored and updated.",
+        "key": [
+          "IPFS offers decentralized file storage",
+          "On-chain metadata ensures permanence at higher cost",
+          "Mutability choices affect authenticity"
+        ],
+        "examples": [
+          "Most ERC-721 tokens reference JSON on IPFS",
+          "Fully on-chain projects like Nouns"
+        ],
+        "challenges": [
+          "IPFS assets can disappear if not pinned",
+          "On-chain storage is expensive in gas"
+        ],
+        "resources": [
+          ["IPFS Docs", "https://docs.ipfs.tech/"],
+          ["Ethereum ERC-721 Metadata", "https://eips.ethereum.org/EIPS/eip-721"],
+          ["Nouns Project", "https://nouns.wtf/"]
+        ]
+      }
+    },
+    "Royalties": {
+      "blurb": "Creator revenue models and enforcement.",
+      "sections": {
+        "why": "Royalties aim to reward creators on secondary sales.",
+        "key": [
+          "ERC-2981 standardizes royalty info",
+          "Marketplaces may optionally honor royalties",
+          "On-chain enforcement can restrict transfers"
+        ],
+        "examples": [
+          "OpenSea and Blur marketplace policies",
+          "Manifold royalty registries"
+        ],
+        "challenges": [
+          "Off-chain trades can bypass royalties",
+          "Overly strict enforcement may reduce liquidity"
+        ],
+        "resources": [
+          ["ERC-2981: NFT Royalty Standard", "https://eips.ethereum.org/EIPS/eip-2981"],
+          ["Debates on NFT Royalties", "https://mirror.xyz/nftschool.eth/royalties"]
+        ]
+      }
+    },
+    "Tickets/Access": {
+      "blurb": "Memberships and event passes.",
+      "sections": {
+        "why": "NFTs can gate access to communities and events.",
+        "key": [
+          "Protocols like POAP and Unlock issue ticket NFTs",
+          "Token gating checks ownership for entry",
+          "Time-bound or revocable credentials"
+        ],
+        "examples": [
+          "POAP event badges",
+          "Unlock Protocol memberships"
+        ],
+        "challenges": [
+          "Preventing scalping or fraud",
+          "Handling lost wallets or refunds"
+        ],
+        "resources": [
+          ["POAP Docs", "https://docs.poap.xyz/"],
+          ["Unlock Protocol", "https://unlock-protocol.com/"]
+        ]
+      }
+    },
+    "Identity": {
+      "blurb": "Soulbound/attestation-style credentials.",
+      "sections": {
+        "why": "Non-transferable NFTs can represent reputation or identity.",
+        "key": [
+          "Soulbound tokens are permanently bound to wallets",
+          "Attestations link on-chain identity to off-chain credentials",
+          "ENS and similar names act as identifiers"
+        ],
+        "examples": [
+          "Gitcoin Passport",
+          "ENS domain ownership"
+        ],
+        "challenges": [
+          "Privacy vs transparency of identity data",
+          "Recovering identity after key loss"
+        ],
+        "resources": [
+          ["Soulbound Whitepaper", "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105763"],
+          ["ENS Docs", "https://docs.ens.domains/"]
+        ]
+      }
+    },
+    "RWAs": {
+      "blurb": "Tokenize property, collectibles, certificates.",
+      "sections": {
+        "why": "Real world assets bring off-chain items into Web3 markets.",
+        "key": [
+          "Tokens represent legal ownership or claims",
+          "Compliance requires KYC/AML and jurisdictional rules",
+          "Custody links digital token to physical asset"
+        ],
+        "examples": [
+          "RealT tokenized real estate",
+          "Tokenized gold or art certificates"
+        ],
+        "challenges": [
+          "Regulatory classification as securities",
+          "Ensuring asset backing and audits"
+        ],
+        "resources": [
+          ["RealT", "https://realt.co/"],
+          ["Guide to RWA Compliance", "https://a16zcrypto.com/posts/article/tokenizing-real-world-assets/"]
+        ]
+      }
+    }
+  },
+  "Stablecoins": {
+    "Fiat-Backed": {
+      "blurb": "Off-chain reserves and attestations.",
+      "sections": {
+        "why": "Trusted institutions hold assets to maintain a stable peg.",
+        "key": [
+          "Backed by cash and treasuries with regular attestations",
+          "Rely on banking partners for custody",
+          "Central issuers can freeze or blacklist funds"
+        ],
+        "examples": [
+          "USDC"
+        ],
+        "challenges": [
+          "Counterparty and regulatory risk",
+          "Requires audits and transparency",
+          "Dependence on banks for settlement"
+        ],
+        "resources": [
+          [
+            "Circle USDC Attestation Reports",
+            "https://www.circle.com/en/transparency"
+          ],
+          [
+            "NYDFS Stablecoin Guidance",
+            "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_stablecoin"
+          ]
+        ]
+      }
+    },
+    "Crypto-Collateral": {
+      "blurb": "Over-collateralized, on-chain transparency.",
+      "sections": {
+        "why": "Allows permissionless stablecoins without centralized custodians.",
+        "key": [
+          "Collateral locked in smart contracts secures the peg",
+          "Liquidation mechanisms protect solvency",
+          "Transparent reserves visible on-chain"
+        ],
+        "examples": [
+          "DAI"
+        ],
+        "challenges": [
+          "Over-collateralization hurts capital efficiency",
+          "Collateral volatility can trigger liquidations",
+          "Complex governance mechanisms"
+        ],
+        "resources": [
+          [
+            "MakerDAO Documentation",
+            "https://docs.makerdao.com/"
+          ],
+          [
+            "Understanding Collateralization Ratios",
+            "https://ethereum.org/en/developers/docs/smart-contracts/"]
+        ]
+      }
+    },
+    "Algorithmic": {
+      "blurb": "Supply rules target a peg (high risk).",
+      "sections": {
+        "why": "Aim for capital-efficient stability without collateral.",
+        "key": [
+          "Use seigniorage shares or rebasing mechanisms",
+          "Rely on market incentives to hold the peg",
+          "Often coupled with governance tokens"
+        ],
+        "examples": [
+          "UST collapse"
+        ],
+        "challenges": [
+          "Reflexive bank-run dynamics",
+          "Unproven long-term stability",
+          "Loss of peg can spiral to zero"
+        ],
+        "resources": [
+          [
+            "Terra Collapse Post-Mortem",
+            "https://medium.com/terra-money"
+          ],
+          [
+            "Stablecoin Design Considerations",
+            "https://vitalik.ca/general/2022/05/25/stable.html"
+          ]
+        ]
+      }
+    },
+    "Payment Rails": {
+      "blurb": "Low-cost global settlement.",
+      "sections": {
+        "why": "Stablecoins move across blockchains to settle value quickly and cheaply.",
+        "key": [
+          "Interoperable across networks and wallets",
+          "Enable cross-border transactions without intermediaries",
+          "Can integrate with existing payment processors"
+        ],
+        "examples": [
+          "USDC on Visa"
+        ],
+        "challenges": [
+          "Compliance with AML/KYC requirements",
+          "Bridge security and interoperability",
+          "Reliance on underlying network throughput"
+        ],
+        "resources": [
+          [
+            "Visa's USDC Settlement Pilot",
+            "https://usa.visa.com/visa-everywhere/blog/bdp/2021/03/29/visa-announces-first-1617030155.html"
+          ],
+          [
+            "Stellar USDC for Remittances",
+            "https://www.stellar.org/blog/introducing-usdc-on-the-stellar-network"
+          ]
+        ]
+      }
+    },
+    "Policy Risks": {
+      "blurb": "Regulatory oversight and bank integration.",
+      "sections": {
+        "why": "Legal frameworks and banking access shape stablecoin viability.",
+        "key": [
+          "Governments evaluate systemic risk and consumer protection",
+          "Licensing requirements affect issuance",
+          "Bank partnerships needed for redemption"
+        ],
+        "examples": [
+          "MiCA guidelines"
+        ],
+        "challenges": [
+          "Changing regulations across jurisdictions",
+          "Potential classification as deposits or securities",
+          "Bank de-risking and account closures"
+        ],
+        "resources": [
+          [
+            "EU MiCA Stablecoin Rules",
+            "https://www.europarl.europa.eu/doceo/document/TA-9-2023-0235_EN.html"
+          ],
+          [
+            "US President's Working Group Report on Stablecoins",
+            "https://home.treasury.gov/system/files/136/StableCoinReport_Nov1_508.pdf"
+          ]
+        ]
+      }
+    }
+  },
+  "Treasury & DAOs": {
+    "Budgeting": {
+      "why": "Plan funding for roadmaps, grants, and operations to sustain DAO initiatives.",
+      "key": [
+        "Forecast runway and recurring expenses",
+        "Allocate grants that grow the ecosystem",
+        "Use governance cycles to approve spend"
+      ],
+      "examples": [
+        "Uniswap Grants Program budgeting community development",
+        "Gitcoin quarterly budgets for public goods funding"
+      ],
+      "challenges": [
+        "Projecting revenues in volatile markets",
+        "Aligning community priorities with finite resources",
+        "Ensuring accountability for distributed funds"
+      ],
+      "resources": [
+        ["Aave DAO Transparency Report", "https://transparency.aave.com/"],
+        ["Uniswap Grants Program", "https://grants.uniswap.org/"]
+      ]
+    },
+    "Diversification": {
+      "why": "Reduce treasury volatility and improve long-term resilience.",
+      "key": [
+        "Balance stablecoins, native tokens, and yield strategies",
+        "Periodic rebalancing and dollar-cost averaging",
+        "Governance mandates for risk limits"
+      ],
+      "examples": [
+        "MakerDAO allocating real-world assets for stable yield",
+        "Lido DAO diversifying ETH holdings into stETH and stablecoins"
+      ],
+      "challenges": [
+        "Liquidity constraints during market stress",
+        "Coordinating multi-asset management through governance",
+        "Smart contract and counterparty risk from new instruments"
+      ],
+      "resources": [
+        ["MakerDAO Treasury Diversification Discussion", "https://forum.makerdao.com/"],
+        ["Llama Treasury Diversification Guide", "https://docs.llama.xyz/"]
+      ]
+    },
+    "Transparency": {
+      "why": "Open financials build community trust and accountability.",
+      "key": [
+        "On-chain accounting of inflows and outflows",
+        "Public dashboards and periodic reporting",
+        "Clear disclosure of treasury policies"
+      ],
+      "examples": [
+        "ENS DAO publishing treasury data on OpenOrg",
+        "Nansen dashboards tracking DAO treasury movements"
+      ],
+      "challenges": [
+        "Aggregating multi-chain and off-chain assets",
+        "Balancing privacy with radical transparency",
+        "Keeping data feeds accurate and up to date"
+      ],
+      "resources": [
+        ["OpenOrg ENS Dashboard", "https://openorgs.info/ens"],
+        ["Nansen DAO Treasury Tracker", "https://www.nansen.ai/"]
+      ]
+    },
+    "Security": {
+      "why": "Protect communal funds from exploits and operational errors.",
+      "key": [
+        "Multisig or MPC custody with hardware wallets",
+        "Audited treasury contracts and access controls",
+        "Insurance or circuit breakers for catastrophic events"
+      ],
+      "examples": [
+        "Gnosis Safe multisigs guarding DAO treasuries",
+        "Nexus Mutual cover for treasury smart contracts"
+      ],
+      "challenges": [
+        "Signer key compromise or loss",
+        "Coordinating timely approvals without centralization",
+        "Evolving attack vectors on treasury infrastructure"
+      ],
+      "resources": [
+        ["Gnosis Safe Documentation", "https://docs.safe.global/"],
+        ["OpenZeppelin Security Audits", "https://blog.openzeppelin.com/security-audits/"]
+      ]
+    },
+    "Compensation": {
+      "why": "Reward contributors and align incentives for long-term participation.",
+      "key": [
+        "Mix of stablecoins and native tokens",
+        "Vesting schedules or streaming payments",
+        "Retroactive rewards for measurable impact"
+      ],
+      "examples": [
+        "BanklessDAO using Coordinape for peer compensation",
+        "Optimism's RetroPGF rewarding past contributors"
+      ],
+      "challenges": [
+        "Token price volatility affecting pay",
+        "Determining fair market rates across roles",
+        "Regulatory and tax uncertainty for recipients"
+      ],
+      "resources": [
+        ["Coordinape Contributor Rewards", "https://coordinape.com/"],
+        ["BanklessDAO Compensation Framework", "https://gov.bankless.community/"]
+      ]
+    }
+  },
   "Incentives & Game Theory": {
     "Staking": {
       "why": "Secures proof-of-stake networks by bonding capital that can be slashed for misbehavior.",
