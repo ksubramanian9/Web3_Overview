@@ -1689,28 +1689,152 @@
       "Tokenize property, collectibles, certificates."
     ]
   ],
-  "Stablecoins": [
-    [
-      "Fiat-Backed",
-      "Off-chain reserves and attestations."
-    ],
-    [
-      "Crypto-Collateral",
-      "Over-collateralized, on-chain transparency."
-    ],
-    [
-      "Algorithmic",
-      "Supply rules target a peg (high risk)."
-    ],
-    [
-      "Payment Rails",
-      "Low-cost global settlement."
-    ],
-    [
-      "Policy Risks",
-      "Regulatory oversight and bank integration."
-    ]
-  ],
+  "Stablecoins": {
+    "Fiat-Backed": {
+      "blurb": "Off-chain reserves and attestations.",
+      "sections": {
+        "why": "Trusted institutions hold assets to maintain a stable peg.",
+        "key": [
+          "Backed by cash and treasuries with regular attestations",
+          "Rely on banking partners for custody",
+          "Central issuers can freeze or blacklist funds"
+        ],
+        "examples": [
+          "USDC"
+        ],
+        "challenges": [
+          "Counterparty and regulatory risk",
+          "Requires audits and transparency",
+          "Dependence on banks for settlement"
+        ],
+        "resources": [
+          [
+            "Circle USDC Attestation Reports",
+            "https://www.circle.com/en/transparency"
+          ],
+          [
+            "NYDFS Stablecoin Guidance",
+            "https://www.dfs.ny.gov/industry_guidance/industry_letters/il20220608_stablecoin"
+          ]
+        ]
+      }
+    },
+    "Crypto-Collateral": {
+      "blurb": "Over-collateralized, on-chain transparency.",
+      "sections": {
+        "why": "Allows permissionless stablecoins without centralized custodians.",
+        "key": [
+          "Collateral locked in smart contracts secures the peg",
+          "Liquidation mechanisms protect solvency",
+          "Transparent reserves visible on-chain"
+        ],
+        "examples": [
+          "DAI"
+        ],
+        "challenges": [
+          "Over-collateralization hurts capital efficiency",
+          "Collateral volatility can trigger liquidations",
+          "Complex governance mechanisms"
+        ],
+        "resources": [
+          [
+            "MakerDAO Documentation",
+            "https://docs.makerdao.com/"
+          ],
+          [
+            "Understanding Collateralization Ratios",
+            "https://ethereum.org/en/developers/docs/smart-contracts/"]
+        ]
+      }
+    },
+    "Algorithmic": {
+      "blurb": "Supply rules target a peg (high risk).",
+      "sections": {
+        "why": "Aim for capital-efficient stability without collateral.",
+        "key": [
+          "Use seigniorage shares or rebasing mechanisms",
+          "Rely on market incentives to hold the peg",
+          "Often coupled with governance tokens"
+        ],
+        "examples": [
+          "UST collapse"
+        ],
+        "challenges": [
+          "Reflexive bank-run dynamics",
+          "Unproven long-term stability",
+          "Loss of peg can spiral to zero"
+        ],
+        "resources": [
+          [
+            "Terra Collapse Post-Mortem",
+            "https://medium.com/terra-money"
+          ],
+          [
+            "Stablecoin Design Considerations",
+            "https://vitalik.ca/general/2022/05/25/stable.html"
+          ]
+        ]
+      }
+    },
+    "Payment Rails": {
+      "blurb": "Low-cost global settlement.",
+      "sections": {
+        "why": "Stablecoins move across blockchains to settle value quickly and cheaply.",
+        "key": [
+          "Interoperable across networks and wallets",
+          "Enable cross-border transactions without intermediaries",
+          "Can integrate with existing payment processors"
+        ],
+        "examples": [
+          "USDC on Visa"
+        ],
+        "challenges": [
+          "Compliance with AML/KYC requirements",
+          "Bridge security and interoperability",
+          "Reliance on underlying network throughput"
+        ],
+        "resources": [
+          [
+            "Visa's USDC Settlement Pilot",
+            "https://usa.visa.com/visa-everywhere/blog/bdp/2021/03/29/visa-announces-first-1617030155.html"
+          ],
+          [
+            "Stellar USDC for Remittances",
+            "https://www.stellar.org/blog/introducing-usdc-on-the-stellar-network"
+          ]
+        ]
+      }
+    },
+    "Policy Risks": {
+      "blurb": "Regulatory oversight and bank integration.",
+      "sections": {
+        "why": "Legal frameworks and banking access shape stablecoin viability.",
+        "key": [
+          "Governments evaluate systemic risk and consumer protection",
+          "Licensing requirements affect issuance",
+          "Bank partnerships needed for redemption"
+        ],
+        "examples": [
+          "MiCA guidelines"
+        ],
+        "challenges": [
+          "Changing regulations across jurisdictions",
+          "Potential classification as deposits or securities",
+          "Bank de-risking and account closures"
+        ],
+        "resources": [
+          [
+            "EU MiCA Stablecoin Rules",
+            "https://www.europarl.europa.eu/doceo/document/TA-9-2023-0235_EN.html"
+          ],
+          [
+            "US President's Working Group Report on Stablecoins",
+            "https://home.treasury.gov/system/files/136/StableCoinReport_Nov1_508.pdf"
+          ]
+        ]
+      }
+    }
+  },
   "Treasury & DAOs": [
     [
       "Budgeting",
