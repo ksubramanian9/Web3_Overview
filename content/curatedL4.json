@@ -1432,28 +1432,123 @@
       }
     }
   },
-  "Upgradeability & Patterns": [
-    [
-      "Proxy Pattern",
-      "Separate logic and storage for upgrades."
-    ],
-    [
-      "Governance Gates",
-      "Timelocks and voting for changes."
-    ],
-    [
-      "Migration Plans",
-      "Safely move funds/state to new versions."
-    ],
-    [
-      "Modularity",
-      "Composable components reduce risk."
-    ],
-    [
-      "Backward Compat",
-      "Avoid breaking dependents."
-    ]
-  ],
+  "Upgradeability & Patterns": {
+    "Proxy Pattern": {
+      "blurb": "Separate logic and storage for upgrades.",
+      "sections": {
+        "why": "Allows contracts to evolve while preserving state.",
+        "key": [
+          "Delegate calls route logic while keeping storage",
+          "UUPS and transparent proxies dominate design",
+          "Libraries like OpenZeppelin streamline deployment"
+        ],
+        "examples": [
+          "UUPS proxy",
+          "OpenZeppelin proxy contracts"
+        ],
+        "challenges": [
+          "Storage layout clashes can brick upgrades",
+          "Uninitialized proxies open upgrade backdoors"
+        ],
+        "resources": [
+          ["OpenZeppelin Upgradeable Contracts", "https://docs.openzeppelin.com/contracts/4.x/upgradeable"],
+          ["EIP-1822: UUPS", "https://eips.ethereum.org/EIPS/eip-1822"]
+        ]
+      }
+    },
+    "Governance Gates": {
+      "blurb": "Timelocks and voting for changes.",
+      "sections": {
+        "why": "Upgrades require community consent and delay for review.",
+        "key": [
+          "Timelock contracts queue actions",
+          "On-chain voting authorizes upgrades",
+          "Emergency pause or veto mechanisms"
+        ],
+        "examples": [
+          "Compound's Governor Bravo",
+          "MakerDAO executive votes"
+        ],
+        "challenges": [
+          "Voter apathy slowing urgent fixes",
+          "Governance capture or low participation"
+        ],
+        "resources": [
+          ["Compound Governance", "https://compound.finance/governance"],
+          ["MakerDAO Governance", "https://docs.makerdao.com/governance/" ]
+        ]
+      }
+    },
+    "Migration Plans": {
+      "blurb": "Safely move funds/state to new versions.",
+      "sections": {
+        "why": "Critical when deprecating contracts or upgrading architectures.",
+        "key": [
+          "Design exit hooks and upgrade adapters",
+          "Audit data transfers and invariants",
+          "Communicate timelines to users"
+        ],
+        "examples": [
+          "Aave v2 to v3 migration tools",
+          "Uniswap v2 liquidity migration"
+        ],
+        "challenges": [
+          "User funds stranded if scripts fail",
+          "Upgrade scripts can miss edge cases"
+        ],
+        "resources": [
+          ["Aave Migration Guide", "https://docs.aave.com/developers/v/2.0/guides/migration"],
+          ["Uniswap Migration", "https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/migration" ]
+        ]
+      }
+    },
+    "Modularity": {
+      "blurb": "Composable components reduce risk.",
+      "sections": {
+        "why": "Breaking systems into modules isolates failures and eases upgrades.",
+        "key": [
+          "Shared libraries and facets encapsulate logic",
+          "Standard interfaces ease swapping modules",
+          "Encourages reuse of battle-tested code"
+        ],
+        "examples": [
+          "EIP-2535 Diamond pattern",
+          "Plugin-based architectures"
+        ],
+        "challenges": [
+          "Cross-module dependencies introduce complexity",
+          "Version skew between modules"
+        ],
+        "resources": [
+          ["EIP-2535 Diamonds", "https://eips.ethereum.org/EIPS/eip-2535"],
+          ["Modular Smart Contracts", "https://blog.openzeppelin.com/the-state-of-smart-contract-upgrades" ]
+        ]
+      }
+    },
+    "Backward Compat": {
+      "blurb": "Avoid breaking dependents.",
+      "sections": {
+        "why": "Stable interfaces preserve ecosystem integrations.",
+        "key": [
+          "Maintain old function signatures",
+          "Provide shims for deprecated behavior",
+          "Version contracts to signal changes"
+        ],
+        "examples": [
+          "ERC-20 interface across upgrades",
+          "ENS registrar migrations"
+        ],
+        "challenges": [
+          "Technical debt from legacy support",
+          "Confusion over multiple active versions"
+        ],
+        "resources": [
+          ["ERC-20 Standard", "https://eips.ethereum.org/EIPS/eip-20"],
+          ["ENS Contract Upgrades", "https://docs.ens.domains/ens-improvement-proposals"]
+        ]
+      }
+    }
+  },
   "Fungible Tokens": [
     [
       "Utility",
