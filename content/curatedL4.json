@@ -734,28 +734,158 @@
       }
     }
   },
-  "Layer-1 Blockchains": [
-    [
-      "Execution",
-      "How transactions run (EVM, WASM, parallelism)."
-    ],
-    [
-      "Data Availability",
-      "Guarantee that block data is retrievable."
-    ],
-    [
-      "Finality",
-      "Economic or probabilistic guarantees of permanence."
-    ],
-    [
-      "Client Diversity",
-      "Multiple implementations reduce correlated bugs."
-    ],
-    [
-      "Token Utility",
-      "Fee, staking, governance use for native token."
-    ]
-  ],
+  "Layer-1 Blockchains": {
+    "Execution": {
+      "why": "How transactions run (EVM, WASM, parallelism).",
+      "key": [
+        "Defines the environment where smart contracts run",
+        "EVM uses a 256-bit stack machine; WASM offers near-native performance",
+        "Parallel runtimes like Solana's Sealevel increase throughput"
+      ],
+      "examples": [
+        "EVM smart contracts on Ethereum",
+        "Polkadot's WASM runtime",
+        "Solana's Sealevel parallel execution"
+      ],
+      "challenges": [
+        "Maintaining deterministic behavior across different virtual machines",
+        "Balancing performance with developer ergonomics"
+      ],
+      "resources": [
+        [
+          "Ethereum EVM Overview",
+          "https://ethereum.org/en/developers/docs/evm/"
+        ],
+        [
+          "Solana Sealevel Runtime",
+          "https://docs.solana.com/architecture/sealevel"
+        ],
+        [
+          "Polkadot WASM Guide",
+          "https://wiki.polkadot.network/docs/learn-wasm"
+        ]
+      ]
+    },
+    "Data Availability": {
+      "why": "Guarantee that block data is retrievable.",
+      "key": [
+        "Ensures all participants can access transaction data",
+        "Vital for fraud proofs and rollup security",
+        "Techniques include erasure coding and sampling"
+      ],
+      "examples": [
+        "Ethereum proto-danksharding blobs",
+        "Celestia modular data availability layer",
+        "NEAR sharded data scheme"
+      ],
+      "challenges": [
+        "Scaling data availability while keeping nodes lightweight",
+        "Ensuring honest majority for data availability sampling"
+      ],
+      "resources": [
+        [
+          "Ethereum Data Availability Docs",
+          "https://ethereum.org/en/developers/docs/data-availability/"
+        ],
+        [
+          "Celestia Concepts",
+          "https://docs.celestia.org/concepts/overview/"
+        ],
+        [
+          "NEAR Sharding Design",
+          "https://near.org/papers/nightshade/"
+        ]
+      ]
+    },
+    "Finality": {
+      "why": "Economic or probabilistic guarantees of permanence.",
+      "key": [
+        "Determines when a block becomes irreversible",
+        "Can be economic (slashing) or probabilistic (PoW confirmations)",
+        "Impacts user confidence and transaction latency"
+      ],
+      "examples": [
+        "Tendermint instant finality",
+        "Ethereum Casper FFG",
+        "Bitcoin probabilistic finality"
+      ],
+      "challenges": [
+        "Balancing fast confirmation times with security",
+        "Handling network partitions and long-range attacks"
+      ],
+      "resources": [
+        [
+          "Ethereum Consensus Specs",
+          "https://github.com/ethereum/consensus-specs"
+        ],
+        [
+          "Tendermint BFT Consensus",
+          "https://docs.tendermint.com/master/spec/consensus/consensus.html"
+        ],
+        [
+          "Bitcoin Whitepaper",
+          "https://bitcoin.org/bitcoin.pdf"
+        ]
+      ]
+    },
+    "Client Diversity": {
+      "why": "Multiple implementations reduce correlated bugs.",
+      "key": [
+        "Mitigates single points of failure in consensus code",
+        "Encourages cross-validation among implementations",
+        "Reduces risk from latent bugs in dominant client"
+      ],
+      "examples": [
+        "Ethereum clients like Geth, Prysm, and Lighthouse",
+        "Bitcoin Core and btcd implementations"
+      ],
+      "challenges": [
+        "Maintaining feature parity across clients",
+        "Risk of majority dependence on a single client"
+      ],
+      "resources": [
+        [
+          "Ethereum Client Diversity Initiative",
+          "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+        ],
+        [
+          "Client Diversity Statistics",
+          "https://clientdiversity.org"
+        ]
+      ]
+    },
+    "Token Utility": {
+      "why": "Fee, staking, governance use for native token.",
+      "key": [
+        "Native token pays for execution and storage",
+        "Staking locks tokens to secure consensus",
+        "Governance uses tokens for protocol upgrades"
+      ],
+      "examples": [
+        "ETH for gas and staking",
+        "ATOM for staking and governance",
+        "SOL for fees and rent"
+      ],
+      "challenges": [
+        "Designing sustainable value accrual",
+        "Mitigating speculative volatility that can affect security"
+      ],
+      "resources": [
+        [
+          "Ethereum Tokenomics",
+          "https://ethereum.org/en/eth/"
+        ],
+        [
+          "Cosmos Hub Token Model",
+          "https://docs.cosmos.network/main/architecture/tokens"
+        ],
+        [
+          "Solana Fees and Rent",
+          "https://docs.solana.com/cluster/fees"
+        ]
+      ]
+    }
+  },
   "Layer-2 Scalability": [
     [
       "Optimistic Rollups",
