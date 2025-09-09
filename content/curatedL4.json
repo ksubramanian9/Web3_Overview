@@ -1194,10 +1194,111 @@
         ]
       }
     },
-    "Filecoin/Economics": { "blurb": "Markets that pay for durable storage." },
-    "Indexing/Subgraphs": { "blurb": "Queryable views for dApps." },
-    "Data Availability Layers": { "blurb": "Specialized chains for blob/data posting." },
-    "Privacy Layers": { "blurb": "Encrypted storage and access control." }
+    "Filecoin/Economics": {
+      "blurb": "Markets that pay for durable storage.",
+      "sections": {
+        "why": "Cryptoeconomic design coordinates storage providers and clients so data persists in a verifiable marketplace.",
+        "key": [
+          "Storage miners pledge collateral and earn FIL for keeping data available",
+          "Market-based deals set price and duration for storage",
+          "Proof-of-Replication and Proof-of-Spacetime verify continuous storage",
+          "Penalties and block rewards align incentives for reliability"
+        ],
+        "examples": [
+          "Web3.Storage",
+          "NFT.Storage",
+          "Estuary"
+        ],
+        "challenges": [
+          "Price volatility and deal market fluctuations",
+          "Ensuring long-term retrieval availability",
+          "Operational costs for hardware and collateral"
+        ],
+        "resources": [
+          ["Filecoin Whitepaper", "https://filecoin.io/filecoin.pdf"],
+          ["Filecoin Economics Overview", "https://docs.filecoin.io/about-filecoin/how-filecoin-works/#cryptoeconomics"]
+        ]
+      }
+    },
+    "Indexing/Subgraphs": {
+      "blurb": "Queryable views for dApps.",
+      "sections": {
+        "why": "Indexing layers transform raw blockchain events into queryable datasets so applications can access structured data efficiently.",
+        "key": [
+          "Subgraph manifests define how contracts map to entities",
+          "Indexers process chain data and serve GraphQL queries",
+          "Decentralized networks reward indexers and curators",
+          "Versioning allows upgrades without breaking queries"
+        ],
+        "examples": [
+          "The Graph Network",
+          "SubQuery",
+          "Goldsky"
+        ],
+        "challenges": [
+          "Handling chain reorgs and data consistency",
+          "High indexing costs for large histories",
+          "Schema changes requiring redeployment"
+        ],
+        "resources": [
+          ["The Graph Docs", "https://thegraph.com/docs"],
+          ["SubQuery Academy", "https://academy.subquery.network"]
+        ]
+      }
+    },
+    "Data Availability Layers": {
+      "blurb": "Specialized chains for blob/data posting.",
+      "sections": {
+        "why": "Dedicated data availability layers let rollups post transaction data cheaply while preserving security for verification.",
+        "key": [
+          "Provide cheap blobs for rollup transaction data",
+          "Use erasure coding and sampling to ensure availability",
+          "Scale throughput by offloading data from L1 chains",
+          "Serve multiple rollups across ecosystems"
+        ],
+        "examples": [
+          "Celestia",
+          "EigenDA",
+          "Avail"
+        ],
+        "challenges": [
+          "Coordinating validator incentives for data retention",
+          "Ensuring light clients can verify availability",
+          "Integrating with diverse rollup architectures"
+        ],
+        "resources": [
+          ["Celestia Docs", "https://docs.celestia.org"],
+          ["EigenDA Overview", "https://docs.eigenlayer.xyz/eigenda"]
+        ]
+      }
+    },
+    "Privacy Layers": {
+      "blurb": "Encrypted storage and access control.",
+      "sections": {
+        "why": "Privacy layers secure stored data with encryption and fine-grained access control, enabling confidential interactions on open networks.",
+        "key": [
+          "Encrypt data and distribute re-encryption keys",
+          "Use threshold or attribute-based access control",
+          "Leverage zero-knowledge proofs for private data sharing",
+          "Integrate with decentralized identity systems"
+        ],
+        "examples": [
+          "Threshold Network (NuCypher)",
+          "Lit Protocol",
+          "Secret Network"
+        ],
+        "challenges": [
+          "Complex key management and user onboarding",
+          "Balancing privacy with compliance requirements",
+          "Performance overhead from encryption and proofs"
+        ],
+        "resources": [
+          ["Threshold Network Docs", "https://docs.threshold.network"],
+          ["Lit Protocol Docs", "https://developer.litprotocol.com"],
+          ["Secret Network Docs", "https://docs.scrt.network"]
+        ]
+      }
+    }
   },
   "Networking & Nodes": {
     "P2P Gossip": { "blurb": "Propagate blocks/tx quickly and reliably." },
