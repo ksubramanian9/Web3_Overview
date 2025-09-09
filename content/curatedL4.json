@@ -1315,28 +1315,123 @@
     "Meta-Tx": { "blurb": "Relayers pay gas; better UX." },
     "Composability": { "blurb": "Plug-and-play across protocols." }
   },
-  "Verification & Testing": [
-    [
-      "Unit/Property Tests",
-      "Check behavior and invariants."
-    ],
-    [
-      "Fuzzing",
-      "Generate random inputs to find edge cases."
-    ],
-    [
-      "Symbolic Exec",
-      "Explore paths mathematically for bugs."
-    ],
-    [
-      "Formal Proofs",
-      "Machine-checked correctness proofs."
-    ],
-    [
-      "Runtime Guards",
-      "Circuit breakers, pause switches, rate limits."
-    ]
-  ],
+  "Verification & Testing": {
+    "Unit/Property Tests": {
+      "blurb": "Check behavior and invariants.",
+      "sections": {
+        "why": "Tests assert contract behavior and invariants before deployment.",
+        "key": [
+          "Use frameworks like Hardhat or Foundry",
+          "Cover edge cases and failure paths",
+          "Run in automated CI"
+        ],
+        "examples": [
+          "Hardhat test suite",
+          "Foundry Forge tests"
+        ],
+        "challenges": [
+          "Maintaining coverage as code evolves",
+          "Tests may not reflect mainnet conditions"
+        ],
+        "resources": [
+          ["Hardhat Testing", "https://hardhat.org/hardhat-runner/docs/guides/test-contracts"],
+          ["Foundry Forge", "https://book.getfoundry.sh/reference/forge/forge-test"]
+        ]
+      }
+    },
+    "Fuzzing": {
+      "blurb": "Generate random inputs to find edge cases.",
+      "sections": {
+        "why": "Randomized inputs uncover unexpected behavior.",
+        "key": [
+          "Define invariants to check",
+          "Run fuzzers like Echidna",
+          "Analyze failing cases"
+        ],
+        "examples": [
+          "Echidna campaigns",
+          "Foundry fuzz tests"
+        ],
+        "challenges": [
+          "Complex state spaces",
+          "Reproducing fuzz discoveries"
+        ],
+        "resources": [
+          ["Echidna", "https://github.com/crytic/echidna"],
+          ["Foundry Fuzzing", "https://book.getfoundry.sh/forge/fuzz-testing"]
+        ]
+      }
+    },
+    "Symbolic Exec": {
+      "blurb": "Explore paths mathematically for bugs.",
+      "sections": {
+        "why": "Symbolically explores code paths to detect vulnerabilities.",
+        "key": [
+          "Model contract execution",
+          "Leverage solvers for path exploration",
+          "Interpret reports"
+        ],
+        "examples": [
+          "MythX analysis",
+          "Manticore symbolic executor"
+        ],
+        "challenges": [
+          "Path explosion",
+          "False positives requiring triage"
+        ],
+        "resources": [
+          ["MythX", "https://mythx.io/"],
+          ["Manticore", "https://github.com/trailofbits/manticore"]
+        ]
+      }
+    },
+    "Formal Proofs": {
+      "blurb": "Machine-checked correctness proofs.",
+      "sections": {
+        "why": "Mathematically prove contract correctness.",
+        "key": [
+          "Write precise specifications",
+          "Use provers or model checkers",
+          "Integrate proofs into development"
+        ],
+        "examples": [
+          "Certora Prover",
+          "Coq verification"
+        ],
+        "challenges": [
+          "Requires expertise and time",
+          "Specs may be incomplete"
+        ],
+        "resources": [
+          ["Certora", "https://www.certora.com/"],
+          ["Coq", "https://coq.inria.fr/"]
+        ]
+      }
+    },
+    "Runtime Guards": {
+      "blurb": "Circuit breakers, pause switches, rate limits.",
+      "sections": {
+        "why": "Protect contracts from unexpected conditions in production.",
+        "key": [
+          "Implement pausable or circuit breakers",
+          "Monitor transactions and limits",
+          "Use services like Defender for automated responses"
+        ],
+        "examples": [
+          "OpenZeppelin Pausable",
+          "Compound Pause Guardian"
+        ],
+        "challenges": [
+          "Potential centralization of control",
+          "Must react quickly to incidents"
+        ],
+        "resources": [
+          ["OpenZeppelin Pausable", "https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable"],
+          ["OpenZeppelin Defender", "https://www.openzeppelin.com/defender"]
+        ]
+      }
+    }
+  },
   "Upgradeability & Patterns": [
     [
       "Proxy Pattern",
