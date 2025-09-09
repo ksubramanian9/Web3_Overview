@@ -1301,7 +1301,30 @@
     }
   },
   "Networking & Nodes": {
-    "P2P Gossip": { "blurb": "Propagate blocks/tx quickly and reliably." },
+    "P2P Gossip": {
+      "blurb": "Propagate blocks/tx quickly and reliably.",
+      "sections": {
+        "why": "Gossip protocols spread blocks and transactions to keep peers in sync and maintain consensus.",
+        "key": [
+          "Protocols like gossipsub or devp2p relay messages",
+          "Handle peer churn and network partitions",
+          "Optimize bandwidth with filtering and compression"
+        ],
+        "examples": [
+          "libp2p gossipsub",
+          "go-ethereum devp2p"
+        ],
+        "challenges": [
+          "Mitigating spam and DoS attacks",
+          "Ensuring fast propagation without centralization",
+          "Recovering from network splits"
+        ],
+        "resources": [
+          ["libp2p gossipsub spec", "https://docs.libp2p.io/concepts/publish-subscribe/"],
+          ["Ethereum devp2p protocol", "https://ethereum.org/en/developers/docs/networking-layer/"]
+        ]
+      }
+    },
     "Light Clients": {
       "blurb": "Verify with minimal resources (SPV/ZK-LC).",
       "sections": {
@@ -1325,9 +1348,78 @@
         ]
       }
     },
-    "Validator Ops": { "blurb": "Uptime, monitoring, backups, key safety." },
-    "RPC & Infra": { "blurb": "Gateways, rate limits, and decentralization." },
-    "Observability": { "blurb": "Mempool, logs, metrics, and alerts." }
+    "Validator Ops": {
+      "blurb": "Uptime, monitoring, backups, key safety.",
+      "sections": {
+        "why": "Validators secure networks and earn rewards, demanding reliable infrastructure and safeguarded keys.",
+        "key": [
+          "Maintain high uptime with redundant setups",
+          "Monitor performance and slashing conditions",
+          "Use hardware wallets or remote signers for key security"
+        ],
+        "examples": [
+          "Prysm Ethereum validator client",
+          "Lighthouse validator client"
+        ],
+        "challenges": [
+          "Risk of slashing from misconfigured nodes",
+          "Operational complexity during upgrades and forks",
+          "Hardware or connectivity failures"
+        ],
+        "resources": [
+          ["Prysm validator docs", "https://docs.prylabs.network/docs/how-prysm-works/validator/"],
+          ["Lighthouse book", "https://lighthouse-book.sigmaprime.io/validator-management.html"]
+        ]
+      }
+    },
+    "RPC & Infra": {
+      "blurb": "Gateways, rate limits, and decentralization.",
+      "sections": {
+        "why": "Applications interact with chains through RPC endpoints that expose node data and transaction submission.",
+        "key": [
+          "Provide scalable gateways with load balancing",
+          "Cache frequent queries and implement rate limits",
+          "Leverage decentralized providers to avoid single points of failure"
+        ],
+        "examples": [
+          "Infura Ethereum API",
+          "Pocket Network decentralized RPC"
+        ],
+        "challenges": [
+          "Outages or throttling impacting dApps",
+          "Centralization from reliance on few providers",
+          "Protecting endpoints from abuse"
+        ],
+        "resources": [
+          ["Infura docs", "https://docs.infura.io"],
+          ["Pocket Network docs", "https://docs.pokt.network"]
+        ]
+      }
+    },
+    "Observability": {
+      "blurb": "Mempool, logs, metrics, and alerts.",
+      "sections": {
+        "why": "Operators need insight into node health and network activity to react to issues quickly.",
+        "key": [
+          "Expose metrics like peers, block times, and resource usage",
+          "Track mempool and log events for anomalies",
+          "Configure alerts for downtime or slashing risks"
+        ],
+        "examples": [
+          "Prometheus & Grafana dashboards",
+          "Blocknative mempool explorer"
+        ],
+        "challenges": [
+          "Managing high volumes of telemetry data",
+          "Identifying issues before they affect consensus",
+          "Aggregating logs from diverse clients"
+        ],
+        "resources": [
+          ["Prometheus monitoring", "https://prometheus.io"],
+          ["Blocknative mempool docs", "https://docs.blocknative.com/mempool-explorer"]
+        ]
+      }
+    }
   },
   "Languages & VMs": {
     "Type Safety": { "blurb": "Catch bugs earlier; avoid foot-guns." },
