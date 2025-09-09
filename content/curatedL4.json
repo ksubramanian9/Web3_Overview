@@ -1422,9 +1422,76 @@
     }
   },
   "Languages & VMs": {
-    "Type Safety": { "blurb": "Catch bugs earlier; avoid foot-guns." },
-    "Gas Model": { "blurb": "Meter computation/storage to prevent abuse." },
-    "WASM Runtimes": { "blurb": "Multi-language smart contracts via WASM." },
+      "Type Safety": {
+        "blurb": "Catch bugs earlier; avoid foot-guns.",
+        "sections": {
+          "why": "Strong type systems prevent entire classes of runtime bugs in smart contracts.",
+          "key": [
+            "Static analysis catches mismatched types before deployment",
+            "Ownership and borrowing rules in languages like Rust avoid memory corruption",
+            "Resource types in Move enforce single-use digital assets"
+          ],
+          "examples": [
+            "Rust's borrow checker for safe smart contract modules",
+            "Move's linear types for assets"
+          ],
+          "challenges": [
+            "Steeper learning curve for developers",
+            "Limited flexibility compared to dynamically typed languages"
+          ],
+          "resources": [
+            ["The Rust Book", "https://doc.rust-lang.org/book/"],
+            ["Move Language Documentation", "https://move-language.github.io/move/"]
+          ]
+        }
+      },
+      "Gas Model": {
+        "blurb": "Meter computation/storage to prevent abuse.",
+        "sections": {
+          "why": "Gas accounting allocates scarce computation and storage while deterring denial-of-service.",
+          "key": [
+            "Every opcode and storage write has a cost measured in gas or compute units",
+            "Per-transaction and per-block limits cap resource usage",
+            "Refunds and pricing schedules balance network demand"
+          ],
+          "examples": [
+            "Ethereum's EVM gas schedule and block gas limit",
+            "Solana compute unit metering"
+          ],
+          "challenges": [
+            "Estimating costs for complex transactions",
+            "Changing schedules require tooling updates"
+          ],
+          "resources": [
+            ["Ethereum Yellow Paper", "https://ethereum.github.io/yellowpaper/paper.pdf"],
+            ["Solana Compute Budget Docs", "https://docs.solana.com/developing/programming-model/runtime#compute-budget"]
+          ]
+        }
+      },
+      "WASM Runtimes": {
+        "blurb": "Multi-language smart contracts via WASM.",
+        "sections": {
+          "why": "WebAssembly enables developers to write smart contracts in familiar languages and compile to a portable bytecode.",
+          "key": [
+            "Rust, AssemblyScript, and other languages compile to deterministic WASM",
+            "Host runtimes expose system calls for blockchain state and cryptography",
+            "Sandboxed execution isolates contract code from the node"
+          ],
+          "examples": [
+            "CosmWasm for the Cosmos SDK",
+            "Polkadot/Substrate's WASM runtime"
+          ],
+          "challenges": [
+            "Ensuring determinism across compilers",
+            "Tooling maturity for non-Rust languages"
+          ],
+          "resources": [
+            ["CosmWasm Docs", "https://docs.cosmwasm.com"],
+            ["Substrate Developer Hub", "https://docs.substrate.io"],
+            ["AssemblyScript", "https://www.assemblyscript.org"]
+          ]
+        }
+      },
     "Parallel Execution": {
       "blurb": "Increase throughput with safe concurrency.",
       "sections": {
@@ -1448,7 +1515,30 @@
         ]
       }
     },
-    "Toolchains": { "blurb": "Compilers, linters, formatters, IDE support." }
+      "Toolchains": {
+        "blurb": "Compilers, linters, formatters, IDE support.",
+        "sections": {
+          "why": "Robust toolchains accelerate development and reduce bugs through automated checks.",
+          "key": [
+            "Language servers and IDE plugins assist with autocompletion and diagnostics",
+            "Linters and formatters enforce style and catch common mistakes",
+            "Testing and verification frameworks validate contract logic"
+          ],
+          "examples": [
+            "Rust's cargo and clippy for WASM contracts",
+            "Foundry and Hardhat for Solidity/EVM development"
+          ],
+          "challenges": [
+            "Keeping tools up to date with protocol changes",
+            "Fragmentation across languages and ecosystems"
+          ],
+          "resources": [
+            ["Rust Cargo Book", "https://doc.rust-lang.org/cargo/"],
+            ["Foundry Book", "https://book.getfoundry.sh/"],
+            ["Hardhat Documentation", "https://hardhat.org/docs"]
+          ]
+        }
+      }
   },
   "Oracles & Off-chain": {
     "Price Feeds": { "blurb": "Reliable asset prices for DeFi protocols." },
