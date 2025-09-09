@@ -1931,29 +1931,113 @@
       }
     }
   },
-
-  "Treasury & DAOs": [
-    [
-      "Budgeting",
-      "Fund roadmaps, grants, and ops."
-    ],
-    [
-      "Diversification",
-      "Manage exposure and risk."
-    ],
-    [
-      "Transparency",
-      "On-chain accounting and dashboards."
-    ],
-    [
-      "Security",
-      "Multisigs, MPC, insurance coverage."
-    ],
-    [
-      "Compensation",
-      "Contributor rewards and vesting."
-    ]
-  ],
+  "Treasury & DAOs": {
+    "Budgeting": {
+      "why": "Plan funding for roadmaps, grants, and operations to sustain DAO initiatives.",
+      "key": [
+        "Forecast runway and recurring expenses",
+        "Allocate grants that grow the ecosystem",
+        "Use governance cycles to approve spend"
+      ],
+      "examples": [
+        "Uniswap Grants Program budgeting community development",
+        "Gitcoin quarterly budgets for public goods funding"
+      ],
+      "challenges": [
+        "Projecting revenues in volatile markets",
+        "Aligning community priorities with finite resources",
+        "Ensuring accountability for distributed funds"
+      ],
+      "resources": [
+        ["Aave DAO Transparency Report", "https://transparency.aave.com/"],
+        ["Uniswap Grants Program", "https://grants.uniswap.org/"]
+      ]
+    },
+    "Diversification": {
+      "why": "Reduce treasury volatility and improve long-term resilience.",
+      "key": [
+        "Balance stablecoins, native tokens, and yield strategies",
+        "Periodic rebalancing and dollar-cost averaging",
+        "Governance mandates for risk limits"
+      ],
+      "examples": [
+        "MakerDAO allocating real-world assets for stable yield",
+        "Lido DAO diversifying ETH holdings into stETH and stablecoins"
+      ],
+      "challenges": [
+        "Liquidity constraints during market stress",
+        "Coordinating multi-asset management through governance",
+        "Smart contract and counterparty risk from new instruments"
+      ],
+      "resources": [
+        ["MakerDAO Treasury Diversification Discussion", "https://forum.makerdao.com/"],
+        ["Llama Treasury Diversification Guide", "https://docs.llama.xyz/"]
+      ]
+    },
+    "Transparency": {
+      "why": "Open financials build community trust and accountability.",
+      "key": [
+        "On-chain accounting of inflows and outflows",
+        "Public dashboards and periodic reporting",
+        "Clear disclosure of treasury policies"
+      ],
+      "examples": [
+        "ENS DAO publishing treasury data on OpenOrg",
+        "Nansen dashboards tracking DAO treasury movements"
+      ],
+      "challenges": [
+        "Aggregating multi-chain and off-chain assets",
+        "Balancing privacy with radical transparency",
+        "Keeping data feeds accurate and up to date"
+      ],
+      "resources": [
+        ["OpenOrg ENS Dashboard", "https://openorgs.info/ens"],
+        ["Nansen DAO Treasury Tracker", "https://www.nansen.ai/"]
+      ]
+    },
+    "Security": {
+      "why": "Protect communal funds from exploits and operational errors.",
+      "key": [
+        "Multisig or MPC custody with hardware wallets",
+        "Audited treasury contracts and access controls",
+        "Insurance or circuit breakers for catastrophic events"
+      ],
+      "examples": [
+        "Gnosis Safe multisigs guarding DAO treasuries",
+        "Nexus Mutual cover for treasury smart contracts"
+      ],
+      "challenges": [
+        "Signer key compromise or loss",
+        "Coordinating timely approvals without centralization",
+        "Evolving attack vectors on treasury infrastructure"
+      ],
+      "resources": [
+        ["Gnosis Safe Documentation", "https://docs.safe.global/"],
+        ["OpenZeppelin Security Audits", "https://blog.openzeppelin.com/security-audits/"]
+      ]
+    },
+    "Compensation": {
+      "why": "Reward contributors and align incentives for long-term participation.",
+      "key": [
+        "Mix of stablecoins and native tokens",
+        "Vesting schedules or streaming payments",
+        "Retroactive rewards for measurable impact"
+      ],
+      "examples": [
+        "BanklessDAO using Coordinape for peer compensation",
+        "Optimism's RetroPGF rewarding past contributors"
+      ],
+      "challenges": [
+        "Token price volatility affecting pay",
+        "Determining fair market rates across roles",
+        "Regulatory and tax uncertainty for recipients"
+      ],
+      "resources": [
+        ["Coordinape Contributor Rewards", "https://coordinape.com/"],
+        ["BanklessDAO Compensation Framework", "https://gov.bankless.community/"]
+      ]
+    }
+  },
   "Incentives & Game Theory": [
     [
       "Staking",
