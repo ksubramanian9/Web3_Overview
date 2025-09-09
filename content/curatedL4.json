@@ -1667,28 +1667,124 @@
       }
     }
   },
-  "Non-Fungible Tokens (NFTs)": [
-    [
-      "Metadata",
-      "On/off-chain storage and mutability choices."
-    ],
-    [
-      "Royalties",
-      "Creator revenue models and enforcement."
-    ],
-    [
-      "Tickets/Access",
-      "Memberships and event passes."
-    ],
-    [
-      "Identity",
-      "Soulbound/attestation-style credentials."
-    ],
-    [
-      "RWAs",
-      "Tokenize property, collectibles, certificates."
-    ]
-  ],
+  "Non-Fungible Tokens (NFTs)": {
+    "Metadata": {
+      "blurb": "On/off-chain storage and mutability choices.",
+      "sections": {
+        "why": "Metadata determines how NFT content is stored and updated.",
+        "key": [
+          "IPFS offers decentralized file storage",
+          "On-chain metadata ensures permanence at higher cost",
+          "Mutability choices affect authenticity"
+        ],
+        "examples": [
+          "Most ERC-721 tokens reference JSON on IPFS",
+          "Fully on-chain projects like Nouns"
+        ],
+        "challenges": [
+          "IPFS assets can disappear if not pinned",
+          "On-chain storage is expensive in gas"
+        ],
+        "resources": [
+          ["IPFS Docs", "https://docs.ipfs.tech/"],
+          ["Ethereum ERC-721 Metadata", "https://eips.ethereum.org/EIPS/eip-721"],
+          ["Nouns Project", "https://nouns.wtf/"]
+        ]
+      }
+    },
+    "Royalties": {
+      "blurb": "Creator revenue models and enforcement.",
+      "sections": {
+        "why": "Royalties aim to reward creators on secondary sales.",
+        "key": [
+          "ERC-2981 standardizes royalty info",
+          "Marketplaces may optionally honor royalties",
+          "On-chain enforcement can restrict transfers"
+        ],
+        "examples": [
+          "OpenSea and Blur marketplace policies",
+          "Manifold royalty registries"
+        ],
+        "challenges": [
+          "Off-chain trades can bypass royalties",
+          "Overly strict enforcement may reduce liquidity"
+        ],
+        "resources": [
+          ["ERC-2981: NFT Royalty Standard", "https://eips.ethereum.org/EIPS/eip-2981"],
+          ["Debates on NFT Royalties", "https://mirror.xyz/nftschool.eth/royalties"]
+        ]
+      }
+    },
+    "Tickets/Access": {
+      "blurb": "Memberships and event passes.",
+      "sections": {
+        "why": "NFTs can gate access to communities and events.",
+        "key": [
+          "Protocols like POAP and Unlock issue ticket NFTs",
+          "Token gating checks ownership for entry",
+          "Time-bound or revocable credentials"
+        ],
+        "examples": [
+          "POAP event badges",
+          "Unlock Protocol memberships"
+        ],
+        "challenges": [
+          "Preventing scalping or fraud",
+          "Handling lost wallets or refunds"
+        ],
+        "resources": [
+          ["POAP Docs", "https://docs.poap.xyz/"],
+          ["Unlock Protocol", "https://unlock-protocol.com/"]
+        ]
+      }
+    },
+    "Identity": {
+      "blurb": "Soulbound/attestation-style credentials.",
+      "sections": {
+        "why": "Non-transferable NFTs can represent reputation or identity.",
+        "key": [
+          "Soulbound tokens are permanently bound to wallets",
+          "Attestations link on-chain identity to off-chain credentials",
+          "ENS and similar names act as identifiers"
+        ],
+        "examples": [
+          "Gitcoin Passport",
+          "ENS domain ownership"
+        ],
+        "challenges": [
+          "Privacy vs transparency of identity data",
+          "Recovering identity after key loss"
+        ],
+        "resources": [
+          ["Soulbound Whitepaper", "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4105763"],
+          ["ENS Docs", "https://docs.ens.domains/"]
+        ]
+      }
+    },
+    "RWAs": {
+      "blurb": "Tokenize property, collectibles, certificates.",
+      "sections": {
+        "why": "Real world assets bring off-chain items into Web3 markets.",
+        "key": [
+          "Tokens represent legal ownership or claims",
+          "Compliance requires KYC/AML and jurisdictional rules",
+          "Custody links digital token to physical asset"
+        ],
+        "examples": [
+          "RealT tokenized real estate",
+          "Tokenized gold or art certificates"
+        ],
+        "challenges": [
+          "Regulatory classification as securities",
+          "Ensuring asset backing and audits"
+        ],
+        "resources": [
+          ["RealT", "https://realt.co/"],
+          ["Guide to RWA Compliance", "https://a16zcrypto.com/posts/article/tokenizing-real-world-assets/"]
+        ]
+      }
+    }
+  },
   "Stablecoins": [
     [
       "Fiat-Backed",
