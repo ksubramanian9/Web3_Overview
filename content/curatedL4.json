@@ -1549,28 +1549,124 @@
       }
     }
   },
-  "Fungible Tokens": [
-    [
-      "Utility",
-      "Pay fees, access services, or reward usage."
-    ],
-    [
-      "Governance",
-      "Vote on parameters, elect delegates."
-    ],
-    [
-      "Liquidity",
-      "Pools enable trading and price discovery."
-    ],
-    [
-      "Distribution",
-      "Airdrops, sales, and vesting schedules."
-    ],
-    [
-      "Compliance",
-      "Transfer restrictions, blacklists, disclosures."
-    ]
-  ],
+  "Fungible Tokens": {
+    "Utility": {
+      "blurb": "Pay fees, access services, or reward usage.",
+      "sections": {
+        "why": "Utility tokens incentivize participation and allow users to consume network services.",
+        "key": [
+          "Spend tokens to access protocol features",
+          "Stake tokens to secure or unlock services",
+          "Reward contributors for useful actions"
+        ],
+        "examples": [
+          "Chainlink's LINK for paying oracle nodes",
+          "Filecoin's FIL for decentralized storage"
+        ],
+        "challenges": [
+          "Demand fluctuates with network usage",
+          "Balancing token sinks with inflation"
+        ],
+        "resources": [
+          ["Chainlink Documentation", "https://docs.chain.link"],
+          ["Filecoin Token Economics", "https://spec.filecoin.io/#section-systems.filecoin_token"]
+        ]
+      }
+    },
+    "Governance": {
+      "blurb": "Vote on parameters, elect delegates.",
+      "sections": {
+        "why": "Governance tokens give stakeholders direct influence over protocol evolution.",
+        "key": [
+          "Token-weighted voting on proposals",
+          "Delegation systems for representative decision making",
+          "Aligns protocol success with holders"
+        ],
+        "examples": [
+          "Uniswap's UNI governing upgrades",
+          "ENS token managing naming system policies"
+        ],
+        "challenges": [
+          "Low voter participation",
+          "Concentration of voting power"
+        ],
+        "resources": [
+          ["Uniswap Governance", "https://docs.uniswap.org/protocol/guides/governance/overview"],
+          ["ENS DAO Governance", "https://docs.ens.domains/dao/governance"]
+        ]
+      }
+    },
+    "Liquidity": {
+      "blurb": "Pools enable trading and price discovery.",
+      "sections": {
+        "why": "Deep liquidity allows tokens to trade efficiently with minimal slippage.",
+        "key": [
+          "Automated market makers provide continuous pricing",
+          "Liquidity mining incentives attract capital",
+          "Cross-chain bridges expand market access"
+        ],
+        "examples": [
+          "Uniswap v3 concentrated liquidity pools",
+          "Curve Finance stablecoin pools"
+        ],
+        "challenges": [
+          "Impermanent loss for providers",
+          "Fragmentation across chains"
+        ],
+        "resources": [
+          ["Uniswap Docs", "https://docs.uniswap.org"],
+          ["Curve Finance Documentation", "https://curve.readthedocs.io"]
+        ]
+      }
+    },
+    "Distribution": {
+      "blurb": "Airdrops, sales, and vesting schedules.",
+      "sections": {
+        "why": "Thoughtful distribution builds communities and funds development.",
+        "key": [
+          "Airdrops reward early users",
+          "Token sales provide capital",
+          "Vesting aligns teams with long-term goals"
+        ],
+        "examples": [
+          "Uniswap's 2020 airdrop",
+          "ENS token claim with four-year vesting"
+        ],
+        "challenges": [
+          "Sybil attacks targeting airdrops",
+          "Regulatory scrutiny of token sales"
+        ],
+        "resources": [
+          ["ENS Airdrop Details", "https://docs.ens.domains/dao/airdrop"],
+          ["Uniswap Airdrop Announcement", "https://uniswap.org/blog/uni"]
+        ]
+      }
+    },
+    "Compliance": {
+      "blurb": "Transfer restrictions, blacklists, disclosures.",
+      "sections": {
+        "why": "Regulatory compliance enables broader adoption and mitigates legal risks.",
+        "key": [
+          "KYC/AML checks on token transfers",
+          "Blacklist controls for illicit addresses",
+          "Disclosure requirements for issuers"
+        ],
+        "examples": [
+          "USDC's ability to freeze addresses",
+          "DAI integration with travel-rule providers"
+        ],
+        "challenges": [
+          "Maintaining decentralization while enforcing rules",
+          "Navigating global regulatory fragmentation"
+        ],
+        "resources": [
+          ["SEC Guidance on Digital Assets", "https://www.sec.gov/corpfin/framework-investment-contract-analysis-digital-assets"],
+          ["EU MiCA Regulation", "https://www.europarl.europa.eu"],
+          ["FATF Virtual Asset Guidelines", "https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatfguidanceva.html"]
+        ]
+      }
+    }
+  },
   "Non-Fungible Tokens (NFTs)": [
     [
       "Metadata",
