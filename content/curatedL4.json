@@ -886,28 +886,143 @@
       ]
     }
   },
-  "Layer-2 Scalability": [
-    [
-      "Optimistic Rollups",
-      "Assume validity; fraud proofs challenge bad blocks."
-    ],
-    [
-      "ZK Rollups",
-      "Validity proofs ensure correctness without re-execution."
-    ],
-    [
-      "State Channels",
-      "Peer sets transact off-chain, settle periodically."
-    ],
-    [
-      "Shared Sequencing",
-      "Fair ordering and reduced MEV on L2s."
-    ],
-    [
-      "Bridging UX",
-      "Fast exits, liquidity providers, security caveats."
-    ]
-  ],
+  "Layer-2 Scalability": {
+    "Optimistic Rollups": {
+      "why": "Assume validity and rely on fraud proofs to detect bad blocks.",
+      "key": [
+        "Transactions are executed off-chain with periodic commitments to L1",
+        "Fraud proofs allow challenges during a dispute window",
+        "Inherits L1 security with minimal changes"
+      ],
+      "examples": [
+        "Arbitrum",
+        "Optimism"
+      ],
+      "challenges": [
+        "Withdrawal delays while waiting for challenge periods",
+        "Sequencer centralization and data availability",
+        "Bridge contracts introduce additional attack surface"
+      ],
+      "resources": [
+        [
+          "Arbitrum Migration Guide",
+          "https://docs.arbitrum.io/for-devs/l1-to-l2-migration"
+        ],
+        [
+          "Optimism Security Model",
+          "https://docs.optimism.io/build/security-model"
+        ]
+      ]
+    },
+    "ZK Rollups": {
+      "why": "Use validity proofs so blocks are accepted only if cryptographically proven correct.",
+      "key": [
+        "Proofs allow instant finality once verified on L1",
+        "Computation occurs off-chain with succinct proofs",
+        "No challenge period for withdrawals"
+      ],
+      "examples": [
+        "zkSync",
+        "StarkNet"
+      ],
+      "challenges": [
+        "Complex provers and trusted setups",
+        "Higher hardware requirements for operators",
+        "Upgradability and circuit vulnerabilities"
+      ],
+      "resources": [
+        [
+          "zkSync Developer Docs",
+          "https://docs.zksync.io/build/developer-guide/migrate-to-zksync"
+        ],
+        [
+          "StarkNet Bridging Guide",
+          "https://docs.starknet.io/documentation/architecture_and_concepts/Network_Architecture/bridging/"
+        ]
+      ]
+    },
+    "State Channels": {
+      "why": "Peers exchange signed messages off-chain and settle the final state on L1 periodically.",
+      "key": [
+        "Instant transactions between known participants",
+        "Only opening and closing transactions hit L1",
+        "Best for repeated interactions"
+      ],
+      "examples": [
+        "Lightning Network",
+        "Raiden Network"
+      ],
+      "challenges": [
+        "Requires participants to stay online or use watchtowers",
+        "Limited to predefined sets of participants",
+        "Dispute resolution still depends on L1"
+      ],
+      "resources": [
+        [
+          "Lightning Network Basics",
+          "https://lightning.network/lightning-network-paper.pdf"
+        ],
+        [
+          "Raiden Docs",
+          "https://raiden.network/learn/migration-guide"
+        ]
+      ]
+    },
+    "Shared Sequencing": {
+      "why": "Separate sequencing from execution to provide fair ordering and reduce MEV across rollups.",
+      "key": [
+        "Multiple L2s share a common sequencer",
+        "Improves interoperability and cross-domain atomicity",
+        "Can decentralize ordering to mitigate MEV"
+      ],
+      "examples": [
+        "Espresso Systems",
+        "Radius"
+      ],
+      "challenges": [
+        "Coordination and latency between rollups",
+        "Sequencer liveness and censorship risks",
+        "Economic incentives for honest ordering"
+      ],
+      "resources": [
+        [
+          "Espresso Sequencer Docs",
+          "https://docs.espressosys.com/sequencer/overview"
+        ],
+        [
+          "Shared Sequencer Security Considerations",
+          "https://www.offchainlabs.com/blog/what-are-shared-sequencers"
+        ]
+      ]
+    },
+    "Bridging UX": {
+      "why": "Provide users with seamless asset and message transfer across layers.",
+      "key": [
+        "Liquidity networks enable fast exits from rollups",
+        "Standardized bridges ease developer integration",
+        "Message passing frameworks support complex L2 interactions"
+      ],
+      "examples": [
+        "Hop Protocol",
+        "Across"
+      ],
+      "challenges": [
+        "Bridge contracts are prime targets for exploits",
+        "Liquidity fragmentation across networks",
+        "User confusion around different trust assumptions"
+      ],
+      "resources": [
+        [
+          "L2Beat Bridge Security",
+          "https://l2beat.com/bridges/security"
+        ],
+        [
+          "Hop Protocol Docs",
+          "https://docs.hop.exchange/"
+        ]
+      ]
+    }
+  },
   "Consensus Mechanisms": {
     "PoS Staking": {
       "blurb": "Validators bond tokens and get slashed for faults.",
