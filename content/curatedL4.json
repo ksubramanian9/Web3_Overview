@@ -1541,8 +1541,45 @@
       }
   },
   "Oracles & Off-chain": {
-    "Price Feeds": { "blurb": "Reliable asset prices for DeFi protocols." },
-    "Compute Networks": { "blurb": "Off-chain tasks with verifiable outputs." },
+    "Price Feeds": {
+      "blurb": "Reliable asset prices for DeFi protocols.",
+      "sections": {
+        "why": "Protocols rely on external market data and must trust how feeds source and aggregate prices.",
+        "key": [
+          "Chainlink decentralized oracle network",
+          "API3 first-party data feeds",
+          "Exchange-sourced aggregators like Pyth"
+        ],
+        "challenges": [
+          "Price manipulation via thin markets; mitigated by multi-source medianization",
+          "Oracle downtime or delays; mitigated with heartbeat updates and failovers"
+        ],
+        "resources": [
+          ["Chainlink", "https://chain.link"],
+          ["API3", "https://api3.org"],
+          ["Pyth", "https://pyth.network"]
+        ]
+      }
+    },
+    "Compute Networks": {
+      "blurb": "Off-chain tasks with verifiable outputs.",
+      "sections": {
+        "why": "Heavy or conditional computation runs off-chain with assumptions about node honesty and availability.",
+        "key": [
+          "Decentralized networks like Chainlink Automation or Gelato",
+          "Verifiable computation via TEEs or zero-knowledge proofs",
+          "Incentive staking and slashing for task execution"
+        ],
+        "challenges": [
+          "Incorrect or missed executions; mitigated by redundant nodes and economic penalties",
+          "Opaque computation; mitigated with attestations and proofs"
+        ],
+        "resources": [
+          ["Chainlink Automation", "https://chain.link/automation"],
+          ["Gelato Network", "https://www.gelato.network"]
+        ]
+      }
+    },
     "Randomness": {
       "blurb": "Unbiasable randomness for lotteries/games.",
       "sections": {
@@ -1566,8 +1603,44 @@
         ]
       }
     },
-    "Bridge Security": { "blurb": "Economic security and multi-sig risks." },
-    "Data Integrity": { "blurb": "Signing, attestation, replay protection." }
+    "Bridge Security": {
+      "blurb": "Economic security and multi-sig risks.",
+      "sections": {
+        "why": "Transferring value across chains depends on the security assumptions of bridge validators or light clients.",
+        "key": [
+          "Multi-signature validator sets",
+          "Light-client and optimistic bridges",
+          "Liquidity networks and relayers"
+        ],
+        "challenges": [
+          "Validator key compromise; mitigated by decentralization and threshold schemes",
+          "Liquidity fragmentation; mitigated with canonical assets or unified pools"
+        ],
+        "resources": [
+          ["Wormhole", "https://wormhole.com"],
+          ["LayerZero", "https://layerzero.network"]
+        ]
+      }
+    },
+    "Data Integrity": {
+      "blurb": "Signing, attestation, replay protection.",
+      "sections": {
+        "why": "Off-chain data and messages require verifiable signatures and clear trust boundaries.",
+        "key": [
+          "Digital signatures and threshold cryptography",
+          "Attestation frameworks like Ethereum Attestation Service",
+          "Nonce and timestamp checks to prevent replays"
+        ],
+        "challenges": [
+          "Key management vulnerabilities; mitigated by hardware security modules and rotations",
+          "Replay or forged data; mitigated with nonces and on-chain verification"
+        ],
+        "resources": [
+          ["Ethereum Attestation Service", "https://attest.sh"],
+          ["OpenZeppelin Defender", "https://www.openzeppelin.com/defender"]
+        ]
+      }
+    }
   },
   "Standards & Interfaces": {
     "ERC-20": { "blurb": "Fungible token interface for transfers/allowance." },
