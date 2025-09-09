@@ -1733,28 +1733,108 @@
       "Contributor rewards and vesting."
     ]
   ],
-  "Incentives & Game Theory": [
-    [
-      "Staking",
-      "Lock tokens for yield and security."
-    ],
-    [
-      "Liquidity Mining",
-      "Reward LPs for providing depth."
-    ],
-    [
-      "Fee Sharing",
-      "Split protocol revenues with users."
-    ],
-    [
-      "Anti-Sybil",
-      "Deter fake accounts and farming."
-    ],
-    [
-      "Sustainability",
-      "Avoid ponzinomics; align long-term."
-    ]
-  ],
+  "Incentives & Game Theory": {
+    "Staking": {
+      "why": "Secures proof-of-stake networks by bonding capital that can be slashed for misbehavior.",
+      "key": [
+        "Validators stake tokens to participate in consensus",
+        "Rewards for honest behavior and penalties for attacks",
+        "Slashing and lockups align validators with network security"
+      ],
+      "examples": [
+        "Ethereum proof-of-stake security",
+        "Cosmos Hub staking"
+      ],
+      "challenges": [
+        "Capital requirements reduce liquidity",
+        "Centralization risks from large staking providers"
+      ],
+      "resources": [
+        ["Casper the Friendly Finality Gadget", "https://arxiv.org/abs/1710.09437"],
+        ["Economics of PoS: A Game-Theoretic Analysis", "https://vitalik.ca/general/2017/12/31/pos_faq.html"]
+      ]
+    },
+    "Liquidity Mining": {
+      "why": "Bootstraps markets by paying users to supply capital, enabling deep liquidity for trades.",
+      "key": [
+        "Token rewards proportional to liquidity provided",
+        "Yield farming drives usage in early-stage protocols",
+        "Encourages market depth and tight spreads"
+      ],
+      "examples": [
+        "Uniswap yield farming",
+        "Compound liquidity mining"
+      ],
+      "challenges": [
+        "Mercenary capital leaves when incentives drop",
+        "Token inflation can dilute long-term holders"
+      ],
+      "resources": [
+        ["Yield Farming and Liquidity Mining in DeFi", "https://arxiv.org/abs/2108.09505"],
+        ["Uniswap v3 Whitepaper", "https://uniswap.org/whitepaper-v3.pdf"]
+      ]
+    },
+    "Fee Sharing": {
+      "why": "Aligns users and token holders by distributing protocol revenue.",
+      "key": [
+        "Share swap or lending fees with token stakers",
+        "Can involve buybacks or direct dividends",
+        "Incentivizes long-term participation"
+      ],
+      "examples": [
+        "SushiSwap xSUSHI fee sharing",
+        "GMX revenue split to stakers"
+      ],
+      "challenges": [
+        "Potential securities law implications",
+        "Revenue volatility across market cycles"
+      ],
+      "resources": [
+        ["Transaction Fee Mechanism Design for the Ethereum Blockchain", "https://timroughgarden.org/papers/eip1559.pdf"],
+        ["SushiSwap Tokenomics", "https://docs.sushi.com/docs/xsushi"]
+      ]
+    },
+    "Anti-Sybil": {
+      "why": "Prevents fake accounts from exploiting incentives.",
+      "key": [
+        "Use identity proofs or stake requirements to limit spam",
+        "Reputation systems and quadratic funding reduce Sybil attacks",
+        "Combines social graphs with economic costs"
+      ],
+      "examples": [
+        "Gitcoin Passport",
+        "Proof of Humanity"
+      ],
+      "challenges": [
+        "Balancing privacy with identity",
+        "Adapting to evolving attack vectors"
+      ],
+      "resources": [
+        ["Proofs of Personhood", "https://arxiv.org/abs/1908.01046"],
+        ["Sybil-Resistant Mechanisms for Social Networks", "https://www.cs.cornell.edu/~gdi/papers/sybil.pdf"]
+      ]
+    },
+    "Sustainability": {
+      "why": "Design incentives that remain viable without excessive emissions.",
+      "key": [
+        "Tie rewards to real usage and revenue",
+        "Use token sinks and buybacks to balance issuance",
+        "Encourage protocol-owned liquidity and long-term alignment"
+      ],
+      "examples": [
+        "Curve's vote-escrow model",
+        "Olympus protocol-owned liquidity"
+      ],
+      "challenges": [
+        "Avoid ponzinomics and unsustainable APYs",
+        "Maintaining engagement once incentives taper"
+      ],
+      "resources": [
+        ["Tokenomics: Dynamic Token Supply Strategies", "https://arxiv.org/abs/2003.10483"],
+        ["VE token model research", "https://research.curve.fi/reward-veCRV"]
+      ]
+    }
+  },
   "DeFi": {
     "DEXs": {
       "blurb": "AMMs and order books for swaps.",
