@@ -3,4 +3,5 @@ nav.json
 **/*.html
 !templates/*.html
 !recall.html
+!knowledge-graph.html
 node_modules

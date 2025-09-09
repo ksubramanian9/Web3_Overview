@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knowledge Graph</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: true,
+      flowchart: { useMaxWidth: false },
+      themeVariables: { fontSize: '18px' }
+    });
+  </script>
+  <style>
+    html { text-size-adjust: 100%; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between">
+        <nav><a href="index.html" class="text-blue-200 hover:text-white">Home</a></nav>
+        <div class="flex items-center gap-2">
+          <input id="search" type="text" placeholder="Search..." class="text-black px-2 py-1 rounded" />
+          <a href="recall.html" class="bg-blue-500 text-white px-2 py-1 rounded text-sm">Recall Practice</a>
+          <a href="knowledge-graph.html" class="bg-blue-500 text-white px-2 py-1 rounded text-sm">Knowledge Graph</a>
+        </div>
+      </div>
+      <h1 class="text-2xl font-semibold text-center mt-2">Web 3.0 - Quick Tour</h1>
+    </div>
+  </header>
+  <div class="container mx-auto flex">
+    <aside id="sidebar" class="w-64 bg-gray-100 p-4 hidden md:block"></aside>
+    <div class="flex-1 p-4">
+      <div class="flex flex-col md:flex-row">
+        <main class="flex-1 md:pr-4">
+          <h1 class="text-3xl font-bold mb-4">Knowledge Graph</h1>
+          <div class="overflow-x-auto">
+          <div class="mermaid min-w-[1200px]">
+            graph TD
+                A[Web3] --> B[Foundations & Principles]
+                A --> C[Blockchain Infrastructure]
+                A --> D[Smart Contracts & Protocols]
+                A --> E[Digital Assets & Tokenomics]
+                A --> F[Applications & Ecosystems]
+
+                B --> B1[Decentralization]
+                B --> B2[Trust & Security]
+                B --> B3[Identity & Privacy]
+                B --> B4[Governance & DAOs]
+                B --> B5[Interoperability]
+
+                C --> C1[Layer-1 Blockchains]
+                C --> C2[Layer-2 Scalability]
+                C --> C3[Consensus Mechanisms]
+                C --> C4[Storage & Data]
+                C --> C5[Networking & Nodes]
+
+                D --> D1[Languages & VMs]
+                D --> D2[Oracles & Off-chain]
+                D --> D3[Standards & Interfaces]
+                D --> D4[Verification & Testing]
+                D --> D5[Upgradeability & Patterns]
+
+                E --> E1[Fungible Tokens]
+                E --> E2[Non-Fungible Tokens]
+                E --> E3[Stablecoins]
+                E --> E4[Treasury & DAOs]
+                E --> E5[Incentives & Game Theory]
+
+                F --> F1[DeFi]
+                F --> F2[Web3 Social]
+                F --> F3[Gaming & Metaverse]
+                F --> F4[Supply Chain & RWAs]
+                F --> F5[Regulation & Compliance]
+
+                B4 --- E4
+                E3 --> F1
+                C2 --> F1
+          </div>
+          </div>
+        </main>
+        <aside id="ollama-info" class="md:w-1/3 md:border-l md:pl-4"></aside>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-gray-100 text-center text-sm text-gray-500 py-4 mt-8">© 2024 Web3 Overview</footer>
+  <script src="sidebar.js"></script>
+  <script src="search.js"></script>
+  <script src="config.js"></script>
+  <script src="ollama.js"></script>
+</body>
+</html>
