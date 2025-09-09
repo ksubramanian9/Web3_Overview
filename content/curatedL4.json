@@ -1643,8 +1643,52 @@
     }
   },
   "Standards & Interfaces": {
-    "ERC-20": { "blurb": "Fungible token interface for transfers/allowance." },
-    "ERC-721/1155": { "blurb": "Non-fungible and semi-fungible standards." },
+    "ERC-20": {
+      "blurb": "Fungible token interface for transfers/allowance.",
+      "sections": {
+        "why": "Defines a common interface for fungible tokens enabling compatibility across wallets, exchanges, and DeFi protocols.",
+        "key": [
+          "totalSupply and balanceOf to track holdings",
+          "transfer and transferFrom for moving tokens",
+          "approve and allowance for delegated spending"
+        ],
+        "examples": [
+          "USDC stablecoin",
+          "Uniswap's UNI token"
+        ],
+        "challenges": [
+          "Non-standard implementations can break integrations",
+          "Handling decimals and return values consistently"
+        ],
+        "resources": [
+          ["EIP-20", "https://eips.ethereum.org/EIPS/eip-20"],
+          ["OpenZeppelin ERC20", "https://docs.openzeppelin.com/contracts/4.x/api/token/erc20"]
+        ]
+      }
+    },
+    "ERC-721/1155": {
+      "blurb": "Non-fungible and semi-fungible standards.",
+      "sections": {
+        "why": "Provide common interfaces for NFTs and multi-token assets, enabling marketplaces and interoperability.",
+        "key": [
+          "ERC-721 ownerOf and safeTransferFrom manage unique tokens",
+          "ERC-1155 supports batch transfers and both fungible and non-fungible IDs",
+          "setApprovalForAll allows delegated management"
+        ],
+        "examples": [
+          "CryptoKitties (ERC-721)",
+          "Gods Unchained cards (ERC-1155)"
+        ],
+        "challenges": [
+          "High gas costs and metadata management",
+          "Ensuring uniqueness and compatibility across marketplaces"
+        ],
+        "resources": [
+          ["EIP-721", "https://eips.ethereum.org/EIPS/eip-721"],
+          ["EIP-1155", "https://eips.ethereum.org/EIPS/eip-1155"]
+        ]
+      }
+    },
     "Permit/EIP-2612": {
       "blurb": "Gasless approvals via signatures.",
       "sections": {
@@ -1668,8 +1712,51 @@
         ]
       }
     },
-    "Meta-Tx": { "blurb": "Relayers pay gas; better UX." },
-    "Composability": { "blurb": "Plug-and-play across protocols." }
+    "Meta-Tx": {
+      "blurb": "Relayers pay gas; better UX.",
+      "sections": {
+        "why": "Meta transactions let users interact without holding native tokens, improving onboarding and usability.",
+        "key": [
+          "User signs intent and relayer submits on-chain",
+          "Trusted forwarders (EIP-2771) verify signatures",
+          "Often uses EIP-712 typed data"
+        ],
+        "examples": [
+          "Biconomy relayer network",
+          "OpenZeppelin Defender Relay"
+        ],
+        "challenges": [
+          "Relayer trust and fee reimbursement",
+          "Nonce management and replay protection"
+        ],
+        "resources": [
+          ["EIP-2771", "https://eips.ethereum.org/EIPS/eip-2771"],
+          ["OpenGSN Docs", "https://docs.opengsn.org"]
+        ]
+      }
+    },
+    "Composability": {
+      "blurb": "Plug-and-play across protocols.",
+      "sections": {
+        "why": "Composable protocols let developers combine smart contracts like building blocks to create new functionality.",
+        "key": [
+          "Standardized interfaces enable contract-to-contract calls",
+          "Permissionless APIs allow modules to integrate",
+          "Shared liquidity and tokens act as components"
+        ],
+        "examples": [
+          "Yearn vaults using Curve and Compound",
+          "Instadapp bundling multiple DeFi protocols"
+        ],
+        "challenges": [
+          "Upstream upgrades or failures cascade to dependents",
+          "Security risks accumulate across integrated protocols"
+        ],
+        "resources": [
+          ["Ethereum Composability", "https://ethereum.org/en/developers/docs/smart-contracts/composability/"]
+        ]
+      }
+    }
   },
   "Verification & Testing": {
     "Unit/Property Tests": {
