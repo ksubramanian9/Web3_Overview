@@ -5,9 +5,11 @@ window.addEventListener('DOMContentLoaded', async () => {
   const rootPrefix = '../'.repeat(depth);
   const sidebar = document.getElementById('sidebar');
   const toggleButton = document.getElementById('sidebarToggle');
+  const sidebarResizer = document.getElementById('sidebar-resizer');
   if (toggleButton) {
     toggleButton.addEventListener('click', () => {
       if (sidebar) sidebar.classList.toggle('hidden');
+      if (sidebarResizer) sidebarResizer.classList.toggle('hidden');
     });
   }
   if (!sidebar) return;
