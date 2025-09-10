@@ -15,8 +15,8 @@
   }
   traverse(data);
 
-  const width = 1200;
-  const height = 600;
+  const width = 1600;
+  const height = 800;
   const svg = d3.select('#graph').attr('viewBox', [0, 0, width, height]);
 
   const simulation = d3.forceSimulation(nodes)
@@ -33,8 +33,6 @@
     .attr('stroke-width', 1.5);
 
   const node = svg.append('g')
-    .attr('stroke', '#fff')
-    .attr('stroke-width', 1.5)
     .selectAll('g')
     .data(nodes)
     .join('g')
@@ -45,13 +43,16 @@
 
   node.append('circle')
     .attr('r', 10)
-    .attr('fill', '#3b82f6');
+    .attr('fill', '#3b82f6')
+    .attr('stroke', '#fff')
+    .attr('stroke-width', 1.5);
 
   node.append('text')
     .text(d => d.id)
     .attr('x', 12)
     .attr('y', '0.31em')
-    .attr('fill', '#000');
+    .attr('fill', '#000')
+    .attr('stroke', 'none');
 
   simulation.on('tick', () => {
     link
