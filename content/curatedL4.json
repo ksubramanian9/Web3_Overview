@@ -736,291 +736,321 @@
   },
   "Layer-1 Blockchains": {
     "Execution": {
-      "why": "How transactions run (EVM, WASM, parallelism).",
-      "key": [
-        "Defines the environment where smart contracts run",
-        "EVM uses a 256-bit stack machine; WASM offers near-native performance",
-        "Parallel runtimes like Solana's Sealevel increase throughput"
-      ],
-      "examples": [
-        "EVM smart contracts on Ethereum",
-        "Polkadot's WASM runtime",
-        "Solana's Sealevel parallel execution"
-      ],
-      "challenges": [
-        "Maintaining deterministic behavior across different virtual machines",
-        "Balancing performance with developer ergonomics"
-      ],
-      "resources": [
-        [
-          "Ethereum EVM Overview",
-          "https://ethereum.org/en/developers/docs/evm/"
+      "blurb": "Where smart contracts run: EVM, WASM, or parallel runtimes.",
+      "sections": {
+        "why": "Execution environments define how transactions run and influence throughput and developer experience.",
+        "key": [
+          "Defines the environment where smart contracts run",
+          "EVM uses a 256-bit stack machine; WASM offers near-native performance",
+          "Parallel runtimes like Solana's Sealevel increase throughput"
         ],
-        [
-          "Solana Sealevel Runtime",
-          "https://docs.solana.com/architecture/sealevel"
+        "examples": [
+          "EVM smart contracts on Ethereum",
+          "Polkadot's WASM runtime",
+          "Solana's Sealevel parallel execution"
         ],
-        [
-          "Polkadot WASM Guide",
-          "https://wiki.polkadot.network/docs/learn-wasm"
+        "challenges": [
+          "Maintaining deterministic behavior across different virtual machines",
+          "Balancing performance with developer ergonomics"
+        ],
+        "resources": [
+          [
+            "Ethereum EVM Overview",
+            "https://ethereum.org/en/developers/docs/evm/"
+          ],
+          [
+            "Solana Sealevel Runtime",
+            "https://docs.solana.com/architecture/sealevel"
+          ],
+          [
+            "Polkadot WASM Guide",
+            "https://wiki.polkadot.network/docs/learn-wasm"
+          ]
         ]
-      ]
+      }
     },
     "Data Availability": {
-      "why": "Guarantee that block data is retrievable.",
-      "key": [
-        "Ensures all participants can access transaction data",
-        "Vital for fraud proofs and rollup security",
-        "Techniques include erasure coding and sampling"
-      ],
-      "examples": [
-        "Ethereum proto-danksharding blobs",
-        "Celestia modular data availability layer",
-        "NEAR sharded data scheme"
-      ],
-      "challenges": [
-        "Scaling data availability while keeping nodes lightweight",
-        "Ensuring honest majority for data availability sampling"
-      ],
-      "resources": [
-        [
-          "Ethereum Data Availability Docs",
-          "https://ethereum.org/en/developers/docs/data-availability/"
+      "blurb": "Ensures block data can be retrieved for verification.",
+      "sections": {
+        "why": "Guarantees participants can access transaction data for fraud proofs and rollup security.",
+        "key": [
+          "Ensures all participants can access transaction data",
+          "Vital for fraud proofs and rollup security",
+          "Techniques include erasure coding and sampling"
         ],
-        [
-          "Celestia Concepts",
-          "https://docs.celestia.org/concepts/overview/"
+        "examples": [
+          "Ethereum proto-danksharding blobs",
+          "Celestia modular data availability layer",
+          "NEAR sharded data scheme"
         ],
-        [
-          "NEAR Sharding Design",
-          "https://near.org/papers/nightshade/"
+        "challenges": [
+          "Scaling data availability while keeping nodes lightweight",
+          "Ensuring honest majority for data availability sampling"
+        ],
+        "resources": [
+          [
+            "Ethereum Data Availability Docs",
+            "https://ethereum.org/en/developers/docs/data-availability/"
+          ],
+          [
+            "Celestia Concepts",
+            "https://docs.celestia.org/concepts/overview/"
+          ],
+          [
+            "NEAR Sharding Design",
+            "https://near.org/papers/nightshade/"
+          ]
         ]
-      ]
+      }
     },
     "Finality": {
-      "why": "Economic or probabilistic guarantees of permanence.",
-      "key": [
-        "Determines when a block becomes irreversible",
-        "Can be economic (slashing) or probabilistic (PoW confirmations)",
-        "Impacts user confidence and transaction latency"
-      ],
-      "examples": [
-        "Tendermint instant finality",
-        "Ethereum Casper FFG",
-        "Bitcoin probabilistic finality"
-      ],
-      "challenges": [
-        "Balancing fast confirmation times with security",
-        "Handling network partitions and long-range attacks"
-      ],
-      "resources": [
-        [
-          "Ethereum Consensus Specs",
-          "https://github.com/ethereum/consensus-specs"
+      "blurb": "When blocks become irreversible on the chain.",
+      "sections": {
+        "why": "Economic or probabilistic guarantees determine when transactions are permanent.",
+        "key": [
+          "Determines when a block becomes irreversible",
+          "Can be economic (slashing) or probabilistic (PoW confirmations)",
+          "Impacts user confidence and transaction latency"
         ],
-        [
-          "Tendermint BFT Consensus",
-          "https://docs.tendermint.com/master/spec/consensus/consensus.html"
+        "examples": [
+          "Tendermint instant finality",
+          "Ethereum Casper FFG",
+          "Bitcoin probabilistic finality"
         ],
-        [
-          "Bitcoin Whitepaper",
-          "https://bitcoin.org/bitcoin.pdf"
+        "challenges": [
+          "Balancing fast confirmation times with security",
+          "Handling network partitions and long-range attacks"
+        ],
+        "resources": [
+          [
+            "Ethereum Consensus Specs",
+            "https://github.com/ethereum/consensus-specs"
+          ],
+          [
+            "Tendermint BFT Consensus",
+            "https://docs.tendermint.com/master/spec/consensus/consensus.html"
+          ],
+          [
+            "Bitcoin Whitepaper",
+            "https://bitcoin.org/bitcoin.pdf"
+          ]
         ]
-      ]
+      }
     },
     "Client Diversity": {
-      "why": "Multiple implementations reduce correlated bugs.",
-      "key": [
-        "Mitigates single points of failure in consensus code",
-        "Encourages cross-validation among implementations",
-        "Reduces risk from latent bugs in dominant client"
-      ],
-      "examples": [
-        "Ethereum clients like Geth, Prysm, and Lighthouse",
-        "Bitcoin Core and btcd implementations"
-      ],
-      "challenges": [
-        "Maintaining feature parity across clients",
-        "Risk of majority dependence on a single client"
-      ],
-      "resources": [
-        [
-          "Ethereum Client Diversity Initiative",
-          "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+      "blurb": "Multiple implementations reduce correlated bugs.",
+      "sections": {
+        "why": "Diverse clients prevent a single software failure from compromising the network.",
+        "key": [
+          "Mitigates single points of failure in consensus code",
+          "Encourages cross-validation among implementations",
+          "Reduces risk from latent bugs in dominant client"
         ],
-        [
-          "Client Diversity Statistics",
-          "https://clientdiversity.org"
+        "examples": [
+          "Ethereum clients like Geth, Prysm, and Lighthouse",
+          "Bitcoin Core and btcd implementations"
+        ],
+        "challenges": [
+          "Maintaining feature parity across clients",
+          "Risk of majority dependence on a single client"
+        ],
+        "resources": [
+          [
+            "Ethereum Client Diversity Initiative",
+            "https://ethereum.org/en/developers/docs/nodes-and-clients/"
+          ],
+          [
+            "Client Diversity Statistics",
+            "https://clientdiversity.org"
+          ]
         ]
-      ]
+      }
     },
     "Token Utility": {
-      "why": "Fee, staking, governance use for native token.",
-      "key": [
-        "Native token pays for execution and storage",
-        "Staking locks tokens to secure consensus",
-        "Governance uses tokens for protocol upgrades"
-      ],
-      "examples": [
-        "ETH for gas and staking",
-        "ATOM for staking and governance",
-        "SOL for fees and rent"
-      ],
-      "challenges": [
-        "Designing sustainable value accrual",
-        "Mitigating speculative volatility that can affect security"
-      ],
-      "resources": [
-        [
-          "Ethereum Tokenomics",
-          "https://ethereum.org/en/eth/"
+      "blurb": "Native tokens power fees, staking, and governance.",
+      "sections": {
+        "why": "Utility drives demand for the token and incentivizes network security.",
+        "key": [
+          "Native token pays for execution and storage",
+          "Staking locks tokens to secure consensus",
+          "Governance uses tokens for protocol upgrades"
         ],
-        [
-          "Cosmos Hub Token Model",
-          "https://docs.cosmos.network/main/architecture/tokens"
+        "examples": [
+          "ETH for gas and staking",
+          "ATOM for staking and governance",
+          "SOL for fees and rent"
         ],
-        [
-          "Solana Fees and Rent",
-          "https://docs.solana.com/cluster/fees"
+        "challenges": [
+          "Designing sustainable value accrual",
+          "Mitigating speculative volatility that can affect security"
+        ],
+        "resources": [
+          [
+            "Ethereum Tokenomics",
+            "https://ethereum.org/en/eth/"
+          ],
+          [
+            "Cosmos Hub Token Model",
+            "https://docs.cosmos.network/main/architecture/tokens"
+          ],
+          [
+            "Solana Fees and Rent",
+            "https://docs.solana.com/cluster/fees"
+          ]
         ]
-      ]
+      }
     }
   },
   "Layer-2 Scalability": {
     "Optimistic Rollups": {
-      "why": "Assume validity and rely on fraud proofs to detect bad blocks.",
-      "key": [
-        "Transactions are executed off-chain with periodic commitments to L1",
-        "Fraud proofs allow challenges during a dispute window",
-        "Inherits L1 security with minimal changes"
-      ],
-      "examples": [
-        "Arbitrum",
-        "Optimism"
-      ],
-      "challenges": [
-        "Withdrawal delays while waiting for challenge periods",
-        "Sequencer centralization and data availability",
-        "Bridge contracts introduce additional attack surface"
-      ],
-      "resources": [
-        [
-          "Arbitrum Migration Guide",
-          "https://docs.arbitrum.io/for-devs/l1-to-l2-migration"
+      "blurb": "L2s that assume validity and rely on fraud proofs.",
+      "sections": {
+        "why": "Scale by executing transactions off-chain and disputing bad blocks with fraud proofs.",
+        "key": [
+          "Transactions are executed off-chain with periodic commitments to L1",
+          "Fraud proofs allow challenges during a dispute window",
+          "Inherits L1 security with minimal changes"
         ],
-        [
-          "Optimism Security Model",
-          "https://docs.optimism.io/build/security-model"
+        "examples": [
+          "Arbitrum",
+          "Optimism"
+        ],
+        "challenges": [
+          "Withdrawal delays while waiting for challenge periods",
+          "Sequencer centralization and data availability",
+          "Bridge contracts introduce additional attack surface"
+        ],
+        "resources": [
+          [
+            "Arbitrum Migration Guide",
+            "https://docs.arbitrum.io/for-devs/l1-to-l2-migration"
+          ],
+          [
+            "Optimism Security Model",
+            "https://docs.optimism.io/build/security-model"
+          ]
         ]
-      ]
+      }
     },
     "ZK Rollups": {
-      "why": "Use validity proofs so blocks are accepted only if cryptographically proven correct.",
-      "key": [
-        "Proofs allow instant finality once verified on L1",
-        "Computation occurs off-chain with succinct proofs",
-        "No challenge period for withdrawals"
-      ],
-      "examples": [
-        "zkSync",
-        "StarkNet"
-      ],
-      "challenges": [
-        "Complex provers and trusted setups",
-        "Higher hardware requirements for operators",
-        "Upgradability and circuit vulnerabilities"
-      ],
-      "resources": [
-        [
-          "zkSync Developer Docs",
-          "https://docs.zksync.io/build/developer-guide/migrate-to-zksync"
+      "blurb": "Layer-2s using validity proofs for fast finality.",
+      "sections": {
+        "why": "Use succinct proofs to validate off-chain computation directly on L1.",
+        "key": [
+          "Proofs allow instant finality once verified on L1",
+          "Computation occurs off-chain with succinct proofs",
+          "No challenge period for withdrawals"
         ],
-        [
-          "StarkNet Bridging Guide",
-          "https://docs.starknet.io/documentation/architecture_and_concepts/Network_Architecture/bridging/"
+        "examples": [
+          "zkSync",
+          "StarkNet"
+        ],
+        "challenges": [
+          "Complex provers and trusted setups",
+          "Higher hardware requirements for operators",
+          "Upgradability and circuit vulnerabilities"
+        ],
+        "resources": [
+          [
+            "zkSync Developer Docs",
+            "https://docs.zksync.io/build/developer-guide/migrate-to-zksync"
+          ],
+          [
+            "StarkNet Bridging Guide",
+            "https://docs.starknet.io/documentation/architecture_and_concepts/Network_Architecture/bridging/"
+          ]
         ]
-      ]
+      }
     },
     "State Channels": {
-      "why": "Peers exchange signed messages off-chain and settle the final state on L1 periodically.",
-      "key": [
-        "Instant transactions between known participants",
-        "Only opening and closing transactions hit L1",
-        "Best for repeated interactions"
-      ],
-      "examples": [
-        "Lightning Network",
-        "Raiden Network"
-      ],
-      "challenges": [
-        "Requires participants to stay online or use watchtowers",
-        "Limited to predefined sets of participants",
-        "Dispute resolution still depends on L1"
-      ],
-      "resources": [
-        [
-          "Lightning Network Basics",
-          "https://lightning.network/lightning-network-paper.pdf"
+      "blurb": "Peer-to-peer channels for rapid, private transactions.",
+      "sections": {
+        "why": "Participants exchange signed messages off-chain and settle net results on L1.",
+        "key": [
+          "Instant transactions between known participants",
+          "Only opening and closing transactions hit L1",
+          "Best for repeated interactions"
         ],
-        [
-          "Raiden Docs",
-          "https://raiden.network/learn/migration-guide"
+        "examples": [
+          "Lightning Network",
+          "Raiden Network"
+        ],
+        "challenges": [
+          "Requires participants to stay online or use watchtowers",
+          "Limited to predefined sets of participants",
+          "Dispute resolution still depends on L1"
+        ],
+        "resources": [
+          [
+            "Lightning Network Basics",
+            "https://lightning.network/lightning-network-paper.pdf"
+          ],
+          [
+            "Raiden Docs",
+            "https://raiden.network/learn/migration-guide"
+          ]
         ]
-      ]
+      }
     },
     "Shared Sequencing": {
-      "why": "Separate sequencing from execution to provide fair ordering and reduce MEV across rollups.",
-      "key": [
-        "Multiple L2s share a common sequencer",
-        "Improves interoperability and cross-domain atomicity",
-        "Can decentralize ordering to mitigate MEV"
-      ],
-      "examples": [
-        "Espresso Systems",
-        "Radius"
-      ],
-      "challenges": [
-        "Coordination and latency between rollups",
-        "Sequencer liveness and censorship risks",
-        "Economic incentives for honest ordering"
-      ],
-      "resources": [
-        [
-          "Espresso Sequencer Docs",
-          "https://docs.espressosys.com/sequencer/overview"
+      "blurb": "Common ordering layer for multiple rollups.",
+      "sections": {
+        "why": "Separate sequencing from execution to provide fair ordering and reduce MEV across rollups.",
+        "key": [
+          "Multiple L2s share a common sequencer",
+          "Improves interoperability and cross-domain atomicity",
+          "Can decentralize ordering to mitigate MEV"
         ],
-        [
-          "Shared Sequencer Security Considerations",
-          "https://www.offchainlabs.com/blog/what-are-shared-sequencers"
+        "examples": [
+          "Espresso Systems",
+          "Radius"
+        ],
+        "challenges": [
+          "Coordination and latency between rollups",
+          "Sequencer liveness and censorship risks",
+          "Economic incentives for honest ordering"
+        ],
+        "resources": [
+          [
+            "Espresso Sequencer Docs",
+            "https://docs.espressosys.com/sequencer/overview"
+          ],
+          [
+            "Shared Sequencer Security Considerations",
+            "https://www.offchainlabs.com/blog/what-are-shared-sequencers"
+          ]
         ]
-      ]
+      }
     },
     "Bridging UX": {
-      "why": "Provide users with seamless asset and message transfer across layers.",
-      "key": [
-        "Liquidity networks enable fast exits from rollups",
-        "Standardized bridges ease developer integration",
-        "Message passing frameworks support complex L2 interactions"
-      ],
-      "examples": [
-        "Hop Protocol",
-        "Across"
-      ],
-      "challenges": [
-        "Bridge contracts are prime targets for exploits",
-        "Liquidity fragmentation across networks",
-        "User confusion around different trust assumptions"
-      ],
-      "resources": [
-        [
-          "L2Beat Bridge Security",
-          "https://l2beat.com/bridges/security"
+      "blurb": "User experience for transferring assets across layers.",
+      "sections": {
+        "why": "Provide users with seamless asset and message transfer across layers.",
+        "key": [
+          "Liquidity networks enable fast exits from rollups",
+          "Standardized bridges ease developer integration",
+          "Message passing frameworks support complex L2 interactions"
         ],
-        [
-          "Hop Protocol Docs",
-          "https://docs.hop.exchange/"
+        "examples": [
+          "Hop Protocol",
+          "Across"
+        ],
+        "challenges": [
+          "Bridge contracts are prime targets for exploits",
+          "Liquidity fragmentation across networks",
+          "User confusion around different trust assumptions"
+        ],
+        "resources": [
+          [
+            "L2Beat Bridge Security",
+            "https://l2beat.com/bridges/security"
+          ],
+          [
+            "Hop Protocol Docs",
+            "https://docs.hop.exchange/"
+          ]
         ]
-      ]
+      }
     }
   },
   "Consensus Mechanisms": {
