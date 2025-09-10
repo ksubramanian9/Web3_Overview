@@ -538,8 +538,8 @@
           "Audits and reporting add transparency"
         ],
         "examples": [
-          "Gnosis Safe multisig",
-          "Compound's timelocked governance"
+          "Gnosis Safe multisigs controlling DAO treasuries",
+          "Compound's Timelock contract delaying governance actions"
         ],
         "challenges": [
           "Coordination delays for urgent actions",
@@ -567,8 +567,8 @@
           "Clear roles encourage contribution"
         ],
         "examples": [
-          "DAO contributor reward systems",
-          "Snapshot voting with incentives"
+          "BanklessDAO's Coordinape rounds and weekly community calls",
+          "Optimism governance quests that reward active delegates"
         ],
         "challenges": [
           "Volunteer fatigue",
@@ -1550,6 +1550,10 @@
           "API3 first-party data feeds",
           "Exchange-sourced aggregators like Pyth"
         ],
+        "examples": [
+          "Aave uses Chainlink feeds to set collateral liquidation thresholds",
+          "Synthetix integrates Pyth for equities and commodities pricing"
+        ],
         "challenges": [
           "Price manipulation via thin markets; mitigated by multi-source medianization",
           "Oracle downtime or delays; mitigated with heartbeat updates and failovers"
@@ -1569,6 +1573,10 @@
           "Decentralized networks like Chainlink Automation or Gelato",
           "Verifiable computation via TEEs or zero-knowledge proofs",
           "Incentive staking and slashing for task execution"
+        ],
+        "examples": [
+          "Chainlink Automation triggering periodic DeFi tasks",
+          "Gelato rebalancing yield farming strategies"
         ],
         "challenges": [
           "Incorrect or missed executions; mitigated by redundant nodes and economic penalties",
@@ -1612,6 +1620,10 @@
           "Light-client and optimistic bridges",
           "Liquidity networks and relayers"
         ],
+        "examples": [
+          "Wormhole guardians signing cross-chain transfers",
+          "Nomad bridge hack highlighting optimistic design risks"
+        ],
         "challenges": [
           "Validator key compromise; mitigated by decentralization and threshold schemes",
           "Liquidity fragmentation; mitigated with canonical assets or unified pools"
@@ -1630,6 +1642,10 @@
           "Digital signatures and threshold cryptography",
           "Attestation frameworks like Ethereum Attestation Service",
           "Nonce and timestamp checks to prevent replays"
+        ],
+        "examples": [
+          "Ethereum Attestation Service issuing on-chain credentials",
+          "EIP-712 signatures for off-chain order authorization"
         ],
         "challenges": [
           "Key management vulnerabilities; mitigated by hardware security modules and rotations",
@@ -2490,8 +2506,8 @@
         "Slashing and lockups align validators with network security"
       ],
       "examples": [
-        "Ethereum proof-of-stake security",
-        "Cosmos Hub staking"
+        "Ethereum's Beacon Chain requiring 32 ETH per validator",
+        "Cosmos Hub's ATOM staking with delegated security"
       ],
       "challenges": [
         "Capital requirements reduce liquidity",
@@ -2510,8 +2526,8 @@
         "Encourages market depth and tight spreads"
       ],
       "examples": [
-        "Uniswap yield farming",
-        "Compound liquidity mining"
+        "Uniswap's 2020 UNI liquidity mining program",
+        "Compound's COMP rewards kickstarting DeFi Summer"
       ],
       "challenges": [
         "Mercenary capital leaves when incentives drop",
@@ -2530,8 +2546,8 @@
         "Incentivizes long-term participation"
       ],
       "examples": [
-        "SushiSwap xSUSHI fee sharing",
-        "GMX revenue split to stakers"
+        "SushiSwap's xSUSHI holders earning a portion of swap fees",
+        "GMX sharing perpetual exchange fees with GMX and GLP stakers"
       ],
       "challenges": [
         "Potential securities law implications",
@@ -2550,8 +2566,8 @@
         "Combines social graphs with economic costs"
       ],
       "examples": [
-        "Gitcoin Passport",
-        "Proof of Humanity"
+        "Gitcoin Passport identity stamps gating grant rounds",
+        "Proof of Humanity's verified registry for UBI distribution"
       ],
       "challenges": [
         "Balancing privacy with identity",
@@ -2570,8 +2586,8 @@
         "Encourage protocol-owned liquidity and long-term alignment"
       ],
       "examples": [
-        "Curve's vote-escrow model",
-        "Olympus protocol-owned liquidity"
+        "Curve's vote-escrow CRV aligning long-term liquidity",
+        "Olympus DAO accumulating protocol-owned liquidity through bonds"
       ],
       "challenges": [
         "Avoid ponzinomics and unsustainable APYs",
