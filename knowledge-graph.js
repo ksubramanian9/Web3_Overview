@@ -51,7 +51,7 @@
     .text(d => d.id)
     .attr('x', 12)
     .attr('y', '0.31em')
-    .attr('fill', '#000')
+    .attr('fill', '#1e40af')
     .attr('stroke', 'none');
 
   simulation.on('tick', () => {
